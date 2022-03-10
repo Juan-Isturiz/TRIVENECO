@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import logo from './logo.svg'
 import Login from './Login/Login';
 import './App.css'
+import CityView from './Pages/CityView/cityview'
 
 function App() {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -24,9 +26,7 @@ function App() {
   };
 
   return (
-    <div>
-      
-    </div>
+    <CityView></CityView>
   )
 }
 
