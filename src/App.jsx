@@ -6,7 +6,9 @@ import { db } from './utils/firebaseConfig';
 
 
 
+
 function App() {
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -29,8 +31,11 @@ function App() {
 
 
   return (
+
     <div>
     </div>
+
+
   )
 }
 
