@@ -217,6 +217,9 @@ h6 {
 /* End of Hero */
 /* Banner */
 .banner {
+  position: absolute;
+  top: 321px;
+  left: 25%;
   display: inline-block;
   background: rgba(0, 0, 0, 0.5);
   color: var(--mainWhite);
@@ -224,9 +227,11 @@ h6 {
   text-align: center;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
+  min-height: calc(100vh - 590px);
+  width: 50%;
 }
 .banner h1 {
-  font-size: 2.5rem;
+  font-size: 1rem;
 }
 .banner div {
   width: 10rem;
@@ -235,15 +240,16 @@ h6 {
   margin: 1.7rem auto;
 }
 .banner p {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   margin-bottom: 2rem;
+  padding: 1rem;
 }
 @media screen and (min-width: 576px) {
   .banner {
-    padding: 2rem 3rem;
+    padding: 3rem 3rem;
   }
   .banner h1 {
-    font-size: 3rem;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -251,7 +257,7 @@ h6 {
     padding: 2rem 6rem;
   }
   .banner h1 {
-    font-size: 4rem;
+    font-size: 1rem;
   }
 }
 /* End of Banner */

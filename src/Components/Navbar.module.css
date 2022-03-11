@@ -76,8 +76,8 @@ a{text-decoration: none;
   cursor: pointer;
 }
 .Hero{
-  
-  width: 766px;
+  height: 500px;
+  width: 100%;
 }
 .heroine{
   background-color: black;
@@ -90,16 +90,16 @@ a{text-decoration: none;
 .hcuatro{
   color: rgb(250, 194, 51);
   position: absolute;
-  top: 88px;
-  left: 286px;
+  top: 41px;
+  left: 22px;
   width: 100%;
 }
 
 .huno{
   color: rgb(250, 194, 51);
   position: absolute;
-  top: -20px;
-  left: 50px;
+  top: -76px;
+  left: 21px;
   width: 100%;
 }
 .botonHero{
@@ -111,8 +111,8 @@ a{text-decoration: none;
 
 .botonCont{
   position: absolute;
-  top: 222px;
-  left: 276px;
+  top: 115px;
+  left: 150px;
   width: 80px;
   height: 30px;
 
