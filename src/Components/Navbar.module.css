@@ -1,0 +1,119 @@
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 120px;
+  margin-left: auto;
+  list-style: none;
+  background: #333;
+  color: #fff;
+  margin-bottom: 60px;
+}
+
+.navbarContainer li {
+  padding: 0 0.6rem;
+}
+
+.navbarContainer li.rightSide {
+  display: flex;
+  margin-left: auto;
+}
+
+.navbarContainer li .link,
+.navbarContainer li.rightSide .link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbarContainer li.rightSide .container {
+  padding: 0 0.6rem;
+}
+
+.navbarContainer li.rightSide .container .logoutBtn {
+  background: #e75151;
+  color: #fff;
+  border: none;
+  padding: 10px 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.logo{
+  height:100px;
+  width: 129px;
+}
+
+.contenedorsito{
+  display: flex;
+    height: 60px;
+    padding: 0 120px;
+    margin-left: auto;
+    margin-bottom: 60px;
+}
+
+.letra{
+  padding: 42px 0px 0px  37px;
+  text-decoration: none;
+}
+
+a{text-decoration: none;
+  color: rgb(0, 0, 0);
+
+}
+
+.navbarContainerdis{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  list-style: none;
+  background: rgb(230, 224, 224);
+  color: rgb(51, 43, 43);
+  cursor: hand;
+}
+
+.manita{
+  cursor: pointer;
+}
+.Hero{
+  
+  width: 766px;
+}
+.heroine{
+  background-color: black;
+  position: absolute;
+  top: 354px;
+  left: 0;
+  width: 100%;
+}
+
+.hcuatro{
+  color: rgb(250, 194, 51);
+  position: absolute;
+  top: 88px;
+  left: 286px;
+  width: 100%;
+}
+
+.huno{
+  color: rgb(250, 194, 51);
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  width: 100%;
+}
+.botonHero{
+  position: absolute;
+  top: 3px;
+  left: -3px;
+  width: 100%;
+}
+
+.botonCont{
+  position: absolute;
+  top: 222px;
+  left: 276px;
+  width: 80px;
+  height: 30px;
+
+}

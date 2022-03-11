@@ -10,7 +10,9 @@
   "dependencies": {
     "firebase": "7.22.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
