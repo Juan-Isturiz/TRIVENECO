@@ -1,14 +1,20 @@
-import classes from './BurgerMenu.module.css'
+import styles from './BurgerMenu.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const BurgerMenu = (props) => {
+
+    const DeployMenu = () => {
+        return (
+            <div>hola</div>
+        )
+        }
+
     return(
-        <div className="burgerMenu">
-            <button className = "burgerButton">
-                
+        <div className="BurgerMenu">
+            <button className = {styles.BurgerButton} onClick={DeployMenu}>
+                <FontAwesomeIcon icon={['fas', 'bars']} className="fa-5x"  />                
             </button>
-            <FontAwesomeIcon icon={['fas', 'bars']} />
-            <FontAwesomeIcon icon={['fas', 'magnifying-glass']} size = "xl" />
+
         </div>
     )};
 

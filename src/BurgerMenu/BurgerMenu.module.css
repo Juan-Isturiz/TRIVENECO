@@ -1,7 +1,12 @@
-.burgerButton {
-    background-color: red;
+.BurgerMenu {
+    font-size: 0.5rem;
 }
 
-i.fas {
+.BurgerButton {
     background-color: red;
+    border: none;
+}
+
+.BurgerButtonIcon {
+    width: 500px;
 }

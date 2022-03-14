@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react'
 import logo from './logo.svg'
 import Login from './Login/Login';
 import './App.css'
+import BurgerMenu from './BurgerMenu/BurgerMenu';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, fas)
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +30,7 @@ function App() {
 
   return (
     <div>
-      
+      <BurgerMenu />
     </div>
   )
 }
