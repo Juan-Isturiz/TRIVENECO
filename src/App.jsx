@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import logo from './logo.svg'
-import Login from './Login/Login';
 import './App.css'
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import { library } from '@fortawesome/fontawesome-svg-core'
