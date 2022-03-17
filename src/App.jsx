@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import logo from './logo.svg'
-import Login from './Login/Login';
 import './App.css'
-import { db } from './utils/firebaseConfig';
+//import logo from './logo.svg'
+//import Login from './Login/Login';
+//import { db } from './utils/firebaseConfig';
 
 
 
@@ -33,6 +33,7 @@ function App() {
   return (
 
     <div>
+      webos
     </div>
 
 
