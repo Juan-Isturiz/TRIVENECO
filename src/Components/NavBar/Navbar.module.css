@@ -45,7 +45,12 @@ h2{
 
 }
 
-button{
+.Navbutton{
+    font-family: "League Spartan" ;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
     padding: 9px 25px;
     background: radial-gradient(
         ellipse at left top,

@@ -1011,6 +1011,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "axios@npm:0.26.1"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
+  languageName: node
+  linkType: hard
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -1589,6 +1598,16 @@ __metadata:
     "@firebase/storage": 0.3.43
     "@firebase/util": 0.3.2
   checksum: 440216d1401bae17a331db12673bf5f73ed6eddae5b5a6c4573bf672b876da3a0f6d509a70bc3a7ea4302bfe5fe0b89a05962d36e7db924ebac880a0b6af7589
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -2658,6 +2677,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": ^6.0.0
     "@fortawesome/react-fontawesome": ^0.1.17
     "@vitejs/plugin-react": ^1.0.7
+    axios: ^0.26.1
     firebase: 7.22.1
     react: ^17.0.2
     react-burger-menu: ^3.0.6
