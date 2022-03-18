@@ -6,6 +6,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fab, fas)
 import { db } from './utils/firebaseConfig';
+import Navbar from './Components/NavBar/Navbar';
 
 
 
@@ -36,7 +37,7 @@ function App() {
   return (
 
     <div>
-      <BurgerMenu />
+      <Navbar />
     </div>
 
 
