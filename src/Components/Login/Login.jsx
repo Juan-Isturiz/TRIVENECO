@@ -1,9 +1,10 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer,useContext, useState } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
-import axios from 'axios';
-import { auth, googleProvider} from "../../utils/firebaseConfig";
+import { UserContext } from '../../Context/Context';
+import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
+import { useNavigate } from 'react-router-dom';
 
 
 // ///////////////////////Reducer Functions////////////
@@ -28,6 +29,14 @@ const pswrdReducer = (state, action) => {
 // ////////////////MAIN COMPONENT////////////////
 const Login = (props) => {
   ///////// State Declarations //////////////////
+
+  const {user, setUser, isLogged, setLogged} = useContext(UserContext)//CONTEXT
+  const userSetter =()=>
+    {
+      setUser(currentLog())
+      setLogged(true)
+    }
+  const navigate = useNavigate();
 
   const [formIsValid, setFormIsValid] = useState(false);
 
@@ -77,24 +86,27 @@ const Login = (props) => {
   const validatePasswordHandler = () => {
     dispatchPswrd({ type: 'INPUT_lmao' });
   };
-  //////////////////////////////////////////////////////////////
+  ///////////////////////////HANDLERS///////////////////////////////////
 
-  const handleGoogleLogin = async () => {
+
+  const handleGoogleLogin = async () => { //GOOGLE
     try{
       
       await auth.signInWithPopup(googleProvider);
-  
+      userSetter()
+      navigate('/')
+      
     }catch(e){
       alert("Tiempo de espera agotado, vuelva a intentarlo.")
     }
   }
   
-  /////////////// Submit ///////////////////////////////
-  const submitHandler = async (e) => {
+  const submitHandler = async (e) => { //EMAIL
     e.preventDefault();
     try{
       await auth.signInWithEmailAndPassword(usrEmail.value, usrPswrd.value);
-
+      navigate('/')
+      userSetter()
     }catch(e){
       alert("Usuario o Contraseña invalido, por favor verifique e intente de nuevo.")
     }
