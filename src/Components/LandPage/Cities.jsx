@@ -1,4 +1,5 @@
 import styles from "./BodyStyle.module.css";
+import Button from "../UI/Button/Button";
 
 const Cities = (props) => {
     return (
@@ -10,6 +11,13 @@ const Cities = (props) => {
                 <img src={`${props.src}`} alt={`${props.alt}`} />
                 <div>
                     <p>{props.text}</p>
+                    <Button
+                        type="button"
+                        className={styles.btn}
+                        disabled={false}
+                    >
+                        Ver ciudades
+                    </Button>
                 </div>
             </div>
         </section>
