@@ -1,26 +1,27 @@
 .BurgerMenu {
-
-    font-size: 0.5rem;
+    width: 5em;
+    height: 80px;
 }
 
-.BurgerButton {
-
-    background-color: red;
-    border: none;
-}
-
-.BurgerButtonIcon {
+.BurgerIcon {
+    position: absolute;
+    right: 5%;
+    /* top: 30% */
     
-    width: 500px;
 }
 
 .Menu {
     width: 10em;
-    position: absolute;
-    right: 5%;
-    background-color: aqua;
+    height: 100%;
+    position: fixed;
+    padding-top: 100px;
+    background-color: var(--neutral-color-300);
+}
+
+.MenuList {
+    list-style: none;
 }
 
 .MenuElement {
-    font-size: 2em;
+    font-size: 1.5rem;
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './BurgerMenu.module.css'
 
-export default function Menu() {
+const Menu = (props) => {
   return (
     <div className={styles.Menu}>
-        <ul>
+        <ul className={styles.MenuList}>
             <li className={styles.MenuElement}>Home</li>
             <li  className={styles.MenuElement}>Hotels</li>
             <li  className={styles.MenuElement}>Cities</li>
@@ -14,3 +14,5 @@ export default function Menu() {
     </div>
   )
 }
+
+export default Menu
