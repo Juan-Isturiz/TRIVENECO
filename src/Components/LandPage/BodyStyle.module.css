@@ -1,0 +1,120 @@
+.body {
+    background-color: var(--secondary-color-100);
+    display: flex;
+    flex-direction: column;
+}
+
+.body div:first-child {
+    background-color: var(--secondary-color-200);
+    align-items: center;
+    justify-content: center;
+}
+
+.body h2 {
+    font-family: var(--font-titles);
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.body img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 1rem;
+}
+
+.body p {
+    text-align: center;
+    padding: 1rem;
+}
+
+.body .btn {
+    background-color: var(--secondary-color-300);
+    border: 0;
+    color: var(--text-light);
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.body .btn:hover {
+    background-color: var(--secondary-color-400);
+}
+.body .btn:active {
+    background-color: var(--secondary-color-500);
+}
+
+@media screen and (min-width: 721px) {
+    .body div:first-child {
+        display: flex;
+        height: 8rem;
+    }
+    .body .container {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        padding-bottom: 1rem;
+    }
+    .body img {
+        grid-column: 1;
+        max-width: 35rem;
+    }
+    .body div:last-child {
+        display: inline-grid;
+        justify-items: center;
+        margin: auto;
+        grid-column: 2;
+    }
+    .body p {
+        font-size: 2vw;
+        max-width: 35rem;
+        padding-right: 2rem;
+    }
+    .body .btn {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .body div:first-child {
+        display: flex;
+        height: 8rem;
+    }
+    .body .container {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        padding-bottom: 1rem;
+    }
+    .body img {
+        grid-column: 1;
+    }
+    .body div:last-child {
+        display: inline-grid;
+        justify-items: center;
+        margin: auto;
+        grid-column: 2;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .body .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .body div:first-child {
+        width: 100%;
+        height: 7rem;
+    }
+    .body div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .body p {
+        padding-top: 0;
+    }
+    .body .btn {
+        margin-bottom: 1.5rem;
+        font-size: 4vw;
+    }
+}
