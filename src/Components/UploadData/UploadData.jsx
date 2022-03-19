@@ -7,6 +7,7 @@ export default function UploadData() {
 
     const[archivoUrl, setArchivoUrl] = useState("");
     const[docus,setDocus]=useState([]);
+
     const keyCode= uuidv4();
 
     const archivoHandler = async (e)=>{
@@ -31,8 +32,13 @@ export default function UploadData() {
             alert("coloca una descripción")
             return}    
         const coleccionRef =  db.collection("archivos")
-        const docu = await coleccionRef.doc(keyCode).set({nombre: nombreArchivo, url: archivoUrl, descripcion: descripcionArchivo})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl, descripcion: descripcionArchivo})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
+    }
+
+    const deleteSel = async (keyToDel1)=>{
+        const coleccionRef2 =  db.collection("archivos")
+        const docu = await coleccionRef2.doc(keyToDel1).delete()
     }
 
     useEffect(async ()=>{
@@ -41,6 +47,8 @@ export default function UploadData() {
 
     },[])
 
+    
+
     return (
         <>
         <form onSubmit={submitHandler}>
@@ -48,12 +56,14 @@ export default function UploadData() {
             <input type="text" name="nombre" placeholder="nombra tu archivo"/>
             <input type="text" name="descripcion" placeholder="describe la cosa"/>
             <button>enviar</button>
+
         </form>
         <ul>
-            {docus.map((doc)=><li>
+            {docus.map((doc)=><li key={doc.keyCode}>
                 <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
                 <h3>{doc.descripcion}</h3>
+                <button onClick={()=>deleteSel(doc.keyCode)}>eliminar</button>
                 </li>)}
         </ul>
         </>
