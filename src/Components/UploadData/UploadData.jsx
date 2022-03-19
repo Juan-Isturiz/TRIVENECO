@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default function UploadData() {
 
     const[archivoUrl, setArchivoUrl] = useState("");
     const[docus,setDocus]=useState([]);
+    const keyCode= uuidv4();
 
     const archivoHandler = async (e)=>{
 
@@ -29,7 +31,7 @@ export default function UploadData() {
             alert("coloca una descripción")
             return}    
         const coleccionRef =  db.collection("archivos")
-        const docu = await coleccionRef.doc(nombreArchivo).set({nombre: nombreArchivo, url: archivoUrl, descripcion: descripcionArchivo})
+        const docu = await coleccionRef.doc(keyCode).set({nombre: nombreArchivo, url: archivoUrl, descripcion: descripcionArchivo})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
