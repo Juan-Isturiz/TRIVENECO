@@ -4,6 +4,14 @@
     margin: 2rem auto;
     padding: 2rem;
   }
+
+  .login2 {
+    width: 90%;
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgb(101, 168, 245);
+  }
   
   .control {
     margin: 1rem 0;
