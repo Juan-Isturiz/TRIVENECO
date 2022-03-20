@@ -648,59 +648,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:0.3.0"
-  checksum: f08280e2e6c7df5cf2c80c88092828b367bb824ec21a6ba0e5d290ebf86038de166622152c8845a0aeaeff70bd54df7af17f1ef26dea7b832fdebdcc37412c37
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-free@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@fortawesome/fontawesome-free@npm:6.0.0"
-  checksum: 138e352ba6e9ecdd711899943919d4020704ddf22dc6a7de14d0dbfb5222c60738fcded6ca39a3fcd6fa8eaf9b83033e44dd25625d9e0118a9cea1d4585b36de
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-svg-core@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@fortawesome/fontawesome-svg-core@npm:1.3.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": ^0.3.0
-  checksum: 78be521be3aac56cf81695c5f3fefda8a0e0dcbd37cd734f09b74a3657dd9c073cb86c5adf60a4904e584936fe9a63ee913d932c03105092bd8c44bb92f3aad6
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-brands-svg-icons@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@fortawesome/free-brands-svg-icons@npm:6.0.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": ^0.3.0
-  checksum: 020e006dafafb5acd6428b50f23f8d52f8d684840b6494c6a7d4e90aebd7e8fc3dc0d839252ed1ff74eb431299e7970fed4cfc1085be14253566b9cd75eb2c74
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-solid-svg-icons@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@fortawesome/free-solid-svg-icons@npm:6.0.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": ^0.3.0
-  checksum: af00e4245e20283f74c37e3c44a247d086ef54cd57e8e0b26178e82d4f400514e405dff6e6d0fd67d50be873180e41c5347f1baaee7a6506228f88390204064a
-  languageName: node
-  linkType: hard
-
-"@fortawesome/react-fontawesome@npm:^0.1.17":
-  version: 0.1.17
-  resolution: "@fortawesome/react-fontawesome@npm:0.1.17"
-  dependencies:
-    prop-types: ^15.8.1
-  peerDependencies:
-    "@fortawesome/fontawesome-svg-core": ~1 || >=1.3.0-beta1
-    react: ">=16.x"
-  checksum: a95a9ef1783e93312c153b299c084043eed4d0867a5ab90019c817c3b4d845052b6539524ca0daee828bbb8f102637fbf8c36e5759cf3f11cdd99a904623abb2
-  languageName: node
-  linkType: hard
-
 "@gar/promisify@npm:^1.0.1":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -1008,6 +955,15 @@ __metadata:
   version: 0.7.8
   resolution: "ast-types@npm:0.7.8"
   checksum: 4e1496b575b4dc05861249a1275e73475deee61f0a07c0903de2ca90c38c6ac15ae64442deb30d845c5b7693261c82a17213bf1ca9dd6783a66c11c4b63fa3fb
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "axios@npm:0.26.1"
+  dependencies:
+    follow-redirects: ^1.14.8
+  checksum: d9eb58ff4bc0b36a04783fc9ff760e9245c829a5a1052ee7ca6013410d427036b1d10d04e7380c02f3508c5eaf3485b1ae67bd2adbfec3683704745c8d7a6e1a
   languageName: node
   linkType: hard
 
@@ -1589,6 +1545,16 @@ __metadata:
     "@firebase/storage": 0.3.43
     "@firebase/util": 0.3.2
   checksum: 440216d1401bae17a331db12673bf5f73ed6eddae5b5a6c4573bf672b876da3a0f6d509a70bc3a7ea4302bfe5fe0b89a05962d36e7db924ebac880a0b6af7589
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.8":
+  version: 1.14.9
+  resolution: "follow-redirects@npm:1.14.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: f5982e0eb481818642492d3ca35a86989c98af1128b8e1a62911a3410621bc15d2b079e8170b35b19d3bdee770b73ed431a257ed86195af773771145baa57845
   languageName: node
   linkType: hard
 
@@ -2285,6 +2251,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.28.0":
+  version: 7.28.1
+  resolution: "react-hook-form@npm:7.28.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17
+  checksum: 176e653f3c5c1882125b6d51d3b2258c7120202227b91edbf74708eb3f0d455b3c827f1b6c236cdf208de82871b14e86d9aeacbd44c418bcf591b2346721156f
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "react-icons@npm:4.3.1"
+  peerDependencies:
+    react: "*"
+  checksum: 2cc608acdd3e906aa3aaee290b8398220639677c949382d86e554020e5dab6a9f1ed7484418aa5272cb5c5c018e1fc9a323d433d901697a76530029f9ecb1263
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -2652,17 +2636,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "triveneco@workspace:."
   dependencies:
-    "@fortawesome/fontawesome-free": ^6.0.0
-    "@fortawesome/fontawesome-svg-core": ^1.3.0
-    "@fortawesome/free-brands-svg-icons": ^6.0.0
-    "@fortawesome/free-solid-svg-icons": ^6.0.0
-    "@fortawesome/react-fontawesome": ^0.1.17
     "@vitejs/plugin-react": ^1.0.7
+    axios: ^0.26.1
     firebase: 7.22.1
     react: ^17.0.2
     react-burger-menu: ^3.0.6
     react-dom: ^17.0.2
+    react-hook-form: ^7.28.0
+    react-icons: ^4.3.1
     react-router-dom: ^6.2.2
+    uuid: ^8.3.2
     vite: ^2.8.0
   languageName: unknown
   linkType: soft
@@ -2696,6 +2679,15 @@ __metadata:
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 

@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1, a, button{
+    font-family: "League Spartan" ;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.NavBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 10;
+    height: 80px;
+    background-color: #02183a;
+    position: -webkit-sticky;
+    top: 0;
+    list-style: none;    
+}
+
+.NavLinks {
+    /* background-color: red; */
+}
+
+h2{
+    cursor: pointer;
+}
+
+.NavBar h1 {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.NavBar h1 a{
+    transition: all 0.5s ease 0s;
+}
+
+.NavBar h1 a:hover{
+    color: rgb(15, 182, 204);
+
+}
+
+.Navbutton{
+    font-family: "League Spartan" ;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 9px 25px;
+    background: radial-gradient(
+        ellipse at left top,
+        rgb(255, 238, 2) 0%,
+        rgba(4, 20, 255, 0.9) 59%,
+        rgba(255, 0, 0, 0.9) 100%
+      );
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
