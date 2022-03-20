@@ -4,6 +4,8 @@ import Button from '../UI/Button/Button'
 import styles from './Navbar.module.css'
 import {UserContext} from "../../Context/Context" 
 import { auth} from "../../utils/firebaseConfig";
+import logo from '../../img/logowhite.svg'
+import BurgerMenu from '../BurgerMenu/BurgerMenu'
 
 const Navbar = () => {
   const history = useNavigate();
@@ -25,7 +27,7 @@ const Navbar = () => {
       <Link to="/">Nosotros</Link>
       <Link to="/" >Ciudades</Link>
       <div className={styles.Navlinks}>
-        <Link to="/"><h2>Triveneco</h2></Link>
+      <img src={logo} alt="Triveneco"/>
       </div>
       <Link to="/">Hoteles</Link>
       {!user ? (<div>
@@ -35,6 +37,7 @@ const Navbar = () => {
         ):(
         <Button className={styles.Navbutton} onClick={handleLogout}>Log Out</Button>
         )}
+        <BurgerMenu />
 
     </div>
   )

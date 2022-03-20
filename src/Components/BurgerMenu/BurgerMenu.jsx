@@ -1,21 +1,19 @@
-import styles from './BurgerMenu.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from './BurgerMenu.module.css';
+import { FiMenu } from 'react-icons/fi';
+// import { slide as Menu } from 'react-burger-menu';
+import { useState } from 'react';
+import Menu from './Menu';
 
 const BurgerMenu = (props) => {
 
-    const DeployMenu = () => {
-        return (
-            <div>hola</div>
-        )
-        }
+    const [open, setOpen] = useState(false)
 
     return(
-        <div className="BurgerMenu">
-            <button className = {styles.BurgerButton} onClick={DeployMenu}>
-                <FontAwesomeIcon icon={['fas', 'bars']} className="fa-5x"  />                
-            </button>
+        <nav className={styles.BurgerMenu}>
+        <FiMenu color="white" size="2em" className={styles.BurgerIcon} onClick={() => setOpen(!open)}/>
+            {open && <Menu />}
+        </nav>
 
-        </div>
     )};
 
 export default BurgerMenu;

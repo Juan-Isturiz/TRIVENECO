@@ -20,11 +20,13 @@ h1, a, button{
     padding: 40px 10;
     height: 80px;
     background-color: #02183a;
-    
+    position: -webkit-sticky;
+    top: 0;
+    list-style: none;    
 }
 
-.NavBar{
-    list-style: none;
+.NavLinks {
+    /* background-color: red; */
 }
 
 h2{
@@ -63,3 +65,4 @@ h2{
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+

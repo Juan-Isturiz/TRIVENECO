@@ -1,7 +1,7 @@
-import "./LandPage.module.css";
 import Cities from "../../Components/LandPage/Cities.jsx";
 import Hotels from "../../Components/LandPage/Hotels.jsx";
 import Feedback from "../../Components/LandPage/Feedback";
+import Header from "../../Components/Header/Header";
 import hotelImg from "../../img/hotelpageimg.jpg";
 import cityImg from "../../img/citypageimg.jpg";
 import { UserContext } from '../../Context/Context';
@@ -9,8 +9,14 @@ import { useContext } from "react";
 const LandPage = () => {
     const {user, setUser, isLogged} = useContext(UserContext)
     return (
-        //<Header />
         <div>
+            <Header
+                className="header"
+                title="Bienvenido"
+                src={cityImg}
+                alt="imagen del titulo"
+                text="¡No esperes más! Agenda el viaje de tus sueños con Triveneco"
+            ></Header>
             <Cities
                 className="body"
                 src={cityImg}
