@@ -20,17 +20,18 @@ const emailReducer = (state, action) => {
 }
 const pswrdReducer = (state, action) => {
   if (action.type === 'USR_INPUT') {
-    return { value: action.val, isValid: action.val.trim().length > 6 }
+    return { value: action.val, isValid: action.val.trim().length >= 8 }
   };
   if (action.type === 'INPUT_lmao') {
-    return { value: state.value, isValid: state.value.trim().length > 6 }
+    return { value: state.value, isValid: state.value.trim().length >= 8 }
   }
 }
 // ////////////////MAIN COMPONENT////////////////
 const Login = (props) => {
   ///////// State Declarations //////////////////
 
-  const {user, setUser, isLogged, setLogged} = useContext(UserContext)//CONTEXT
+  const { setUser, setLogged} = useContext(UserContext)//CONTEXT
+  
   const userSetter =()=>
     {
       setUser(currentLog())
@@ -97,7 +98,7 @@ const Login = (props) => {
       navigate('/')
       
     }catch(e){
-      alert("Tiempo de espera agotado, vuelva a intentarlo.")
+      alert("Tiempo de espera agotado, intente de nuevo")
     }
   }
   

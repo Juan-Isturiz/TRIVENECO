@@ -5,9 +5,11 @@ import Header from "../../Components/Header/Header";
 import hotelImg from "../../img/hotelpageimg.jpg";
 import cityImg from "../../img/citypageimg.jpg";
 import { UserContext } from '../../Context/Context';
-import { useContext } from "react";
+import { useContext,useEffect, useState } from "react";
 const LandPage = () => {
     const {user, setUser, isLogged} = useContext(UserContext)
+    const [webos, setWebos] =useState()
+    useEffect(()=>{},[user])
     return (
         <div>
             <Header
@@ -22,7 +24,7 @@ const LandPage = () => {
                 src={cityImg}
                 alt="imagen de ciudades"
                 text="¿París? ¿New York? ¿London? y qué tal ¿Ciudad de México? ¿Conoces alguna ciudad? ¡Bueno no esperes más! Pasea por nuestra página para ver las diferentes ciudades que podrías visitar con nosotros"
-            >{console.log(user)}</Cities>
+            ></Cities>
             <Hotels
                 className="body"
                 src={hotelImg}
@@ -33,6 +35,7 @@ const LandPage = () => {
                 className="fb"
                 question="¿Tienes alguna pregunta?"
             ></Feedback>
+            {user.displayName}
         </div>
     );
 };
