@@ -9,6 +9,9 @@ const Navbar = () => {
   const toLog = () => {
     history("/Login")
   }
+  const toRegister = () => {
+    history("/Register")
+  }
 
   return (
     <div className={styles.NavBar}>
@@ -18,7 +21,9 @@ const Navbar = () => {
         <Link to="/"><h2>Triveneco</h2></Link>
       </div>
       <Link to="/">Hoteles</Link>
-      <Button className={styles.Navbutton} onClick={toLog}>Sign in</Button>
+      <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
+      <Button className={styles.Navbutton} onClick={toRegister}>Register</Button>
+
     </div>
   )
 }
