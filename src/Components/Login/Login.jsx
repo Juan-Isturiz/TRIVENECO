@@ -1,14 +1,21 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer,useContext, useState } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import { UserContext } from '../../Context/Context';
+import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
+import { useNavigate } from 'react-router-dom';
 
+
+// ///////////////////////Reducer Functions////////////
 const emailReducer = (state, action) => {
+
+
   if (action.type === 'USR_INPUT') {
-    return { value: action.val, isValid: action.val.includes('@') }
+    return { value: action.val, isValid: action.val.includes('@'&&'.') }
   };
   if (action.type === 'INPUT_lmao') {
-    return { value: state.value, isValid: state.value.includes('@') }
+    return { value: state.value, isValid: state.value.includes('@'&&'.') }
   }
 }
 const pswrdReducer = (state, action) => {
@@ -19,7 +26,17 @@ const pswrdReducer = (state, action) => {
     return { value: state.value, isValid: state.value.trim().length > 6 }
   }
 }
+// ////////////////MAIN COMPONENT////////////////
 const Login = (props) => {
+  ///////// State Declarations //////////////////
+
+  const {user, setUser, isLogged, setLogged} = useContext(UserContext)//CONTEXT
+  const userSetter =()=>
+    {
+      setUser(currentLog())
+      setLogged(true)
+    }
+  const navigate = useNavigate();
 
   const [formIsValid, setFormIsValid] = useState(false);
 
@@ -36,7 +53,9 @@ const Login = (props) => {
       value: '',
       isValid: null
     });
+  //////////////////////////////////////////////////////////
 
+  /////////////////////////// Effects Handle///////////////
   useEffect(() => {
     const identifier = setTimeout(() => {
       setFormIsValid(
@@ -48,7 +67,10 @@ const Login = (props) => {
       clearTimeout(identifier) }
 
   }, [usrEmail.isValid, usrPswrd.isValid])
+  /////////////////////////////////////////////////////////
 
+
+  /////// Reducer Handlers ////////////////////////////////
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: 'USR_INPUT', val: event.target.value })
   };
@@ -64,12 +86,33 @@ const Login = (props) => {
   const validatePasswordHandler = () => {
     dispatchPswrd({ type: 'INPUT_lmao' });
   };
+  ///////////////////////////HANDLERS///////////////////////////////////
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    props.onLogin(usrEmail.value, usrPswrd.value);
+
+  const handleGoogleLogin = async () => { //GOOGLE
+    try{
+      
+      await auth.signInWithPopup(googleProvider);
+      userSetter()
+      navigate('/')
+      
+    }catch(e){
+      alert("Tiempo de espera agotado, vuelva a intentarlo.")
+    }
+  }
+  
+  const submitHandler = async (e) => { //EMAIL
+    e.preventDefault();
+    try{
+      await auth.signInWithEmailAndPassword(usrEmail.value, usrPswrd.value);
+      navigate('/')
+      userSetter()
+    }catch(e){
+      alert("Usuario o Contraseña invalido, por favor verifique e intente de nuevo.")
+    }
+    
   };
-
+  //==================================================/
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
@@ -105,6 +148,7 @@ const Login = (props) => {
           </Button>
         </div>
       </form>
+      <Button onClick={handleGoogleLogin}>gugel</Button>
     </Card>
   );
 };
