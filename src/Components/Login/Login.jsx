@@ -5,6 +5,9 @@ import Button from '../UI/Button/Button';
 import { UserContext } from '../../Context/Context';
 import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
 import { useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook } from 'react-icons/im';
+import { BsTwitter } from 'react-icons/bs';
 
 
 // ///////////////////////Reducer Functions////////////
@@ -148,7 +151,12 @@ const Login = (props) => {
           </Button>
         </div>
       </form>
-      <Button onClick={handleGoogleLogin}>gugel</Button>
+      {/* <Button onClick={handleGoogleLogin}>gugel</Button> */}
+      <div className={classes.buttons}>
+        <FcGoogle onClick={handleGoogleLogin} size="40px" className={classes.btn}/>
+        <ImFacebook size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
+        <BsTwitter size="40px" color="#1DA1F2" className={classes.btn} />
+      </div>
     </Card>
   );
 };
