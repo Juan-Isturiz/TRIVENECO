@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../UI/Button/Button';
 import styles from './Navbar.module.css';
 import {UserContext} from "../../Context/Context" ;
-import { auth} from "../../utils/firebaseConfig";
+import { auth } from "../../utils/firebaseConfig";
 import logo from '../../img/logowhite.svg';
 import { MdOutlineMenu } from 'react-icons/md';
 // import BurgerMenu from '../BurgerMenu/BurgerMenu';

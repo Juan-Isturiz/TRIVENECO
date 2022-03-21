@@ -69,31 +69,37 @@ h2 {
 }
 
 .Menu {
-    display: flex;
     font-size: 1.4em;
-    flex-direction: column;
     position: absolute;
     top: 80px;
     left: 0;
     width: 20%;
     height: 100%;
     /* background-color: var(--secondary-color-100); */
-    background-color: rgba(94, 204, 222, 0.6);
+    background-color: rgba(0, 0, 25, 0.6);
     padding-left: 5%;
 
 }
 
 .Menu ul {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
     list-style: none;
     opacity: 1;
+    
 }
 
 .Menu li, .Menu a {
-    color: black;
-    padding-top: 3em;
+    color: white;
+    /* padding-top: 3em; */
     font-weight: 800;
     /* opacity: 1; */
+    cursor: pointer;
 }
+
 
 .Menu a:visited {
     text-decoration: none;
