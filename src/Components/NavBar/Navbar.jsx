@@ -1,11 +1,16 @@
-import React ,{useContext} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Button from '../UI/Button/Button'
-import styles from './Navbar.module.css'
-import {UserContext} from "../../Context/Context" 
+import React ,{useContext, useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '../UI/Button/Button';
+import styles from './Navbar.module.css';
+import {UserContext} from "../../Context/Context" ;
 import { auth} from "../../utils/firebaseConfig";
-import logo from '../../img/logowhite.svg'
-import BurgerMenu from '../BurgerMenu/BurgerMenu'
+import logo from '../../img/logowhite.svg';
+import { MdOutlineMenu } from 'react-icons/md';
+// import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import Menu from './Menu';
+
+
+
 
 const Navbar = () => {
   const history = useNavigate();
@@ -22,33 +27,26 @@ const Navbar = () => {
     await auth.signOut();
   };
 
+  const [open, setOpen] = useState(false)  
+
   return (
     <div className={styles.NavBar}>
-      <Link to="/">Nosotros</Link>
-      <Link to="/" >Ciudades</Link>
-      <div className={styles.Navlinks}>
-      <img src={logo} alt="Triveneco"/>
-      </div>
-      <Link to="/">Hoteles</Link>
+      <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)}/>
+        {open && <Menu />}
+
+      {/* <Link to="/">Nosotros</Link> */}
+      
+      <Link to="/" className={styles.DesktopOnly}>Ciudades</Link>
+      <Link to="/"><img src={logo} alt="Triveneco"/></Link>
+      <Link to="/" className={styles.DesktopOnly}>Hoteles</Link>
       {!user ? (<div>
         <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
-        <Button className={styles.Navbutton} onClick={toRegister}>Register</Button>
+        {/* <Button className={styles.Navbutton} onClick={toRegister}>Register</Button> */}
       </div>
         ):(
         <Button className={styles.Navbutton} onClick={handleLogout}>Log Out</Button>
         )}
-        <BurgerMenu />
-
     </div>
   )
 }
 export default Navbar
-
-//
-//      <Link to="/" >Ciudades</Link>
-//      <nav>
-//        <div className={styles.Navlinks}>
-//          <a href="/"><h2>Triveneco</h2></a>
-//        </div>
-//      </nav>
-//     

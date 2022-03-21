@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
 import Button from '../UI/Button/Button';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook } from 'react-icons/im';
+import { BsTwitter } from 'react-icons/bs';
 
 import { auth, googleProvider } from "../../utils/firebaseConfig";
 
@@ -43,7 +46,12 @@ return(
                 Register
             </Button>
             </div>
-            <Button onClick={handleSignInWithGoogle}>gugel</Button>
+            {/* <Button onClick={handleSignInWithGoogle}>gugel</Button> */}
+            <div className={classes.buttons}>
+              <FcGoogle onClick={handleSignInWithGoogle} size="40px" className={classes.btn}/>
+              <ImFacebook size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
+              <BsTwitter size="40px" color="#1DA1F2" className={classes.btn} />
+            </div>
         </form>
     </Card>
 )

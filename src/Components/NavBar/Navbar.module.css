@@ -11,9 +11,15 @@ h1, a, button{
     font-size: 20px;
     color: white;
     text-decoration: none;
+    opacity: 0.9;
+}
+
+h1:hover, a:hover, button:hover {
+    opacity: 1;
 }
 
 .NavBar{
+    padding: 0 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,11 +31,7 @@ h1, a, button{
     list-style: none;    
 }
 
-.NavLinks {
-    /* background-color: red; */
-}
-
-h2{
+h2 {
     cursor: pointer;
 }
 
@@ -64,5 +66,55 @@ h2{
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+}
+
+.Menu {
+    display: flex;
+    font-size: 1.4em;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    /* background-color: var(--secondary-color-100); */
+    background-color: rgba(94, 204, 222, 0.6);
+    padding-left: 5%;
+
+}
+
+.Menu ul {
+    list-style: none;
+    opacity: 1;
+}
+
+.Menu li, .Menu a {
+    color: black;
+    padding-top: 3em;
+    font-weight: 800;
+    /* opacity: 1; */
+}
+
+.Menu a:visited {
+    text-decoration: none;
+}
+
+.Menu a:hover {
+    opacity: 1;
+}
+
+.BurgerButton {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.BurgerButton:hover {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .DesktopOnly, .Navbutton {
+        display: none;
+    }
 }
 

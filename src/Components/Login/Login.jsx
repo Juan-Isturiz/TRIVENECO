@@ -4,7 +4,7 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 import { UserContext } from '../../Context/Context';
 import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook } from 'react-icons/im';
 import { BsTwitter } from 'react-icons/bs';
@@ -151,6 +151,9 @@ const Login = (props) => {
           </Button>
         </div>
       </form>
+      <div className={classes.RegisterRedirectContainer}>
+        No tienes cuenta? <Link to="/Register" className={classes.RegisterRedirect}>Regístrate aquí</Link>
+      </div>
       {/* <Button onClick={handleGoogleLogin}>gugel</Button> */}
       <div className={classes.buttons}>
         <FcGoogle onClick={handleGoogleLogin} size="40px" className={classes.btn}/>

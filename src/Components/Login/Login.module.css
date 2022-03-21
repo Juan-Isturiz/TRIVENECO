@@ -62,10 +62,24 @@
   gap: 2em;
 }
 
+.RegisterRedirectContainer {
+  margin-top: 2em;
+  padding-left: 2em;
+}
+
+.RegisterRedirectContainer .RegisterRedirect {
+  color: var(--primary-color-500);
+  /* background-color: red; */
+  margin-top: 2em;
+  display: inline;
+  /* justify-content: center; */
+}
+
 @media (min-width: 768px) {
   .control {
     align-items: center;
     flex-direction: row;
   }
-
 }
+
+
