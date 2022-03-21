@@ -4,9 +4,9 @@ import { auth, db } from "../utils/firebaseConfig";
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState({
-        displayName: 'NiggerFaggot',
-        email: 'Cock Sucker',
-        photoURL: 'Ganga',
+        displayName: 'Visitor',
+        email: '',
+        photoURL: '',
         emailVerified:false
     })
     const [isLogged, setLogged] = useState(false)
