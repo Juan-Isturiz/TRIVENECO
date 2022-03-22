@@ -97,9 +97,6 @@ const Register = () => {
             Sign up
           </Button>
           <div className={classes.buttons}>
-              <FcGoogle onClick={handleSignInWithGoogle} size="40px" className={classes.btn}/>
-              <ImFacebook size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
-              <BsTwitter size="40px" color="#1DA1F2" className={classes.btn} />
             </div>
         </div>
       </form>

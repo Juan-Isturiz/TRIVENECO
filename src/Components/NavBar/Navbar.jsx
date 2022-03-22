@@ -23,7 +23,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)  
 
   return (
-    <div className={styles.NavBar}>
+    <nav className={styles.NavBar}>
       <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)}/>
         {open && <Menu />}
 
@@ -37,7 +37,7 @@ const Navbar = () => {
         ):(
         <Button className={styles.Navbutton} onClick={loggerOut}>Log Out</Button>
         )}
-    </div>
+    </nav>
   )
 }
 export default Navbar

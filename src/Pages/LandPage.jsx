@@ -1,10 +1,10 @@
-import Cities from "../../Components/LandPage/Cities.jsx";
-import Hotels from "../../Components/LandPage/Hotels.jsx";
-import Feedback from "../../Components/LandPage/Feedback";
-import Header from "../../Components/Header/Header";
-import hotelImg from "../../img/hotelpageimg.jpg";
-import cityImg from "../../img/citypageimg.jpg";
-import { UserContext } from '../../Context/Context';
+import Cities from "../Components/LandPage/Cities.jsx";
+import Hotels from "../Components/LandPage/Hotels.jsx";
+import Feedback from "../Components/LandPage/Feedback";
+import Header from "../Components/Header/Header";
+import hotelImg from "../img/hotelpageimg.jpg";
+import cityImg from "../img/citypageimg.jpg";
+import { UserContext } from '../Context/Context';
 import { useContext,useEffect, useState } from "react";
 const LandPage = () => {
     const {user, setUser, isLogged} = useContext(UserContext)

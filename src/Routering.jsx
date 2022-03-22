@@ -1,7 +1,7 @@
 import {Route,Routes } from "react-router-dom";
 import CityViewPage from "./Pages/CityViewPage";
 import LoginPage from "./Pages/LoginPage"
-import LandPage from "./Pages/LandPage/LandPage";
+import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
 
 const Routering =()=>{

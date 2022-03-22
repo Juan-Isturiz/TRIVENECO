@@ -153,7 +153,7 @@ const Login = (props) => {
         </div>
       </form>
       <div className={classes.RegisterRedirectContainer}>
-        No tienes cuenta? <Link to="/Register" className={classes.RegisterRedirect}>Regístrate aquí</Link>
+        No tienes cuenta? <Link to="/Signup" className={classes.RegisterRedirect}>Regístrate aquí</Link>
       </div>
       {/* <Button onClick={handleGoogleLogin}>gugel</Button> */}
       <div className={classes.buttons}>
