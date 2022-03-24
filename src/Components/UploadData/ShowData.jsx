@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
-import "../../Pages/LandPage/LandPage.module.css";
 import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
