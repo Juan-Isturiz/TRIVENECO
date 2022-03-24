@@ -23,13 +23,14 @@ const Navbar = () => {
   };
 
   return (
+    <section>
     <div className={styles.NavBar}>
       <Link to="/">Nosotros</Link>
-      <Link to="/" >Ciudades</Link>
+      <Link to="/CityView" >Ciudades</Link>
       <div className={styles.Navlinks}>
       <img src={logo} alt="Triveneco"/>
       </div>
-      <Link to="/">Hoteles</Link>
+      <Link to="/HotelView">Hoteles</Link>
       {!user ? (<div>
         <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
         <Button className={styles.Navbutton} onClick={toRegister}>Register</Button>
@@ -40,6 +41,12 @@ const Navbar = () => {
         <BurgerMenu />
 
     </div>
+    <div className={styles.CityAdminBackground}>
+      <Link to="/CityViewPageAdmin" className={styles.CityAdmin}> Ciudades-Admin</Link>
+      <br/>
+      <Link to="/HotelViewPageAdmin" className={styles.CityAdmin}> Hotel-Admin</Link>
+    </div>
+    </section>
   )
 }
 export default Navbar

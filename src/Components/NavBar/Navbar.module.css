@@ -66,3 +66,11 @@ h2{
     transition: all 0.3s ease 0s;
 }
 
+.CityAdmin{
+    color: rgb(0, 0, 0);
+}
+
+.CityAdminBackground{
+    background-color: rgb(15, 182, 204);
+
+}
