@@ -55,25 +55,3 @@ const UserContextProvider = ({ children }) => {
   )
 }
 export default UserContextProvider
-//       .dy`                               `yh
-//        -dh.                             `hd.           
-//         .hm:                           .dh.            
-//          `oms`      .:+ossso+:-       +mo`             
-//            -hm/  :shs+:-...-/+shs:  -hd:               
-//             `/dddh/`           `/hdymo`                
-//               sNdm+.           `:hmNh`                 
-//              +N:`:ydh+:.   `./sdh+.-ms                 
-//`````````````.Ny`   .:shhhyyhyy/.`   /M:  ``````````    
-//oyyyyyyyyyyyyhMdyyyyyyys.-My.:yyyyyyyyMdyyyyyyyyyyyy.   
-//`````````````:M+````````  No  ```````.Ms````````````    
-//              mh          -`         /M:                
-//              -No         .`        .my                 
-//               :my-       ds      `/ms`                 
-//                .sds-`    mh    ./hh:                   
-//                  .+hdho/:Nd:+shds:`                    
-//                 .:+ydmyooooooyddyo/.`                  
-//             `-oydy+:.          .:+ydhs/.               
-//          `-sdho-`                   -/ydy/.            
-//        .odd+.                          `/ymy:`         
-//       -ymy-                                .+dh+`       
-//     .hmo`                                     /hs     

@@ -124,3 +124,11 @@ h2 {
     }
 }
 
+.CityAdmin{
+    color: rgb(0, 0, 0);
+}
+
+.CityAdminBackground{
+    background-color: rgb(15, 182, 204);
+
+}

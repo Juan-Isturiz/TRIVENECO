@@ -28,16 +28,22 @@ const Navbar = () => {
         {open && <Menu />}
 
       
-      <Link to="/" className={styles.DesktopOnly}>Ciudades</Link>
+      <Link to="/CityView" className={styles.DesktopOnly}>Ciudades</Link>
       <Link to="/"><img src={logo} alt="Triveneco"/></Link>
-      <Link to="/" className={styles.DesktopOnly}>Hoteles</Link>
+      <Link to="/HotelView" className={styles.DesktopOnly}>Hoteles</Link>
       {!isLogged ? (<div>
         <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
+        <Link to="/CityViewPageAdmin" className={styles.CityAdmin}> Ciudades-Admin</Link>
+        <Link to="/HotelViewPageAdmin" className={styles.CityAdmin}> Hotel-Admin</Link>
       </div>
         ):(
         <Button className={styles.Navbutton} onClick={loggerOut}>Log Out</Button>
         )}
-    </nav>
+      
+      </nav>
+        
+   
+  
   )
 }
 export default Navbar
