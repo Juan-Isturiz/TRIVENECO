@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
-import "../LandPage/BodyStyle.module.css";
+import "../../Pages/LandPage/LandPage.module.css";
 import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
+
+
 
 
 function searchingTerm(term){
@@ -12,10 +14,20 @@ function searchingTerm(term){
     }
 }
 
+
+function zoneFilter(term){
+    return function(x){
+        return x.zona.toLowerCase().includes(term) || !term
+    }
+}
+
 export default function ShowData() {
+
+    
 
     const[docus,setDocus]=useState([]);
     const[term,setTerm]=useState("")
+    const[radio,setRadio]=useState("")
 
     
 
@@ -40,15 +52,39 @@ export default function ShowData() {
             </div>
             <div className={classes.actions}>
             </div>
+            <div>
+                <li>
+                <input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")}/>Playa
+                <input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")}/>Montaña
+                <input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")}/>Ciudad
+                <input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")}/>Campo
+                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} />reset
+                </li>
+            </div>
+            
         </form>
         </Card>
-        <ul>
-            {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
-            <h3>{doc.nombre}</h3>
-            <img src={doc.url} height="100px" width="100px"></img>
-            <h3>{doc.descripcion}</h3>
-            </li>)}
-        </ul>
+            {radio!=""?(
+                <ul>
+                {docus.filter(zoneFilter(radio)).filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <h3>{doc.nombre}</h3>
+                <img src={doc.url} height="100px" width="100px"></img>
+                <h3>{doc.descripcion}</h3>
+                <h3>{doc.zona}</h3>
+                </li>)}
+                </ul>
+                
+            ):(
+                <ul>
+                {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <h3>{doc.nombre}</h3>
+                <img src={doc.url} height="100px" width="100px"></img>
+                <h3>{doc.descripcion}</h3>
+                <h3>{doc.zona}</h3>
+                </li>)}
+                </ul>
+                )}
+            
         </section>
     )
 }

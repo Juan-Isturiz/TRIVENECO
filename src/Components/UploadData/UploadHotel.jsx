@@ -52,12 +52,18 @@ export default function UploadHotel() {
     return (
         <>
         <form onSubmit={submitHandler}>
+            <br/>
             <input type="file" onChange={archivoHandler}/>
+            <br/>
+            <br/>
             <input type="text" name="nombre" placeholder="nombra tu archivo"/>
+            <br/>
             <input type="text" name="descripcion" placeholder="describe la cosa"/>
+            <br/>
             <button>enviar</button>
 
         </form>
+        <br/>
         <ul>
             {docus.map((doc)=><li key={doc.keyCode}>
                 <h3>{doc.nombre}</h3>
