@@ -78,7 +78,6 @@
 .RegisterRedirectContainer .RegisterRedirect {
   color: var(--primary-color-500);
   /* background-color: red; */
-  margin-top: 2em;
   display: inline;
   /* justify-content: center; */
 }
