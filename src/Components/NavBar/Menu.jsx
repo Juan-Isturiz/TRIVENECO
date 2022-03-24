@@ -17,18 +17,24 @@ const Menu = (props) => {
   return (
     <div className={styles.Menu}> 
       <ul>
-        <Link to="/"><li>
+        <Link to="/" onClick = {()=>setOpen(!open)}><li>
           Home
         </li></Link>
-        <Link to="/"><li>
+        <Link to="/CityView" onClick = {()=>setOpen(!open)}><li>
           Ciudades
         </li></Link>
-        <Link to="/"><li>
+        <Link to="/HotelView" onClick = {()=>setOpen(!open)}><li>
           Hoteles
         </li></Link>
+        
+        
         {!isLogged ? (<li onClick={toLog}>
           Log in
-        </li>) : (<li onClick={loggerOut}>Log out</li>)}
+        </li>) : (<div><li onClick={loggerOut} >Log out
+        </li>
+        <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}> Ciudades-Admin</Link>
+        <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}> Hotel-Admin</Link>
+        </div>)}
 
       </ul>
     </div>

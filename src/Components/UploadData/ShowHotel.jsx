@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
-import "../../Pages/LandPage/LandPage.module.css";
+import "../LandPage/BodyStyle.module.css";
 
 
 

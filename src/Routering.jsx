@@ -2,7 +2,7 @@ import {Route,Routes } from "react-router-dom";
 import CityViewPage from "./Pages/CityViewPage";
 import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage"
-import LandPage from "./Pages/LandPage/LandPage";
+import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
