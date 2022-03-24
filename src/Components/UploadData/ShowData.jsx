@@ -7,6 +7,7 @@ import classes from '../Login/Login.module.css';
 
 
 
+
 function searchingTerm(term){
     return function(x){
         return x.nombre.toLowerCase().includes(term) || !term

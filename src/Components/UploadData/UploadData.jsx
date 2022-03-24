@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function UploadData() {
 
+
     const [ObjectSelected, setSelected]= useState("");
     const[archivoUrl, setArchivoUrl] = useState("");
     const[docus,setDocus]=useState([]);
@@ -72,9 +73,9 @@ export default function UploadData() {
                 <option value="Campo">Campo</option>
    		    </select>
             <br/>
-            <button>enviar</button>
+            <button>
+                enviar</button>
            
-
         </form>
         <br/>
         <ul>
