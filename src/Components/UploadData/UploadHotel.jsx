@@ -51,16 +51,20 @@ export default function UploadData() {
 
     const submitHandler = async (e)=>{
         e.preventDefault()
-        const nombreCiudad = e.target.nombre.value
+        const nombreHotel = e.target.nombre.value
         const nombreLugarInteres = e.target.lugar.value
         const nombreLugarInteres2 = e.target.lugar2.value
         const descripcionArchivo = e.target.descripcionArchivo.value
         const descripcionArchivo2 = e.target.descripcionArchivo2.value
         const descripcionArchivo3 = e.target.descripcionArchivo2.value
-        const zonaArchivo = e.target.zona.value
+        const MascotaArchivo = e.target.mascota.value
+        const ComidaRica = e.target.comida.value
+        const PlayaChevere = e.target.playa.value
+        const ApostarCool = e.target.casino.value
+        const relajacionRela = e.target.entretenimiento.value
         const rankingArchivo = e.target.ranking.value
-        if(!nombreCiudad){
-            alert("coloca el nombre de la ciudad")
+        if(!nombreHotel){
+            alert("coloca el nombre del hotel")
             return}
         if(!nombreLugarInteres){
             alert("coloca el nombre del lugar de interes")
@@ -77,18 +81,18 @@ export default function UploadData() {
             if(!descripcionArchivo3){
                 alert("coloca una descripción")
                 return}
-        const coleccionRef =  db.collection("ciudades")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreCiudad, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2})
-        console.log("archivo cargado:", nombreCiudad, "url:",archivoUrl)
+        const coleccionRef =  db.collection("hoteles")
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2})
+        console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
     const deleteSel = async (keyToDel1)=>{
-        const coleccionRef2 =  db.collection("ciudades")
+        const coleccionRef2 =  db.collection("hoteles")
         const docu = await coleccionRef2.doc(keyToDel1).delete()
     }
 
     useEffect(async ()=>{
-        const docusList = await db.collection("ciudades").get()
+        const docusList = await db.collection("hoteles").get()
         setDocus(docusList.docs.map((doc)=>doc.data()))
 
     },[])
@@ -103,17 +107,17 @@ export default function UploadData() {
         <form onSubmit={submitHandler} className={styles.Formulario}>
             <h1 className={styles.h1}>Subir Archivos</h1>
             <br/>
-            <h3 className={styles.h3}>Foto de la ciudad:</h3>
+            <h3 className={styles.h3}>Foto del hotel:</h3>
             <input type="file" onChange={archivoHandler}/>
             <br/>
             <h3 className={styles.h9}>(preferencia: 1080x608 pixeles)</h3>
             <br/>
             <br/>
             <h3 className={styles.subtitulo}>Descripción General</h3>
-            <h3 className={styles.h3}>Nombre de la ciudad:</h3>
-            <input type="text" name="nombre" placeholder="inserte nombre de la ciudad" size="50" maxLength="40"/>
+            <h3 className={styles.h3}>Nombre del hotel:</h3>
+            <input type="text" name="nombre" placeholder="inserte nombre del hotel" size="50" maxLength="40"/>
             <br/>
-            <h3 className={styles.h3}>Seleccione el ranking de la ciudad:</h3>
+            <h3 className={styles.h3}>Seleccione el ranking del hotel:</h3>
             <select onChange={(e) => handleChange(e)} name="ranking">
                 <option value="1 Estrella">1 Estrella</option>
                 <option value="2 Estrellas">2 Estrellas</option>
@@ -123,22 +127,40 @@ export default function UploadData() {
    		    </select>
                <br/>
             <br/>
-            <h3 className={styles.h3}>Descripcion de la ciudad:</h3>
-            <textarea name="descripcionArchivo" placeholder="describe la ciudad" className={styles.textarea} rows={4}/>
+            <h3 className={styles.h3}>Descripcion del hotel:</h3>
+            <textarea name="descripcionArchivo" placeholder="describe el hotel" className={styles.textarea} rows={4}/>
             <br/>
-            <h3 className={styles.h3}>Seleccione la Zona:</h3>
-            <select onChange={(e) => handleChange(e)} name="zona">
-                <option value="Playa">Zona Playa</option>
-                <option value="Montaña">Zona Montaña</option>
-                <option value="Ciudad">Zona Ciudad</option>
-                <option value="Campo">Zona Campo</option>
+            <h3 className={styles.h3}>Permite mascotas?:</h3>
+            <select onChange={(e) => handleChange(e)} name="mascota">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+   		    </select>
+            <h3 className={styles.h3}>Viene con comida incluida?:</h3>
+            <select onChange={(e) => handleChange(e)} name="comida">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+   		    </select>
+            <h3 className={styles.h3}>Con vista a la playa?:</h3>
+            <select onChange={(e) => handleChange(e)} name="playa">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+   		    </select>   
+            <h3 className={styles.h3}>Tiene Piscina/Bar/Gimnasio?:</h3>
+            <select onChange={(e) => handleChange(e)} name="entretenimiento">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+   		    </select>
+            <h3 className={styles.h3}>Tiene casino?:</h3>
+            <select onChange={(e) => handleChange(e)} name="casino">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
    		    </select>
                <br/>
                <br/>
-               <h3 className={styles.subtitulo}>Lugares de interes</h3>
-               <h3 className={styles.h3}>Nombre del primer lugar:</h3>
-               <input type="text" name="lugar" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
-               <br/>
+            <h3 className={styles.subtitulo}>Lugares de interes</h3>
+            <h3 className={styles.h3}>Nombre del primer lugar:</h3>
+            <input type="text" name="lugar" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
+            <br/>
             <h3 className={styles.h3}>Foto del lugar:</h3>
             <input type="file" onChange={archivoHandler2}/>
                <br/>
@@ -166,7 +188,7 @@ export default function UploadData() {
             
         </form>
         <br/>
-            <h1 className={styles.h1}>Ciudades guardados en el sistema</h1>
+            <h1 className={styles.h1}>Hoteles guardados en el sistema</h1>
         <ul className={styles.ciudades}>
         
             {docus.map((doc)=><li key={doc.keyCode}>

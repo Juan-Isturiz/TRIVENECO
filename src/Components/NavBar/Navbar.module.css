@@ -11,9 +11,15 @@ h1, a, button{
     font-size: 20px;
     color: white;
     text-decoration: none;
+    opacity: 0.9;
+}
+
+h1:hover, a:hover, button:hover {
+    opacity: 1;
 }
 
 .NavBar{
+    padding: 0 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,11 +31,7 @@ h1, a, button{
     list-style: none;    
 }
 
-.NavLinks {
-    /* background-color: red; */
-}
-
-h2{
+h2 {
     cursor: pointer;
 }
 
@@ -66,3 +68,67 @@ h2{
     transition: all 0.3s ease 0s;
 }
 
+.Menu {
+    font-size: 1.4em;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    /* background-color: var(--secondary-color-100); */
+    background-color: rgba(0, 0, 25, 0.6);
+    padding-left: 5%;
+
+}
+
+.Menu ul {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+    list-style: none;
+    opacity: 1;
+    
+}
+
+.Menu li, .Menu a {
+    color: white;
+    /* padding-top: 3em; */
+    font-weight: 800;
+    /* opacity: 1; */
+    cursor: pointer;
+}
+
+
+.Menu a:visited {
+    text-decoration: none;
+}
+
+.Menu a:hover {
+    opacity: 1;
+}
+
+.BurgerButton {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.BurgerButton:hover {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .DesktopOnly, .Navbutton {
+        display: none;
+    }
+}
+
+.CityAdmin{
+    color: rgb(0, 0, 0);
+}
+
+.CityAdminBackground{
+    background-color: rgb(15, 182, 204);
+
+}
