@@ -9,7 +9,11 @@ const UserContextProvider = ({ children }) => {
     email: 'exmple@correo.com',
     photoURL: 'Ganga',
     emailVerified: false,
-    uid: 1
+    uid: 1,
+    metadata: {
+      creationTime: 5,
+      lastSignInTime: 4
+    }
   })
 
   const loggerOut = async () => {
@@ -20,7 +24,11 @@ const UserContextProvider = ({ children }) => {
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1
+      uid: 1,
+      metadata: {
+        creationTime: 5,
+        lastSignInTime: 4
+      }
 
     })
   }
@@ -32,7 +40,11 @@ const UserContextProvider = ({ children }) => {
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1
+      uid: 1,
+      metadata: {
+        creationTime: 5,
+        lastSignInTime: 4
+      }
 
     })
   }
@@ -45,6 +57,14 @@ const UserContextProvider = ({ children }) => {
     auth.onAuthStateChanged(function (user) {
       if (user) {
         console.log(user.email)
+        if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+          const  usr ={
+            email : user.email,
+            rol : 1
+          }
+          
+          createUser(user.uid,usr)
+        }
         setLogged(true)
         setUser(currentLog())
       }
