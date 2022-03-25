@@ -86,8 +86,13 @@ export default function ShowData() {
                 <h3>{doc.zona}</h3>
                 <h3>{doc.lugar1}</h3>
                 <h3>{doc.ranking}</h3>
+                <h3>{doc.lugar}</h3>
                 <img src={doc.url2} height="100px" width="100px"></img>
                 <h3>{doc.descripcion2}</h3>
+                <h3>{doc.lugar2}</h3>
+                <img src={doc.url3} height="100px" width="100px"></img>
+                <h3>{doc.descripcion3}</h3>
+
 
 
                 </li>)}

@@ -10,6 +10,7 @@ export default function UploadData() {
     const [ObjectSelected, setSelected]= useState("");
     const[archivoUrl, setArchivoUrl] = useState("");
     const[archivoUrl2, setArchivoUrl2] = useState("");
+    const[archivoUrl3, setArchivoUrl3] = useState("");
     const[docus,setDocus]=useState([]);
 
     const keyCode= uuidv4();
@@ -38,13 +39,26 @@ export default function UploadData() {
         setArchivoUrl2(enlaceUrl2)
     }
 
+    const archivoHandler3 = async (e)=>{
+
+        const archivo3= e.target.files[0]
+        const storageRef3 = storage.ref()
+        const archivoPath3 = storageRef3.child(archivo3.name)
+        await archivoPath3.put(archivo3)
+        console.log('archivo cargado:' ,archivo3.name)
+        const enlaceUrl3 = await archivoPath3.getDownloadURL();
+        setArchivoUrl3(enlaceUrl3)
+    }
+
 
     const submitHandler = async (e)=>{
         e.preventDefault()
         const nombreArchivo = e.target.nombre.value
         const nombreLugar = e.target.lugar.value
+        const nombreLugar2 = e.target.lugar2.value
         const descripcionArchivo = e.target.descripcionArchivo.value
         const descripcionArchivo2 = e.target.descripcionArchivo2.value
+        const descripcionArchivo3 = e.target.descripcionArchivo2.value
         const zonaArchivo = e.target.zona.value
         const rankingArchivo = e.target.ranking.value
         if(!nombreArchivo){
@@ -53,14 +67,20 @@ export default function UploadData() {
         if(!nombreLugar){
             alert("coloca un nombre")
             return}
+            if(!nombreLugar2){
+                alert("coloca un nombre")
+                return}
         if(!descripcionArchivo){
             alert("coloca una descripción")
             return}
         if(!descripcionArchivo2){
             alert("coloca una descripción")
             return}
+            if(!descripcionArchivo3){
+                alert("coloca una descripción")
+                return}
         const coleccionRef =  db.collection("archivos")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
@@ -128,20 +148,36 @@ export default function UploadData() {
             <h3 className={styles.h3}>Describe el lugar:</h3>
             <textarea name="descripcionArchivo2" placeholder="describe el lugar detalladamente" className={styles.textarea} rows={4}/>
             <br/>
-            <button className={styles.enviar}>
             
+            <br/>
+            <br/>
+            <h3 className={styles.h3}>Nombre del primer lugar:</h3>
+               <input type="text" name="lugar2" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
+               <br/>
+            <h3 className={styles.h3}>Foto del lugar:</h3>
+            <input type="file" onChange={archivoHandler3}/>
+               <br/>
+            <br/>
+            <h3 className={styles.h3}>Describe el lugar:</h3>
+            <textarea name="descripcionArchivo3" placeholder="describe el lugar detalladamente" className={styles.textarea} rows={4}/>
+            <br/>
+
+            <button className={styles.enviar}>
+
                 Enviar</button>
             
         </form>
         <br/>
-        <ul>
+            <h1 className={styles.h1}>Ciudades en el sistema</h1>
+        <ul className={styles.ciudades}>
+        
             {docus.map((doc)=><li key={doc.keyCode}>
+                <br/>
+                <br/>
                 <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
                 <br/>
-                <h3>{doc.descripcion}</h3>
-                
-                <button onClick={()=>deleteSel(doc.keyCode)}>eliminar</button>
+                <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>eliminar</button>
                 <br/>
                 <br/>
                 </li>)}
