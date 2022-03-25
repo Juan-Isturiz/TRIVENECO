@@ -1,74 +1,79 @@
 import { useState, useEffect, createContext } from 'react';
-import { auth, db } from "../utils/firebaseConfig";
+import { db, auth, currentLog } from '../utils/firebaseConfig';
+
 
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
-    const [user, setUser] = useState({
-        displayName: 'visitor',
-        email: '',
-        photoURL: '',
-        emailVerified:false
+  const [user, setUser] = useState({
+    displayName: 'visitor',
+    email: 'exmple@correo.com',
+    photoURL: 'Ganga',
+    emailVerified: false,
+    uid: 1
+  })
+
+  const loggerOut = async () => {
+    await auth.signOut();
+    setLogged(false)
+    setUser({
+      displayName: 'visitor',
+      email: 'exmple@correo.com',
+      photoURL: 'Ganga',
+      emailVerified: false,
+      uid: 1
+
     })
-    const [isLogged, setLogged] = useState(false)
+  }
 
-    const getUserProfile = async (email) => {
-        const usersRef = db.collection("users");
-    
-        const usersCollection = await usersRef.where("email", "==", email).get();
-    
-        const profile = usersCollection.docs[0];
-    
-        if (!profile) return null;
-    
-        return {
-          id: profile.id,
-          ...profile.data(),
-        };
-    };
 
-    const createUser = async (userId, data) => {
-        return db
-          .collection("users")
-          .doc(userId)
-          .set({ ...data });
-      };
-
-      useEffect(() => {
-        auth.onAuthStateChanged(async (firebaseUser) => {
-          if (firebaseUser) {
-            let profile = await getUserProfile(firebaseUser.email);
-    
-            console.log({ fullProfile: profile });
-    
-            if (!profile) {
-              profile = {
-                name: firebaseUser.displayName,
-                email: firebaseUser.email,
-                photo: firebaseUser.photoURL,
-              };
-    
-              await createUser(firebaseUser.uid, profile);
-            }
-    
-            setUser(profile);
-          } else {
-            setUser(null);
-          }
-        });
-        return () => {};
-      }, []);
-
-    return (
-        <UserContext.Provider
-            value={{
-                user,
-                setUser,
-                isLogged,
-                setLogged
-            }}
-        >
-            {children}
-        </UserContext.Provider>
-    )
+  const [isLogged, setLogged] = useState(false)
+  const createUser = async (uid, user) => {
+    await db.collection('users').doc(uid).set({ ...user });
+  };
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        console.log(user.email)
+        setLogged(true)
+        setUser(currentLog())
+      }
+    });
+  }, []);
+  return (
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        isLogged,
+        setLogged,
+        createUser,
+        loggerOut
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  )
 }
 export default UserContextProvider
+//       .dy`                               `yh
+//        -dh.                             `hd.           
+//         .hm:                           .dh.            
+//          `oms`      .:+ossso+:-       +mo`             
+//            -hm/  :shs+:-...-/+shs:  -hd:               
+//             `/dddh/`           `/hdymo`                
+//               sNdm+.           `:hmNh`                 
+//              +N:`:ydh+:.   `./sdh+.-ms                 
+//`````````````.Ny`   .:shhhyyhyy/.`   /M:  ``````````    
+//oyyyyyyyyyyyyhMdyyyyyyys.-My.:yyyyyyyyMdyyyyyyyyyyyy.   
+//`````````````:M+````````  No  ```````.Ms````````````    
+//              mh          -`         /M:                
+//              -No         .`        .my                 
+//               :my-       ds      `/ms`                 
+//                .sds-`    mh    ./hh:                   
+//                  .+hdho/:Nd:+shds:`                    
+//                 .:+ydmyooooooyddyo/.`                  
+//             `-oydy+:.          .:+ydhs/.               
+//          `-sdho-`                   -/ydy/.            
+//        .odd+.                          `/ymy:`         
+//       -ymy-                                .+dh+`       
+//     .hmo`                                     /hs     

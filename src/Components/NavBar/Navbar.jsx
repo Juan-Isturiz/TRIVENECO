@@ -16,37 +16,28 @@ const Navbar = () => {
   const history = useNavigate();
 
   const toLog = () => {
-    history("/Login")
+    history("/Signin")
   }
-  const toRegister = () => {
-    history("/Register")
-  }
-  const { user } = useContext(UserContext);
-
-  const handleLogout = async () => {
-    await auth.signOut();
-  };
+  const { isLogged,loggerOut} = useContext(UserContext);
 
   const [open, setOpen] = useState(false)  
 
   return (
-    <div className={styles.NavBar}>
+    <nav className={styles.NavBar}>
       <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)}/>
         {open && <Menu />}
 
-      {/* <Link to="/">Nosotros</Link> */}
       
       <Link to="/" className={styles.DesktopOnly}>Ciudades</Link>
       <Link to="/"><img src={logo} alt="Triveneco"/></Link>
       <Link to="/" className={styles.DesktopOnly}>Hoteles</Link>
-      {!user ? (<div>
+      {!isLogged ? (<div>
         <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
-        {/* <Button className={styles.Navbutton} onClick={toRegister}>Register</Button> */}
       </div>
         ):(
-        <Button className={styles.Navbutton} onClick={handleLogout}>Log Out</Button>
+        <Button className={styles.Navbutton} onClick={loggerOut}>Log Out</Button>
         )}
-    </div>
+    </nav>
   )
 }
 export default Navbar
