@@ -7,6 +7,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
 import CiudadParticular from "./Pages/CiudadParticular"
+import FeedbackPage from "./Pages/FeedbackPage";
 
 const Routering =()=>{
     return(
@@ -19,6 +20,7 @@ const Routering =()=>{
             <Route  path="/CityViewPageAdmin" element={<CityViewPageAdmin/>}></Route>
             <Route  path="/HotelViewPageAdmin" element={<HotelViewPageAdmin/>}></Route>
             <Route path="/CiudadParticular/:id" element={<CiudadParticular/>} ></Route>
+            <Route path="/FeedbackPage" element={<FeedbackPage />}></Route>
         </Routes>
     )
 }
