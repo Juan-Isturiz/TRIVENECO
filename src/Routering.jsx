@@ -1,4 +1,4 @@
-import {Route,Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import CityViewPage from "./Pages/CityViewPage";
 import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage"
@@ -9,8 +9,8 @@ import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
 import CiudadParticular from "./Pages/CiudadParticular"
 import FeedbackPage from "./Pages/FeedbackPage";
 
-const Routering =()=>{
-    return(
+const Routering = () => {
+    return (
         <Routes>
             <Route  path="/" element={<LandPage/>}></Route>
             <Route  path="/CityView" element={<CityViewPage/>}></Route>

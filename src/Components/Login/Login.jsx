@@ -33,7 +33,7 @@ const pswrdReducer = (state, action) => {
 const Login = (props) => {
   ///////// State Declarations //////////////////
 
-  const { setUser, setLogged} = useContext(UserContext)//CONTEXT
+  const { setUser, setLogged, createUser,user} = useContext(UserContext)//CONTEXT
   
   const userSetter =()=>
     {
@@ -98,9 +98,18 @@ const Login = (props) => {
       
       await auth.signInWithPopup(googleProvider);
       userSetter()
+      if (user.metadata.creationTime === user.metadata.lastSignInTime){
+        const  usr ={
+          email : user.email,
+          rol : 1
+        }
+        
+        createUser(user.uid,usr)
+      }
       navigate('/')
       
     }catch(e){
+      console.log(e.message)
       alert("Tiempo de espera agotado, intente de nuevo")
     }
   }
