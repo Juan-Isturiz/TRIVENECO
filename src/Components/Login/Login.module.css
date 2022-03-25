@@ -1,9 +1,17 @@
 .login {
-  width: 90%;
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 2rem;
-}
+    width: 90%;
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .login2 {
+    width: 90%;
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 0.001rem 2rem 0.5rem 2rem;
+    background-color: rgb(168, 207, 252);
+  }
   
 .control {
   margin: 1rem 0;
@@ -70,7 +78,6 @@
 .RegisterRedirectContainer .RegisterRedirect {
   color: var(--primary-color-500);
   /* background-color: red; */
-  margin-top: 2em;
   display: inline;
   /* justify-content: center; */
 }
@@ -88,6 +95,16 @@
   padding-top: 30px;
   font-size: 3em;
   font-weight: 800;
+}
+
+.radioContainer{
+  display: inline-flex;
+  
+}
+
+.radio{
+  padding-right: 1rem;
+  text-align: text-top;
 }
 
 @media (min-width: 768px) {

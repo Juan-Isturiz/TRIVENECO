@@ -12,9 +12,9 @@ function App() {
             <UserContextProvider>
                 <NavBar />
                 <Routering />
-                
             </UserContextProvider>
         </Router>
+        
     );
 
 }

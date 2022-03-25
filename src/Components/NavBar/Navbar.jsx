@@ -9,10 +9,12 @@ import { MdOutlineMenu } from 'react-icons/md';
 // import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Menu from './Menu';
 
+import UploadData from "../UploadData/UploadData"
 
 
 
 const Navbar = () => {
+
   const history = useNavigate();
 
   const toLog = () => {
@@ -22,22 +24,31 @@ const Navbar = () => {
 
   const [open, setOpen] = useState(false)  
 
+
   return (
     <nav className={styles.NavBar}>
-      <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)}/>
+      <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)} />
+        
         {open && <Menu />}
 
       
-      <Link to="/" className={styles.DesktopOnly}>Ciudades</Link>
+      <Link to="/CityView" className={styles.DesktopOnly}>Ciudades</Link>
       <Link to="/"><img src={logo} alt="Triveneco"/></Link>
-      <Link to="/" className={styles.DesktopOnly}>Hoteles</Link>
-      {!isLogged ? (<div>
-        <Button className={styles.Navbutton} onClick={toLog}>Log in</Button>
-      </div>
+      <Link to="/HotelView" className={styles.DesktopOnly}>Hoteles</Link>
+      
+      {!isLogged ? (
+        <Button className={styles.Navbutton} onClick={toLog} >Log in</Button>
+        
         ):(
+          <div>
         <Button className={styles.Navbutton} onClick={loggerOut}>Log Out</Button>
+      </div>
         )}
-    </nav>
+      
+      </nav>
+        
+   
+  
   )
 }
 export default Navbar
