@@ -30,7 +30,9 @@ const Menu = (props) => {
         
         {!isLogged ? (<li onClick={toLog}>
           Log in
-        </li>) : (<div><li onClick={loggerOut} >Log out
+        </li>) : (<div><li onClick={loggerOut, <Link to="/"/>} >
+          
+          Log out
         </li>
         <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}> Ciudades-Admin</Link>
         <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}> Hotel-Admin</Link>
