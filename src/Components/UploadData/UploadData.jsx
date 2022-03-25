@@ -79,18 +79,18 @@ export default function UploadData() {
             if(!descripcionArchivo3){
                 alert("coloca una descripción")
                 return}
-        const coleccionRef =  db.collection("archivos")
+        const coleccionRef =  db.collection("ciudades")
         const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
     const deleteSel = async (keyToDel1)=>{
-        const coleccionRef2 =  db.collection("archivos")
+        const coleccionRef2 =  db.collection("ciudades")
         const docu = await coleccionRef2.doc(keyToDel1).delete()
     }
 
     useEffect(async ()=>{
-        const docusList = await db.collection("archivos").get()
+        const docusList = await db.collection("ciudades").get()
         setDocus(docusList.docs.map((doc)=>doc.data()))
 
     },[])

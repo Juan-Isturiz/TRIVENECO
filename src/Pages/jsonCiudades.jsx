@@ -9,7 +9,7 @@ export function jsonParticular() {
     
     
     useEffect(async ()=>{
-        const docusList = await db.collection("archivos").get()
+        const docusList = await db.collection("ciudades").get()
         setDocus(docusList.docs.map((doc)=>doc.data()))
     },[])
 

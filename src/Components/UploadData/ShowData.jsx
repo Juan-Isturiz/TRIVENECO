@@ -4,7 +4,7 @@ import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
 import { Link} from 'react-router-dom';
-
+import styles from "./ShowData.module.css";
 
 
 
@@ -33,7 +33,7 @@ export default function ShowData() {
     
 
     useEffect(async ()=>{
-    const docusList = await db.collection("archivos").get()
+    const docusList = await db.collection("ciudades").get()
     setDocus(docusList.docs.map((doc)=>doc.data()))
 
 },[])
@@ -66,44 +66,26 @@ export default function ShowData() {
         </form>
         </Card>
             {radio!=""?(
-                <ul>
-                {docus.filter(zoneFilter(radio)).filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <ul className={styles.cities}>
+                {docus.filter(zoneFilter(radio)).filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode} className={styles.elements}>
                 <Link to ={`/CiudadParticular/${doc.keyCode}`}>
-                <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
-                </Link>
-                <h3>{doc.descripcion}</h3>
-                <h3>{doc.zona}</h3>
-                <h3>{doc.lugar1}</h3>
                 <h3>{doc.ranking}</h3>
-                <img src={doc.url2} height="100px" width="100px"></img>
+                </Link>
                 </li>)}
                 </ul>
                 
             ):(
-                <ul>
-                {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <ul className={styles.cities}>
+                {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode} className={styles.elements}>
                 <Link to ={`/CiudadParticular/${doc.keyCode}`}>
                 <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
-                </Link>
-                <h3>{doc.descripcion}</h3>
-                <h3>{doc.zona}</h3>
-                <h3>{doc.lugar1}</h3>
                 <h3>{doc.ranking}</h3>
-                <h3>{doc.lugar}</h3>
-                <img src={doc.url2} height="100px" width="100px"></img>
-                <h3>{doc.descripcion2}</h3>
-                <h3>{doc.lugar2}</h3>
-                <img src={doc.url3} height="100px" width="100px"></img>
-                <h3>{doc.descripcion3}</h3>
-
-
-
+                </Link>
                 </li>)}
                 </ul>
                 )}
-            
         </section>
     )
 }
