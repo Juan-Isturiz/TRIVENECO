@@ -1,0 +1,20 @@
+.Container{
+    padding: 2rem 20rem;
+}
+
+.h1{
+    color: black;
+    background-color: rgb(196, 221, 255);
+}
+
+.h9{
+    font-size: x-small;
+}
+
+.Formulario{
+    background-color: rgb(235, 244, 255);
+}
+
+.h3{
+    font-size: 0.7rem;
+}

@@ -82,6 +82,16 @@
   /* justify-content: center; */
 }
 
+.radioContainer{
+  display: inline-flex;
+  
+}
+
+.radio{
+  padding-right: 1rem;
+  text-align: text-top;
+}
+
 @media (min-width: 768px) {
   .control {
     align-items: center;

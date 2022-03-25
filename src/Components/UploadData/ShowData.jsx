@@ -53,12 +53,12 @@ export default function ShowData() {
             <div className={classes.actions}>
             </div>
             <div>
-                <li>
-                <input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")}/>Playa
-                <input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")}/>Montaña
-                <input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")}/>Ciudad
-                <input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")}/>Campo
-                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} />reset
+                <li className={classes.radioContainer}>
+                <input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")} /><h4 className={classes.radio}>Playa</h4>
+                <input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")} /><h4 className={classes.radio}>Montaña</h4>
+                <input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")} /><h4 className={classes.radio}>Ciudad</h4>
+                <input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")} /><h4 className={classes.radio}>Campo</h4>
+                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} /><h4 className={classes.radio}>reset</h4>
                 </li>
             </div>
             

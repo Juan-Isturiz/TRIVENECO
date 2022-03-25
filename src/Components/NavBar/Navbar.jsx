@@ -8,9 +8,8 @@ import logo from '../../img/logowhite.svg';
 import { MdOutlineMenu } from 'react-icons/md';
 // import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Menu from './Menu';
-import ShowHotel from "../UploadData/ShowHotel"
 
-import ShowData from "../UploadData/ShowData"
+import UploadData from "../UploadData/UploadData"
 
 
 

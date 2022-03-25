@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
+import styles from "./Upload.module.css"
 
 
 export default function UploadData() {
@@ -11,6 +12,8 @@ export default function UploadData() {
     const[docus,setDocus]=useState([]);
 
     const keyCode= uuidv4();
+
+    
 
     const archivoHandler = async (e)=>{
 
@@ -56,15 +59,21 @@ export default function UploadData() {
       }
 
     return (
-        <>
-        <form onSubmit={submitHandler}>
+        <div className={styles.Container}>
+        <form onSubmit={submitHandler} className={styles.Formulario}>
+            <h1 className={styles.h1}>Subir Archivos</h1>
             <br/>
+            <h3 className={styles.h3}>Foto principal:</h3>
             <input type="file" onChange={archivoHandler}/>
             <br/>
+            <h9 className={styles.h9}>(preferencia: 1080x608 pixeles)</h9>
             <br/>
-            <input type="text" name="nombre" placeholder="nombra tu archivo"/>
             <br/>
-            <input type="text" name="descripcion" placeholder="describe la cosa"/>
+            <h3 className={styles.h3}>Nombre de la ciudad:</h3>
+            <input type="text" name="nombre" placeholder="inserte nombre de la ciudad"/>
+            <br/>
+            <h3 className={styles.h3}>Nombre de la ciudad:</h3>
+            <input type="text" name="descripción de la ciudad" placeholder="describe la ciudad"/>
             <br/>
             <select onChange={(e) => handleChange(e)} name="zona">
                 <option value="Playa">Playa</option>
@@ -75,7 +84,7 @@ export default function UploadData() {
             <br/>
             <button>
                 enviar</button>
-           
+            
         </form>
         <br/>
         <ul>
@@ -90,6 +99,6 @@ export default function UploadData() {
                 <br/>
                 </li>)}
         </ul>
-        </>
+        </div>
     )
 }
