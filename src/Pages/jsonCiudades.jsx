@@ -3,14 +3,14 @@ import React, {useEffect, useState } from "react";
 import {db} from "../utils/firebaseConfig";
 
 
-export function CiudadParticular() {
+export function jsonParticular() {
 
     const[docus,setDocus]=useState([]);
     
+    
     useEffect(async ()=>{
-        const docusList = await db.collection("archivos").get()
+        const docusList = await db.collection("ciudades").get()
         setDocus(docusList.docs.map((doc)=>doc.data()))
-        setDoc(docus.filter)
     },[])
 
 
@@ -19,4 +19,4 @@ export function CiudadParticular() {
     )
 }
 
-export default CiudadParticular;
+export default jsonParticular;

@@ -1,0 +1,20 @@
+.cities {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: auto;
+    margin: auto;
+}
+
+.cities .elements {
+    margin: auto;
+    list-style: none;
+    border: solid red 3px;
+}
+
+.cities a {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
