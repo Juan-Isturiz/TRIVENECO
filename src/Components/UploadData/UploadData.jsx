@@ -80,7 +80,7 @@ export default function UploadData() {
                 alert("coloca una descripción")
                 return}
         const coleccionRef =  db.collection("ciudades")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
@@ -113,7 +113,7 @@ export default function UploadData() {
             <br/>
             <h3 className={styles.subtitulo}>Descripción General</h3>
             <h3 className={styles.h3}>Nombre de la ciudad:</h3>
-            <input type="text" name="nombre" placeholder="inserte nombre de la ciudad" size="50" maxLength="40"/>
+            <input type="text" name="nombre" placeholder="inserte nombre de la ciudad" size="80" maxLength="40"/>
             <br/>
             <h3 className={styles.h3}>Seleccione el ranking:</h3>
             <select onChange={(e) => handleChange(e)} name="ranking">
@@ -139,7 +139,7 @@ export default function UploadData() {
                <br/>
                <h3 className={styles.subtitulo}>Lugares Importantes</h3>
                <h3 className={styles.h3}>Nombre del primer lugar:</h3>
-               <input type="text" name="lugar" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
+               <input type="text" name="lugar" placeholder="inserte nombre del lugar" size="80" maxLength="40"/>
                <br/>
             <h3 className={styles.h3}>Foto del lugar:</h3>
             <input type="file" onChange={archivoHandler2}/>
@@ -152,7 +152,7 @@ export default function UploadData() {
             <br/>
             <br/>
             <h3 className={styles.h3}>Nombre del primer lugar:</h3>
-               <input type="text" name="lugar2" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
+               <input type="text" name="lugar2" placeholder="inserte nombre del lugar" size="80" maxLength="40"/>
                <br/>
             <h3 className={styles.h3}>Foto del lugar:</h3>
             <input type="file" onChange={archivoHandler3}/>
@@ -175,7 +175,7 @@ export default function UploadData() {
                 <br/>
                 <br/>
                 <h3>{doc.nombre}</h3>
-                <img src={doc.url} height="100px" width="100px"></img>
+                <img src={doc.url} height="500px" width="500px"></img>
                 <br/>
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>eliminar</button>
                 <br/>
