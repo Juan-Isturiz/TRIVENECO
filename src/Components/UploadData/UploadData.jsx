@@ -80,7 +80,7 @@ export default function UploadData() {
                 alert("coloca una descripción")
                 return}
         const coleccionRef =  db.collection("ciudades")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
