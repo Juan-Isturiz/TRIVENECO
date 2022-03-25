@@ -3,6 +3,7 @@ import {db} from "../../utils/firebaseConfig"
 import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
+import { Link} from 'react-router-dom';
 
 
 
@@ -67,8 +68,10 @@ export default function ShowData() {
             {radio!=""?(
                 <ul>
                 {docus.filter(zoneFilter(radio)).filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <Link to ={`/CiudadParticular/${doc.keyCode}`}>
                 <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
+                </Link>
                 <h3>{doc.descripcion}</h3>
                 <h3>{doc.zona}</h3>
                 <h3>{doc.lugar1}</h3>
@@ -80,8 +83,10 @@ export default function ShowData() {
             ):(
                 <ul>
                 {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+                <Link to ={`/CiudadParticular/${doc.keyCode}`}>
                 <h3>{doc.nombre}</h3>
                 <img src={doc.url} height="100px" width="100px"></img>
+                </Link>
                 <h3>{doc.descripcion}</h3>
                 <h3>{doc.zona}</h3>
                 <h3>{doc.lugar1}</h3>

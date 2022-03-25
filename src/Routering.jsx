@@ -6,6 +6,7 @@ import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
+import CiudadParticular from "./Pages/CiudadParticular"
 
 const Routering =()=>{
     return(
@@ -17,6 +18,7 @@ const Routering =()=>{
             <Route path="/Signup" element={<RegisterPage/>}/>
             <Route  path="/CityViewPageAdmin" element={<CityViewPageAdmin/>}></Route>
             <Route  path="/HotelViewPageAdmin" element={<HotelViewPageAdmin/>}></Route>
+            <Route path="/CiudadParticular/:id" element={<CiudadParticular/>} ></Route>
         </Routes>
     )
 }
