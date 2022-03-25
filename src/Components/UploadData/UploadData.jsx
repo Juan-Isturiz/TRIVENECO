@@ -9,6 +9,7 @@ export default function UploadData() {
 
     const [ObjectSelected, setSelected]= useState("");
     const[archivoUrl, setArchivoUrl] = useState("");
+    const[archivoUrl2, setArchivoUrl2] = useState("");
     const[docus,setDocus]=useState([]);
 
     const keyCode= uuidv4();
@@ -26,20 +27,40 @@ export default function UploadData() {
         setArchivoUrl(enlaceUrl)
     }
 
+    const archivoHandler2 = async (e)=>{
+
+        const archivo2= e.target.files[0]
+        const storageRef2 = storage.ref()
+        const archivoPath2 = storageRef2.child(archivo2.name)
+        await archivoPath2.put(archivo2)
+        console.log('archivo cargado:' ,archivo2.name)
+        const enlaceUrl2 = await archivoPath2.getDownloadURL();
+        setArchivoUrl2(enlaceUrl2)
+    }
+
+
     const submitHandler = async (e)=>{
         e.preventDefault()
         const nombreArchivo = e.target.nombre.value
-        const descripcionArchivo = e.target.descripcion.value
+        const nombreLugar = e.target.lugar.value
+        const descripcionArchivo = e.target.descripcionArchivo.value
+        const descripcionArchivo2 = e.target.descripcionArchivo2.value
         const zonaArchivo = e.target.zona.value
         const rankingArchivo = e.target.ranking.value
         if(!nombreArchivo){
             alert("coloca un nombre")
             return}
+        if(!nombreLugar){
+            alert("coloca un nombre")
+            return}
         if(!descripcionArchivo){
             alert("coloca una descripción")
             return}
+        if(!descripcionArchivo2){
+            alert("coloca una descripción")
+            return}
         const coleccionRef =  db.collection("archivos")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar})
         console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
     }
 
@@ -85,7 +106,7 @@ export default function UploadData() {
                <br/>
             <br/>
             <h3 className={styles.h3}>Describe la ciudad:</h3>
-            <textarea name="descripción de la ciudad" placeholder="describe la ciudad" className={styles.textarea} rows={4}/>
+            <textarea name="descripcionArchivo" placeholder="describe la ciudad" className={styles.textarea} rows={4}/>
             <br/>
             <h3 className={styles.h3}>Seleccione la Zona:</h3>
             <select onChange={(e) => handleChange(e)} name="zona">
@@ -95,10 +116,20 @@ export default function UploadData() {
                 <option value="Campo">Campo</option>
    		    </select>
                <br/>
-               <h3 className={styles.subtitulo}>Descripción General</h3>
+               <br/>
+               <h3 className={styles.subtitulo}>Lugares Importantes</h3>
+               <h3 className={styles.h3}>Nombre del primer lugar:</h3>
+               <input type="text" name="lugar" placeholder="inserte nombre del lugar" size="50" maxLength="40"/>
+               <br/>
+            <h3 className={styles.h3}>Foto del lugar:</h3>
+            <input type="file" onChange={archivoHandler2}/>
                <br/>
             <br/>
+            <h3 className={styles.h3}>Describe el lugar:</h3>
+            <textarea name="descripcionArchivo2" placeholder="describe el lugar detalladamente" className={styles.textarea} rows={4}/>
+            <br/>
             <button className={styles.enviar}>
+            
                 Enviar</button>
             
         </form>

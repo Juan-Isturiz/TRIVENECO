@@ -71,6 +71,9 @@ export default function ShowData() {
                 <img src={doc.url} height="100px" width="100px"></img>
                 <h3>{doc.descripcion}</h3>
                 <h3>{doc.zona}</h3>
+                <h3>{doc.lugar1}</h3>
+                <h3>{doc.ranking}</h3>
+                <img src={doc.url2} height="100px" width="100px"></img>
                 </li>)}
                 </ul>
                 
@@ -81,6 +84,12 @@ export default function ShowData() {
                 <img src={doc.url} height="100px" width="100px"></img>
                 <h3>{doc.descripcion}</h3>
                 <h3>{doc.zona}</h3>
+                <h3>{doc.lugar1}</h3>
+                <h3>{doc.ranking}</h3>
+                <img src={doc.url2} height="100px" width="100px"></img>
+                <h3>{doc.descripcion2}</h3>
+
+
                 </li>)}
                 </ul>
                 )}
