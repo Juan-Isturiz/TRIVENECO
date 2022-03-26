@@ -57,7 +57,7 @@ export default function UploadData() {
         const nombreLugarInteres2 = e.target.lugar2.value
         const descripcionArchivo = e.target.descripcionArchivo.value
         const descripcionArchivo2 = e.target.descripcionArchivo2.value
-        const descripcionArchivo3 = e.target.descripcionArchivo2.value
+        const descripcionArchivo3 = e.target.descripcionArchivo3.value
         const MascotaArchivo = e.target.mascota.value
         const ComidaRica = e.target.comida.value
         const PlayaChevere = e.target.playa.value
@@ -90,7 +90,7 @@ export default function UploadData() {
                 return}
                 
         const coleccionRef =  db.collection("hoteles")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
         console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
@@ -163,7 +163,7 @@ export default function UploadData() {
                 <option value="Si">Si</option>
                 <option value="No">No</option>
    		    </select>
-            <h3 className={styles.h3}>Viene con comida incluida?:</h3>
+            <h3 className={styles.h3}>Viene con desayuno incluido?:</h3>
             <select onChange={(e) => handleChange(e)} name="comida">
                 <option value="Si">Si</option>
                 <option value="No">No</option>

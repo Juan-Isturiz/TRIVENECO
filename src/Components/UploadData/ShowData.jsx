@@ -68,21 +68,22 @@ export default function ShowData() {
             {radio!=""?(
                 <ul className={styles.cities}>
                 {docus.filter(zoneFilter(radio)).filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode} className={styles.elements}>
+                <h3>{doc.nombre}</h3>
                 <Link to ={`/CiudadParticular/${doc.keyCode}`}>
                 <img src={doc.url} height="100px" width="100px"></img>
-                <h3>{doc.ranking}</h3>
                 </Link>
+                <h3>{doc.ranking}</h3>
+                
                 </li>)}
                 </ul>
                 
             ):(
                 <ul className={styles.cities}>
                 {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode} className={styles.elements}>
-                <Link to ={`/CiudadParticular/${doc.keyCode}`}>
                 <h3>{doc.nombre}</h3>
-                <img src={doc.url} height="100px" width="100px"></img>
+                <Link to ={`/CiudadParticular/${doc.keyCode}`}><img src={doc.url} height ="100px" width="100px"></img></Link>
                 <h3>{doc.ranking}</h3>
-                </Link>
+                
                 </li>)}
                 </ul>
                 )}

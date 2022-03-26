@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
+import { Link} from 'react-router-dom';
 
 
 
@@ -44,7 +45,7 @@ export default function ShowHotel() {
         <ul>
             {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
             <h3>{doc.nombre}</h3>
-            <img src={doc.url} height="100px" width="100px"></img>
+            <Link to ={`/HotelParticular/${doc.keyCode}`}><img src={doc.url} height="100px" width="100px"></img></Link>
             <h3>{doc.descripcion}</h3>
             </li>)}
         </ul>
