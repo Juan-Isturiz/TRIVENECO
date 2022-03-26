@@ -9,7 +9,7 @@ const UserContextProvider = ({ children }) => {
     email: 'exmple@correo.com',
     photoURL: 'Ganga',
     emailVerified: false,
-    uid: 1,
+    uid: "1",
     metadata: {
       creationTime: 5,
       lastSignInTime: 4
@@ -24,7 +24,7 @@ const UserContextProvider = ({ children }) => {
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1,
+      uid: "1",
       metadata: {
         creationTime: 5,
         lastSignInTime: 4
@@ -40,7 +40,7 @@ const UserContextProvider = ({ children }) => {
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1,
+      uid: "1",
       metadata: {
         creationTime: 5,
         lastSignInTime: 4
