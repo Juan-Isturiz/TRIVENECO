@@ -1,15 +1,15 @@
-import React,{useState,useEffect} from 'react'
-import {db} from "../../utils/firebaseConfig"
+import React,{ useState, useEffect } from 'react'
+import { db } from "../../utils/firebaseConfig"
 import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from "./ShowData.module.css";
 import InputField from '../UI/InputField/InputField';
 
 
 
-function searchingTerm(term){
+const searchingTerm = (term) => {
     return function(x){
         return x.nombre.toLowerCase().includes(term) || !term
     }
@@ -35,8 +35,10 @@ export default function ShowData() {
     useEffect(async ()=>{
     const docusList = await db.collection("ciudades").get()
     setDocus(docusList.docs.map((doc)=>doc.data()))
+    })
 
-},[])
+    const [filter, setFilter] = useState(false)
+
     return (
         <section>
         <Card className={classes.login2} >
@@ -48,15 +50,17 @@ export default function ShowData() {
             </div>
             <div className={classes.actions}>
             </div>
-            <div>
+            <button onClick={() => setFilter(!filter)} type='button' className={styles.FilterButton}>Open filters</button>
+            {filter && <div>
                 <li className={classes.radioContainer}>
                 <input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")} /><h4 className={classes.radio}>Playa</h4>
                 <input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")} /><h4 className={classes.radio}>Montaña</h4>
                 <input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")} /><h4 className={classes.radio}>Ciudad</h4>
                 <input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")} /><h4 className={classes.radio}>Campo</h4>
-                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} /><h4 className={classes.radio}>reset</h4>
+                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} /><h4 className={classes.radio}>Reset</h4>
                 </li>
-            </div>
+            </div>}
+            
             
         </form>
         </Card>
