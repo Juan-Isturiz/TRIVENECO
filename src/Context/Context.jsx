@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { db, auth, currentLog } from '../utils/firebaseConfig';
-
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
@@ -15,9 +15,10 @@ const UserContextProvider = ({ children }) => {
       lastSignInTime: 4
     }
   })
-
+  const history = useNavigate();
   const loggerOut = async () => {
     await auth.signOut();
+    
     setLogged(false)
     setUser({
       displayName: 'visitor',
@@ -31,6 +32,7 @@ const UserContextProvider = ({ children }) => {
       }
 
     })
+    history('/')
   }
   const clienteActivo = async () => {
     await auth.signOut();
