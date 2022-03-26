@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.body h2 {
+.body a {
     font-family: var(--font-titles);
     font-weight: bold;
     text-align: center;

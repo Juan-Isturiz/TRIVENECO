@@ -4,6 +4,10 @@ import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
 import styles from './ShowHotel.module.css';
 import InputField from '../UI/InputField/InputField';
+import { Link} from 'react-router-dom';
+
+
+
 
 function searchingTerm(term){
     return function(x){
