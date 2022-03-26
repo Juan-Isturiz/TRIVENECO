@@ -26,6 +26,7 @@ const Menu = (props) => {
         <Link to="/HotelView" onClick = {()=>setOpen(!open)}><li>
           Hoteles
         </li></Link>
+        <Link to="/Feedback" onClick = {()=>setOpen(!open)}><li>Feedback</li></Link>
         
         
         {!isLogged ? (<li onClick={toLog}>
@@ -34,8 +35,8 @@ const Menu = (props) => {
           
           Log out
         </li>
-        <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}> Ciudades-Admin</Link>
-        <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}> Hotel-Admin</Link>
+        <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Ciudades-Admin</li></Link>
+        <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Hotel-Admin</li></Link>
         </div>)}
 
       </ul>
