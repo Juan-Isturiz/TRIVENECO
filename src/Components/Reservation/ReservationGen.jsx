@@ -1,20 +1,15 @@
 import React,{useState} from 'react'
 import {storage} from "../../utils/firebaseConfig"
+import {DatePicker} from "@material-ui/pickers"
+
 
 export default function ReservationGen() {
+    
+    const [ObjectSelected, setSelected]= useState("");
+    const[archivoUrl4, setArchivoUrl4] = useState("");
+    const[checkInmin,changeCheckInmin]=useState(new Date())
+    const[checkOutmax,changeCheckOutmax]=useState(new Date())
 
-    const[archivoUrl, setArchivoUrl] = useState("");
-
-    const archivoHandler = async (e)=>{
-
-        const archivo= e.target.files[0]
-        const storageRef = storage.ref()
-        const archivoPath = storageRef.child(archivo.name)
-        await archivoPath.put(archivo)
-        console.log('archivo cargado:' ,archivo.name)
-        const enlaceUrl = await archivoPath.getDownloadURL();
-        setArchivoUrl(enlaceUrl)
-    }
 
     const handleChange = (e) => {
         setSelected(e.target.value)
@@ -23,8 +18,7 @@ export default function ReservationGen() {
     return (
         <div>
             <h3>nombre: </h3>
-            <h3>Foto de la habitacion:</h3>
-            <input type="file" name="imagenhab" value={archivoUrl} onChange={archivoHandler}/>
+            
             <hr/>
             <h3>titulo: </h3>
             <input type="text" name="habitacion" placeholder="inserte título de habitación" size="50" maxLength="40"/>
@@ -44,6 +38,16 @@ export default function ReservationGen() {
                 <option value="8">8</option>
                 <option value="9">9</option>
    		    </select>
+            <hr/>
+            <div>
+            <label> Fecha check-In</label>
+            <DatePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
+        </div>
+        <hr/>
+        <div>
+        <label> Fecha check-Out</label>
+        <DatePicker value={checkOutmax} onChange={changeCheckOutmax} name="timax"/>
+    </div>
         </div>
     )
 }
