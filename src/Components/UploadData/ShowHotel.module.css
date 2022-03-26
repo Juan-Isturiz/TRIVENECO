@@ -16,7 +16,7 @@
 
 .HotelList {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
     margin: auto;
