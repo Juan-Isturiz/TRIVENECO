@@ -7,6 +7,7 @@ import cityImg from "../img/ciudades.jpeg";
 import secondcityImg from "../img/citypageimg.jpg";
 import { UserContext } from '../Context/Context';
 import { useContext,useEffect, useState } from "react";
+
 const LandPage = () => {
     const {user, setUser, isLogged} = useContext(UserContext)
     const [webos, setWebos] =useState()

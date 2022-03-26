@@ -7,7 +7,7 @@ const Cities = (props) => {
     return (
         <section className={`${styles.body} ${props.className}`}>
             <div>
-            <Link to="/CityView" >Ciudades</Link>
+            <Link to="/CityView" className={styles.semiTitle}>Ciudades</Link>
             </div>
             <div className={`${styles.container}`}>
                 <img src={`${props.src}`} alt={`${props.alt}`} />
@@ -18,7 +18,8 @@ const Cities = (props) => {
                         className={styles.btn}
                         disabled={false}
                     >
-                        Ver ciudades
+                        <Link to="/CityView">
+                        Ver ciudades</Link>
                     </Button>
                 </div>
             </div>

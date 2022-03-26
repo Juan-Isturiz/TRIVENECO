@@ -5,7 +5,7 @@ import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
 import { Link} from 'react-router-dom';
 import styles from "./ShowData.module.css";
-
+import InputField from '../UI/InputField/InputField';
 
 
 
@@ -44,12 +44,7 @@ export default function ShowData() {
             <div className={`${classes.control1}
             `}>
                  <label htmlFor="buscador">Buscador</label>
-            <input
-                type="buscador"
-                id="buscador"
-                placeholder="Filtrado por nombre"
-                onChange={e=>setTerm(e.target.value)}
-            />
+            <InputField type="buscador" id="buscador" placeholder="Filtrado por nombre" onChange={e=>setTerm(e.target.value)} />
             </div>
             <div className={classes.actions}>
             </div>

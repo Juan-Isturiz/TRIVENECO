@@ -1,0 +1,75 @@
+.HotelSearcher {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 8rem;
+    padding: 0.3rem;
+}
+
+.HotelSearcher h2 {
+    font-size: 2rem;
+}
+
+.HotelList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin: auto;
+    width: 80%;
+    margin-top: 3em;
+    list-style: none;
+    
+}
+
+.HotelList li {
+    background-color: var(--neutral-color-200);
+    padding: 1em;
+    border-radius: 1em;
+    margin: auto;
+    width: 100%;
+}
+
+.HotelList h3 {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 1em;
+}
+
+.PhotoAndDescription {
+    display: flex;
+    gap: 2em;
+}
+
+.HotelList img {
+    width: 40%;
+}
+
+@media (max-width: 800px) {
+    .HotelSearcher {
+        width: 60%;
+    }
+
+    .HotelSearcher h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .HotelList {
+        width: 90%;
+    }
+
+    .HotelList img {
+        width: 90%;
+    }
+
+
+    .PhotoAndDescription {
+        flex-direction: column;
+    }
+}

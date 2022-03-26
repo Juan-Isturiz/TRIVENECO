@@ -1,7 +1,7 @@
 import React ,{useContext, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../UI/Button/Button';
-import styles from './Navbar.module.css';
+import styles from './NavBar.module.css';
 import {UserContext} from "../../Context/Context" ;
 import { auth } from "../../utils/firebaseConfig";
 import logo from '../../img/logowhite.svg';

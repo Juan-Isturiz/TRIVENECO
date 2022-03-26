@@ -2,9 +2,8 @@ import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
-
-
-
+import styles from './ShowHotel.module.css';
+import InputField from '../UI/InputField/InputField';
 
 function searchingTerm(term){
     return function(x){
@@ -25,27 +24,26 @@ export default function ShowHotel() {
 },[])
     return (
         <section>
-        <Card className={classes.login2} >
+        {/* <Card className={classes.login2} > */}
+        <Card className={styles.HotelSearcher}>
+        <h2>Encuentra tu hotel ideal</h2>
         <form>
-            <div className={`${classes.control1}
-            `}>
-                 <label htmlFor="buscador">Buscador</label>
-            <input
-                type="buscador"
-                id="buscador"
-                placeholder="Filtrado por nombre"
-                onChange={e=>setTerm(e.target.value)}
-            />
+            <div className={classes.control1}>
+                 {/* <label htmlFor="buscador">Encuentra tu hotel ideal</label> */}
+            <InputField type="buscador" placeholder="Filtrado por nombre" onChange= {e=>setTerm(e.target.value)}></InputField>
+
             </div>
             <div className={classes.actions}>
-            </div>        
+            </div> {/* qué hace este div? lo vi aquí y ta vacío hm */}
         </form>
         </Card>
-        <ul>
-            {docus.filter(searchingTerm(term)).map((doc)=><li key={doc.keyCode}>
+        <ul className={styles.HotelList}>
+            {docus.filter(searchingTerm(term)).map((doc)=>
+            <li key={doc.keyCode}>
             <h3>{doc.nombre}</h3>
-            <img src={doc.url} height="100px" width="100px"></img>
-            <h3>{doc.descripcion}</h3>
+            <div className={styles.PhotoAndDescription}>
+            <img src={doc.url} width="200px"></img>
+            <p>{doc.descripcion}</p></div>
             </li>)}
         </ul>
         </section>
