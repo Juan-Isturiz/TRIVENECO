@@ -1,16 +1,15 @@
 import Cities from "../Components/LandPage/Cities.jsx";
 import Hotels from "../Components/LandPage/Hotels.jsx";
-import Feedback from "../Components/LandPage/Feedback";
+import Feedback from "../Components/LandPage/FeedbackLink";
 import Header from "../Components/Header/Header";
 import hotelImg from "../img/hotelpageimg.jpg";
 import cityImg from "../img/ciudades.jpeg";
 import secondcityImg from "../img/citypageimg.jpg";
-import { UserContext } from '../Context/Context';
-import { useContext,useEffect, useState } from "react";
+import { UserContext } from "../Context/Context";
+import { useContext, useEffect } from "react";
 const LandPage = () => {
-    const {user, setUser, isLogged} = useContext(UserContext)
-    const [webos, setWebos] =useState()
-    useEffect(()=>{},[user])
+    const { user, setUser, isLogged } = useContext(UserContext);
+    useEffect(() => {}, [user]);
     return (
         <div>
             <Header
@@ -32,11 +31,6 @@ const LandPage = () => {
                 alt="imagen de hoteles"
                 text="No solo te quedes con viajar a la ciudad ¡quédate en tu hotel de ensueño! contamos con un excelente listado de hoteles que sin duda superarán tus expectativas"
             ></Hotels>
-            <Feedback
-                className="fb"
-                question="¿Tienes alguna pregunta?"
-            ></Feedback>
-            {user.displayName}
         </div>
     );
 };
