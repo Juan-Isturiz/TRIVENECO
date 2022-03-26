@@ -63,6 +63,12 @@ export default function UploadData() {
         const ApostarCool = e.target.casino.value
         const relajacionRela = e.target.entretenimiento.value
         const rankingArchivo = e.target.ranking.value
+        if(!e.target.ciudad){
+            alert("No hay ciudades no se puede procesar")
+            return}
+            else{
+        const hayCiudad = e.target.ciudad.value
+            }
         if(!nombreHotel){
             alert("coloca el nombre del hotel")
             return}
@@ -81,8 +87,9 @@ export default function UploadData() {
             if(!descripcionArchivo3){
                 alert("coloca una descripción")
                 return}
+                
         const coleccionRef =  db.collection("hoteles")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2,ciudad:hayCiudad})
         console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
@@ -97,6 +104,12 @@ export default function UploadData() {
 
     },[])
 
+    const[docusCity,setDocusCity]=useState([]);
+
+    useEffect(async ()=>{
+    const docusCity = await db.collection("ciudades").get()
+    setDocusCity(docusCity.docs.map((doccity)=>doccity.data()))
+},[])
     
     const handleChange = (e) => {
         setSelected(e.target.value)
@@ -125,6 +138,18 @@ export default function UploadData() {
                 <option value="4 Estrellas">4 Estrellas</option>
                 <option value="5 Estrellas">5 Estrellas</option>
    		    </select>
+
+               <h3 className={styles.h3}>Seleccione la ciudad:</h3>
+               {docusCity.map((doc)=><li key={doc.keyCode}>
+               <select onChange={(e) => handleChange(e)} name="ciudades">
+                   <option value={doc.nombre}>{doc.nombre}</option>
+                   </select>
+               </li>)}
+               
+            
+                      
+   		   
+
                <br/>
             <br/>
             <h3 className={styles.h3}>Descripcion del hotel:</h3>

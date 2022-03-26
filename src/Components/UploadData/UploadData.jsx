@@ -56,10 +56,11 @@ export default function UploadData() {
         const nombreLugarInteres2 = e.target.lugar2.value
         const descripcionArchivo = e.target.descripcionArchivo.value
         const descripcionArchivo2 = e.target.descripcionArchivo2.value
-        const descripcionArchivo3 = e.target.descripcionArchivo2.value
+        const descripcionArchivo3 = e.target.descripcionArchivo3.value
         const zonaArchivo = e.target.zona.value
         const rankingArchivo = e.target.ranking.value
         if(!nombreCiudad){
+            nombreArchivo
             alert("coloca el nombre de la ciudad")
             return}
         if(!nombreLugarInteres){
@@ -78,8 +79,8 @@ export default function UploadData() {
                 alert("coloca una descripción")
                 return}
         const coleccionRef =  db.collection("ciudades")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreArchivo, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
-        console.log("archivo cargado:", nombreArchivo, "url:",archivoUrl)
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreCiudad, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugar, lugar2:nombreLugar2})
+        console.log("archivo cargado:", nombreCiudad, "url:",archivoUrl)
     }
 
     const deleteSel = async (keyToDel1)=>{
