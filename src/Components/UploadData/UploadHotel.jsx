@@ -12,6 +12,7 @@ export default function UploadData() {
     const[archivoUrl2, setArchivoUrl2] = useState("");
     const[archivoUrl3, setArchivoUrl3] = useState("");
     const[docus,setDocus]=useState([]);
+    const[ciudad,setCiudad]=useState("");
 
     const keyCode= uuidv4();
 
@@ -63,12 +64,12 @@ export default function UploadData() {
         const ApostarCool = e.target.casino.value
         const relajacionRela = e.target.entretenimiento.value
         const rankingArchivo = e.target.ranking.value
-        if(!e.target.ciudad){
+        const hayCiudad = e.target.ciudades.value
+
+        if(!hayCiudad){
             alert("No hay ciudades no se puede procesar")
             return}
-            else{
-        const hayCiudad = e.target.ciudad.value
-            }
+
         if(!nombreHotel){
             alert("coloca el nombre del hotel")
             return}
@@ -89,7 +90,7 @@ export default function UploadData() {
                 return}
                 
         const coleccionRef =  db.collection("hoteles")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2,ciudad:hayCiudad})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion: descripcionArchivo, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
         console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
@@ -110,6 +111,8 @@ export default function UploadData() {
     const docusCity = await db.collection("ciudades").get()
     setDocusCity(docusCity.docs.map((doccity)=>doccity.data()))
 },[])
+
+
     
     const handleChange = (e) => {
         setSelected(e.target.value)
