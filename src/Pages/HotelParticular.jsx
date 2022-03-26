@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import React, {useEffect, useState } from "react";
 import {db} from "../utils/firebaseConfig";
 import styles from "./HotelParticular.module.css"
+import Reservation from "../Components/Reservation/Reservation"
 
 function searchingTerm(id){
     return function(x){
@@ -42,11 +43,35 @@ export function HotelParticular() {
                 <h3 className={styles.descripcion}>{doc.ciudad}</h3>
                 <h1 className={styles.titulo}>Entretenimiento: </h1>
                 <h3 className={styles.descripcion}>{doc.entretenimiento}</h3>
-                <h1 className={styles.titulo}>Se permite mascota: </h1>
+                <h1 className={styles.titulo}>Se permiten mascotas: </h1>
                 <h3 className={styles.descripcion}>{doc.mascota}</h3>
+
+                <br/>
+                <br/>
+                <h1 className={styles.titulo}>Intalaciones: </h1>
+                <h3 className={styles.titulo}>{doc.lugar}</h3>
+                <img src={doc.url2} height="500px" width="600px"></img>
+                <br/>
+                <br/>
+                <h1 className={styles.titulo}>Descripción</h1>
+           
+                <h3 className={styles.descripcion}>{doc.descripcion2}</h3>
+                
+                <br/>
+                <br/>
+                <h3 className={styles.titulo}>{doc.lugar2}</h3>
+                <img src={doc.url3} height="500px" width="600px"></img>
+                <br/>
+                <br/>
+                <h1 className={styles.titulo}>Descripción</h1>
+                
+                <h3 className={styles.descripcion}>{doc.descripcion3}</h3>
+<br/>
+<br/>
 <br/>
 <br/>
                 </li>)}
+                <Reservation></Reservation>
         </div>
     ) 
 }

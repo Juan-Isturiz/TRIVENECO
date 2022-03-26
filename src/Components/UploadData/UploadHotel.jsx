@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
 import styles from "./Upload.module.css"
+import ReservationGen from "../Reservation/ReservationGen"
 
 
 export default function UploadData() {
@@ -12,7 +13,6 @@ export default function UploadData() {
     const[archivoUrl2, setArchivoUrl2] = useState("");
     const[archivoUrl3, setArchivoUrl3] = useState("");
     const[docus,setDocus]=useState([]);
-    const[ciudad,setCiudad]=useState("");
 
     const keyCode= uuidv4();
 
@@ -90,7 +90,7 @@ export default function UploadData() {
                 return}
                 
         const coleccionRef =  db.collection("hoteles")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
         console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
@@ -120,6 +120,7 @@ export default function UploadData() {
 
     return (
         <div className={styles.Container}>
+
         <form onSubmit={submitHandler} className={styles.Formulario}>
             <h1 className={styles.h1}>Subir Archivos</h1>
             <br/>
@@ -209,12 +210,16 @@ export default function UploadData() {
             <h3 className={styles.h3}>Describe el lugar:</h3>
             <textarea name="descripcionArchivo3" placeholder="describe el lugar detalladamente" className={styles.textarea} rows={4}/>
             <br/>
+            <h3 className={styles.h3}>Es necesario colocar una habitacion al momento de crear</h3>
+            <ReservationGen/>
 
+            <br/>
             <button className={styles.enviar}>
-
-                Enviar</button>
             
+                Enviar</button>
+                
         </form>
+
         <br/>
             <h1 className={styles.h1}>Hoteles guardados en el sistema</h1>
         <ul className={styles.ciudades}>
@@ -230,6 +235,7 @@ export default function UploadData() {
                 <br/>
                 </li>)}
         </ul>
+        
         </div>
     )
 }
