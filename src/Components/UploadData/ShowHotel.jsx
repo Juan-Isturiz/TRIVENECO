@@ -46,6 +46,7 @@ export default function ShowHotel() {
             <p>{doc.descripcion}</p></div>
             </li>)}
         </ul>
+        
         </section>
     )
 }
