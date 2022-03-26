@@ -39,7 +39,6 @@ export default function ShowData() {
 },[])
     return (
         <section>
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#generadorAndy293923923232323232323" data-width="100%" data-numposts="1"></div>
         <Card className={classes.login2} >
         <form>
             <div className={`${classes.control1}
