@@ -18,7 +18,7 @@ const UserContextProvider = ({ children }) => {
   const history = useNavigate();
   const loggerOut = async () => {
     await auth.signOut();
-    
+
     setLogged(false)
     setUser({
       displayName: 'visitor',
@@ -60,12 +60,12 @@ const UserContextProvider = ({ children }) => {
       if (user) {
         console.log(user.email)
         if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-          const  usr ={
-            email : user.email,
-            rol : 1
+          const usr = {
+            email: user.email,
+            rol: 1
           }
-          
-          createUser(user.uid,usr)
+
+          createUser(user.uid, usr)
         }
         setLogged(true)
         setUser(currentLog())
