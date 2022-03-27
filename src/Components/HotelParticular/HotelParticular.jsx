@@ -4,6 +4,7 @@ import { db } from "../../utils/firebaseConfig";
 import styles from "./HotelParticular.module.css";
 import Reservation from "../Reservation/ReservationGen";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../Header/Header"
 
 
 function searchingTerm(id){
@@ -61,6 +62,7 @@ export function HotelParticular() {
                     <h1 className={styles.titulo}>Descripción</h1>
 
                     <h3 className={styles.descripcion}>{doc.descripcion3}</h3>
+
 
                     <h3 className={styles.h3}>Seleccione la habitación:</h3>
                     {doc.lista2.map((docu) => (
