@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { db, auth, currentLog } from '../utils/firebaseConfig';
-
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
@@ -9,28 +9,30 @@ const UserContextProvider = ({ children }) => {
     email: 'exmple@correo.com',
     photoURL: 'Ganga',
     emailVerified: false,
-    uid: 1,
+    uid: "1",
     metadata: {
       creationTime: 5,
       lastSignInTime: 4
     }
   })
-
+  const history = useNavigate();
   const loggerOut = async () => {
     await auth.signOut();
+
     setLogged(false)
     setUser({
       displayName: 'visitor',
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1,
+      uid: "1",
       metadata: {
         creationTime: 5,
         lastSignInTime: 4
       }
 
     })
+    history('/')
   }
   const clienteActivo = async () => {
     await auth.signOut();
@@ -40,7 +42,7 @@ const UserContextProvider = ({ children }) => {
       email: 'exmple@correo.com',
       photoURL: 'Ganga',
       emailVerified: false,
-      uid: 1,
+      uid: "1",
       metadata: {
         creationTime: 5,
         lastSignInTime: 4
@@ -58,12 +60,12 @@ const UserContextProvider = ({ children }) => {
       if (user) {
         console.log(user.email)
         if (user.metadata.creationTime === user.metadata.lastSignInTime) {
-          const  usr ={
-            email : user.email,
-            rol : 1
+          const usr = {
+            email: user.email,
+            rol: 1
           }
-          
-          createUser(user.uid,usr)
+
+          createUser(user.uid, usr)
         }
         setLogged(true)
         setUser(currentLog())

@@ -6,9 +6,10 @@ import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular"
-import HotelParticular from "./Components/HotelParticular/HotelParticular"
-import Feedback from "./Components/Feedback/Feedback"
+import CiudadParticular from "./Pages/CiudadParticular"
+import HotelParticular from "./Pages/HotelParticular"
+import Feedback from "./Pages/Feedback.jsx"
+import UserProfile from "./Pages/UserProfile";
 
 const Routering = () => {
     return (
@@ -22,7 +23,7 @@ const Routering = () => {
             <Route path="/HotelViewPageAdmin" element={<HotelViewPageAdmin />}></Route>
             <Route path="/CiudadParticular/:id" element={<CiudadParticular />} ></Route>
             <Route path="/HotelParticular/:id" element={<HotelParticular />} ></Route>
-
+            <Route path="/Perfil" element= {<UserProfile/>}/>
             <Route path="/FeedBack" element={<Feedback />} ></Route>
         </Routes>
     )
