@@ -34,7 +34,6 @@ const Register = () => {
   const onSubmit = async (data) => {
     try {
       const response =await auth.createUserWithEmailAndPassword(data.email, data.password);
-      console.log(response)
       setLogged(true),
       setUser(currentLog())
       console.log(data.phoneNumber)

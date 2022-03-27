@@ -8,7 +8,7 @@ import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
 import CiudadParticular from "./Components/CiudadParticular/CiudadParticular"
 import HotelParticular from "./Components/HotelParticular/HotelParticular"
-import Feedback from "./Components/Feedback/Feedback.jsx"
+import FeedbackPage from "./Pages/FeedbackPage";
 import AddHab from "./Pages/AddHab.jsx"
 import UserProfile from "./Pages/UserProfile";
 import Reserva from "./Pages/Reservation";
@@ -39,10 +39,8 @@ const Routering = () => {
             ></Route>
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
-            <Route path="/FeedBack" element={<Feedback />}></Route>
+            <Route path="/FeedBack" element={<FeedbackPage />}></Route>
             <Route path="/Reserva/:id" element={<Reserva />}></Route>
-
-            <Route path="/FeedBack" element={<Feedback />}></Route>
         </Routes>
     );
 };
