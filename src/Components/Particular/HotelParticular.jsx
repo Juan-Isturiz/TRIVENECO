@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseConfig";
-import styles from "./HotelParticular.module.css";
+import styles from "./Particular.module.css";
 import Reservation from "../Reservation/ReservationGen";
 import { Link, useNavigate } from "react-router-dom";
 
