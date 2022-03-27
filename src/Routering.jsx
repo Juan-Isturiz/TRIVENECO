@@ -40,7 +40,7 @@ const Routering = () => {
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
             <Route path="/FeedBack" element={<Feedback />}></Route>
-            <Route path="/Reservation/:id" element={<Reservation/>}></Route>
+            <Route path="/Reservation/:id/:type" element={<Reservation/>} ></Route>
 
             <Route path="/FeedBack" element={<Feedback />}></Route>
         </Routes>
