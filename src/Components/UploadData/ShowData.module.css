@@ -9,7 +9,6 @@
 .cities .elements {
     margin: auto;
     list-style: none;
-    border: solid red 30px;
 }
 
 .cities a {
@@ -23,7 +22,7 @@
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin:auto;
+    margin: auto;
     align-items: center;
 }
 
@@ -38,19 +37,18 @@
     font-size: 2rem;
 }
 
-
 .FilterButton {
-    color:black;
+    color: black;
     font-size: 1rem;
-    width:auto;
+    width: auto;
     padding: 0.2rem;
 }
 
 .RadioContainer {
     /* margin: 1.5rem 0; */
     list-style: none;
-    display:flex;
-    gap:10%;
+    display: flex;
+    gap: 10%;
     text-align: left;
 }
 
