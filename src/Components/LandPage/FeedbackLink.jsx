@@ -1,4 +1,4 @@
-import styles from "./Feedback.module.css";
+import styles from "./FeedbackLink.module.css";
 import Button from "../UI/Button/Button";
 
 //Bloque de la página que lleva a la página de Feedback

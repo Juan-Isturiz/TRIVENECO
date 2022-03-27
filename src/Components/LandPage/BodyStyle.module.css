@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.body h2 {
+.body a {
     font-family: var(--font-titles);
     font-weight: bold;
     text-align: center;
@@ -42,6 +42,10 @@
 }
 .body .btn:active {
     background-color: var(--secondary-color-500);
+}
+
+.semiTitle {
+    font-size: 2.5rem;
 }
 
 @media screen and (min-width: 721px) {

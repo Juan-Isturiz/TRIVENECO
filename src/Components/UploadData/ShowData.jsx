@@ -1,15 +1,17 @@
-import React,{useState,useEffect} from 'react'
-import {db} from "../../utils/firebaseConfig"
+import React,{ useState, useEffect } from 'react'
+import { db } from "../../utils/firebaseConfig"
 import Button from '../UI/Button/Button';
 import Card from '../UI/Card/Card';
 import classes from '../Login/Login.module.css';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from "./ShowData.module.css";
+import InputField from '../UI/InputField/InputField';
+import { FaFilter } from 'react-icons/fa'
+import { AiOutlineClear } from 'react-icons/ai'
 
 
 
-
-function searchingTerm(term){
+const searchingTerm = (term) => {
     return function(x){
         return x.nombre.toLowerCase().includes(term) || !term
     }
@@ -22,7 +24,7 @@ function zoneFilter(term){
     }
 }
 
-export default function ShowData() {
+ const ShowData = () => {
 
     
 
@@ -35,33 +37,33 @@ export default function ShowData() {
     useEffect(async ()=>{
     const docusList = await db.collection("ciudades").get()
     setDocus(docusList.docs.map((doc)=>doc.data()))
+    })
 
-},[])
+    const [filter, setFilter] = useState(false)
+
     return (
         <section>
-        <Card className={classes.login2} >
-        <form>
-            <div className={`${classes.control1}
-            `}>
-                 <label htmlFor="buscador">Buscador</label>
-            <input
-                type="buscador"
-                id="buscador"
-                placeholder="Filtrado por nombre"
-                onChange={e=>setTerm(e.target.value)}
-            />
+            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#generadorAndy293923923232323232323" data-width="100%" data-numposts="1"></div>
+        {/* <Card className={classes.login2} > */}
+        <Card className={styles.CardContainer}>
+        <h2>Busca una ciudad</h2>
+        <form className={styles.FormContainer}>
+            <div className={classes.control1}>
+            <InputField type="buscador" id="buscador" placeholder="Filtrado por nombre" onChange={e=>setTerm(e.target.value)} />
             </div>
             <div className={classes.actions}>
             </div>
-            <div>
-                <li className={classes.radioContainer}>
-                <input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")} /><h4 className={classes.radio}>Playa</h4>
-                <input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")} /><h4 className={classes.radio}>Montaña</h4>
-                <input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")} /><h4 className={classes.radio}>Ciudad</h4>
-                <input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")} /><h4 className={classes.radio}>Campo</h4>
-                <input type="radio" name="radio" value="" onClick={e=>setRadio("")} /><h4 className={classes.radio}>reset</h4>
+            <Button onClick={() => setFilter(!filter)} type='button' className={styles.FilterButton}><FaFilter /></Button>
+            {filter && <div>
+                <li className={styles.RadioContainer}>
+                <label htmlFor=""><input type="radio" name="radio" value="Playa" onClick={e=>setRadio("playa")} />Playa</label>
+                <label htmlFor=""><input type="radio" name="radio" value="montaña" onClick={e=>setRadio("montaña")} />Montaña</label>
+                <label htmlFor=""><input type="radio" name="radio" value="Ciudad" onClick={e=>setRadio("ciudad")} />Ciudad</label>
+                <label htmlFor=""><input type="radio" name="radio" value="Campo" onClick={e=>setRadio("campo")} />Campo</label>
+                <label htmlFor=""><AiOutlineClear onClick={e=>setRadio("")} size="1.7rem"/></label>
                 </li>
-            </div>
+            </div>}
+            
             
         </form>
         </Card>
@@ -93,3 +95,5 @@ export default function ShowData() {
         
     )
 }
+
+export default ShowData;

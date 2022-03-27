@@ -3,7 +3,7 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 import { UserContext } from '../../Context/Context';
-import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
+import { auth, googleProvider, facebookProvider, currentLog} from "../../utils/firebaseConfig";
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook } from 'react-icons/im';
@@ -98,6 +98,18 @@ const Login = (props) => {
       
       await auth.signInWithPopup(googleProvider);
       userSetter()
+      navigate('/')
+      
+    }catch(e){
+      console.log(e.message)
+      alert("Tiempo de espera agotado, intente de nuevo")
+    }
+  }
+
+  const handleFacebookLogin = async () => { //Facebook
+    try{
+      await auth.signInWithPopup(facebookProvider);
+      userSetter()
       if (user.metadata.creationTime === user.metadata.lastSignInTime){
         const  usr ={
           email : user.email,
@@ -167,7 +179,7 @@ const Login = (props) => {
       {/* <Button onClick={handleGoogleLogin}>gugel</Button> */}
       <div className={classes.buttons}>
         <FcGoogle onClick={handleGoogleLogin} size="40px" className={classes.btn}/>
-        <ImFacebook size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
+        <ImFacebook onClick={handleFacebookLogin} size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
         <BsTwitter size="40px" color="#1DA1F2" className={classes.btn} />
       </div>
     </Card>
