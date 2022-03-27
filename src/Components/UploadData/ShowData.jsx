@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import styles from "./ShowData.module.css";
 import InputField from "../UI/InputField/InputField";
 import { FaFilter } from "react-icons/fa";
-import { AiOutlineClear } from "react-icons/ai";
+import { AiOutlineClear, AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const searchingTerm = (term) => {
     return function (x) {
@@ -33,6 +33,7 @@ const ShowData = () => {
 
     const [filter, setFilter] = useState(false);
 
+
     return (
         <section>
             <div
@@ -45,20 +46,17 @@ const ShowData = () => {
             <Card className={styles.CardContainer}>
                 <h2>Busca una ciudad</h2>
                 <form className={styles.FormContainer}>
-                    <div className={classes.control1}>
-                        <InputField
-                            type="buscador"
-                            id="buscador"
-                            placeholder="Filtrado por nombre"
-                            onChange={(e) => setTerm(e.target.value)}
-                        />
-                    </div>
+                    <InputField
+                        type="buscador"
+                        id="buscador"
+                        placeholder="Filtrado por nombre"
+                        onChange={(e) => setTerm(e.target.value)}
+                    />
                     <div className={classes.actions}></div>
                     <Button
                         onClick={() => setFilter(!filter)}
                         type="button"
-                        className={styles.FilterButton}
-                    >
+                        className={styles.FilterButton}>
                         <FaFilter />
                     </Button>
                     {filter && (
@@ -118,15 +116,16 @@ const ShowData = () => {
                         .filter(searchingTerm(term))
                         .map((doc) => (
                             <li key={doc.keyCode} className={styles.elements}>
-                                <h3>{doc.nombre}</h3>
                                 <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                     <img
                                         src={doc.url}
-                                        height="100px"
-                                        width="100px"
-                                    ></img>
+                                        className={styles.CityImg}
+                                        ></img>
                                 </Link>
-                                <h3>{doc.ranking}</h3>
+                                <h3>{doc.nombre}</h3>
+                                {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />}
+                                {console.log(AmountStars)} */}
+                                {doc.ranking}
                             </li>
                         ))}
                 </ul>
@@ -134,15 +133,17 @@ const ShowData = () => {
                 <ul className={styles.cities}>
                     {docus.filter(searchingTerm(term)).map((doc) => (
                         <li key={doc.keyCode} className={styles.elements}>
-                            <h3>{doc.nombre}</h3>
                             <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                 <img
                                     src={doc.url}
-                                    height="100px"
-                                    width="100px"
-                                ></img>
+                                    className={styles.CityImg}
+                                    ></img>
                             </Link>
-                            <h3>{doc.ranking}</h3>
+                            <h3>{doc.nombre}</h3>
+                            {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
+                            {/* {console.log(AmountStars)} */}
+                            {doc.ranking}
+
                         </li>
                     ))}
                 </ul>
