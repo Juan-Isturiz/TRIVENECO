@@ -17,7 +17,8 @@ const LandPage = () => {
                 title="Bienvenido"
                 src={cityImg}
                 alt="imagen del titulo"
-                text="¡No esperes más! Agenda el viaje de tus sueños con Triveneco"
+                text="¡No esperes más! Agenda el viaje de tus sueños con "
+                logo={true}
             ></Header>
             <Cities
                 className="body"
