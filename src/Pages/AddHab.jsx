@@ -2,20 +2,17 @@ import { useParams} from 'react-router-dom'
 import React, {useEffect, useState } from "react";
 import {storage,db} from "../utils/firebaseConfig";
 import ReservationGen from "../Components/Reservation/ReservationGen.jsx"
+import { v4 as uuidv4 } from 'uuid';
 
 
-function searchingTerm(id){
-    return function(x){
-        return x.keyCode.toLowerCase().includes(id) || !id
-    }
-}
+
 
 export default function addHab() {
     
         const {id}= useParams()
-        const[docus,setDocus]=useState([]);
         const[archivoUrl4, setArchivoUrl4] = useState("");
-
+        const[listahab, setlistahab] = useState([]);
+        const keyCode2= uuidv4();
 
 
         const archivoHandler4 = async (e)=>{
@@ -27,6 +24,8 @@ export default function addHab() {
             console.log('archivo cargado:' ,archivo4.name)
             const enlaceUrl4 = await archivoPath4.getDownloadURL();
             setArchivoUrl4(enlaceUrl4)
+
+
         }
 
     const submitHandler = async (e)=>{
@@ -45,20 +44,16 @@ export default function addHab() {
                 alert("No hay nombre de habitacion")
                 return}
                 
-        const coleccionRef =  db.collection("hoteles")
-        .child("users").child(userUid).child("activities").push();
-        const docu = await coleccionRef.doc(id).child("precioPerDay").push(precioPerDay)
+        listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
+        
+        db.collection("hoteles").doc(id).update({lista2:listahab})
+        alert("Se ha procesado su solicitud")
         
     }
+    
         
-        
-        useEffect(async ()=>{
-            const docusList = await db.collection("hoteles").get()
-            setDocus(docusList.docs.map((doc)=>doc.data()))
-        },[])
     return (
         <div>
-            {docus.filter(searchingTerm(id)).map((doc)=><div key={doc.keyCode}>
             <form onSubmit={submitHandler}>
             <h3>Foto de la habitacion:</h3>
             <input type="file" onChange={archivoHandler4}/>
@@ -67,7 +62,7 @@ export default function addHab() {
             
                 Enviar</button>
             </form>
-            </div>)}
+            
         </div>
     )
 }
