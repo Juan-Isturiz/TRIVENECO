@@ -2,6 +2,9 @@ import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
 import styles from "./Upload.module.css"
+import ReservationGen from "../Reservation/ReservationGen"
+import {Link} from 'react-router-dom'
+
 
 
 export default function UploadData() {
@@ -11,9 +14,10 @@ export default function UploadData() {
     const[archivoUrl, setArchivoUrl] = useState("");
     const[archivoUrl2, setArchivoUrl2] = useState("");
     const[archivoUrl3, setArchivoUrl3] = useState("");
+    const[archivoUrl4, setArchivoUrl4] = useState("");
     const[docus,setDocus]=useState([]);
-    const[ciudad,setCiudad]=useState("");
-
+    const[listahab, setlistahab] = useState([]);
+    const keyCode2= uuidv4();
     const keyCode= uuidv4();
 
     const archivoHandler = async (e)=>{
@@ -49,6 +53,16 @@ export default function UploadData() {
         setArchivoUrl3(enlaceUrl3)
     }
 
+    const archivoHandler4 = async (e)=>{
+
+        const archivo4= e.target.files[0]
+        const storageRef4 = storage.ref()
+        const archivoPath4 = storageRef4.child(archivo4.name)
+        await archivoPath4.put(archivo4)
+        console.log('archivo cargado:' ,archivo4.name)
+        const enlaceUrl4 = await archivoPath4.getDownloadURL();
+        setArchivoUrl4(enlaceUrl4)
+    }
 
     const submitHandler = async (e)=>{
         e.preventDefault()
@@ -65,6 +79,19 @@ export default function UploadData() {
         const relajacionRela = e.target.entretenimiento.value
         const rankingArchivo = e.target.ranking.value
         const hayCiudad = e.target.ciudades.value
+        const timax= e.target.timax.value
+        const timin= e.target.timin.value
+        const personasHab= e.target.personasHab.value
+        const precioPerDay=e.target.precioPerDay.value
+        const habitacion =e.target.habitacion.value
+
+        if(!precioPerDay){
+            alert("No hay precio")
+            return}
+            
+            if(!habitacion){
+                alert("No hay nombre de habitacion")
+                return}
 
         if(!hayCiudad){
             alert("No hay ciudades no se puede procesar")
@@ -90,8 +117,17 @@ export default function UploadData() {
                 return}
                 
         const coleccionRef =  db.collection("hoteles")
-        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl2, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3, mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
-        console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
+        const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, 
+            url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3,
+            mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,
+            lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
+
+        listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
+        
+         await coleccionRef.doc(keyCode).update({lista2:listahab})
+
+            console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
+        alert("Se ha procesado su solicitud") 
     }
 
     const deleteSel = async (keyToDel1)=>{
@@ -120,6 +156,7 @@ export default function UploadData() {
 
     return (
         <div className={styles.Container}>
+
         <form onSubmit={submitHandler} className={styles.Formulario}>
             <h1 className={styles.h1}>Subir Archivos</h1>
             <br/>
@@ -145,14 +182,9 @@ export default function UploadData() {
                <h3 className={styles.h3}>Seleccione la ciudad:</h3>
                {docusCity.map((doc)=><li key={doc.keyCode}>
                <select onChange={(e) => handleChange(e)} name="ciudades">
-                   <option value={doc.nombre}>{doc.nombre}</option>
+                   <option value="ciudad">{doc.nombre}</option>
                    </select>
                </li>)}
-               
-            
-                      
-   		   
-
                <br/>
             <br/>
             <h3 className={styles.h3}>Descripcion del hotel:</h3>
@@ -209,12 +241,18 @@ export default function UploadData() {
             <h3 className={styles.h3}>Describe el lugar:</h3>
             <textarea name="descripcionArchivo3" placeholder="describe el lugar detalladamente" className={styles.textarea} rows={4}/>
             <br/>
+            <h3 className={styles.h3}>Es necesario colocar una habitacion al momento de crear</h3>
+            <h3>Foto de la habitacion:</h3>
+            <input type="file" onChange={archivoHandler4}/>
+            <ReservationGen/>
 
+            <br/>
             <button className={styles.enviar}>
-
-                Enviar</button>
             
+                Enviar</button>
+                
         </form>
+
         <br/>
             <h1 className={styles.h1}>Hoteles guardados en el sistema</h1>
         <ul className={styles.ciudades}>
@@ -228,8 +266,11 @@ export default function UploadData() {
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>Eliminar</button>
                 <br/>
                 <br/>
+                <Link to={`/AddHab/${doc.keyCode}`} className={styles.h1}> Editar</Link>
+                
                 </li>)}
         </ul>
+        
         </div>
     )
 }

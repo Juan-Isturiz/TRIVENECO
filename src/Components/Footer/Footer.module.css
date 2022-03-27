@@ -10,6 +10,10 @@
     margin: auto;
 }
 
+.footer img {
+    max-width: 200px;
+}
+
 .footer .iconContainer {
     display: flex;
     align-items: center;
@@ -49,7 +53,7 @@
         justify-content: right;
         text-align: right;
         font-weight: bold;
-        font-size: 2.5vw;
+        font-size: 2vw;
     }
     .footer .iconContainer {
         grid-column: 7 / 10;
@@ -70,14 +74,20 @@
     }
     .footer .license {
         grid-column: 2 / 6;
-        font-size: 2vw;
     }
     .footer .icons {
         width: 4em;
         height: 4em;
+        margin-right: 2rem;
     }
     .footer .icons:hover {
         color: var(--primary-color-300);
+    }
+}
+
+@media screen and (min-width: 840px) {
+    .footer .license {
+        font-size: large;
     }
 }
 
