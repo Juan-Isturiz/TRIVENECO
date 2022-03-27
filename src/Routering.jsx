@@ -6,10 +6,12 @@ import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular";
-import HotelParticular from "./Components/HotelParticular/HotelParticular";
-import Feedback from "./Pages/FeedbackPage.jsx";
+import CiudadParticular from "./Pages/CiudadParticular";
+import HotelParticular from "./Pages/HotelParticular";
+import Feedback from "./Pages/Feedback.jsx";
+import AddHab from "./Pages/AddHab.jsx";
 import UserProfile from "./Pages/UserProfile";
+import Reserva from "./Pages/Reservation";
 
 const Routering = () => {
     return (
@@ -35,7 +37,11 @@ const Routering = () => {
                 path="/HotelParticular/:id"
                 element={<HotelParticular />}
             ></Route>
+            <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
+            <Route path="/FeedBack" element={<Feedback />}></Route>
+            <Route path="/Reserva/:id" element={<Reserva />}></Route>
+
             <Route path="/FeedBack" element={<Feedback />}></Route>
         </Routes>
     );
