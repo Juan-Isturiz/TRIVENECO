@@ -4,12 +4,12 @@ import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage";
 import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
-import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
-import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular";
-import HotelParticular from "./Components/HotelParticular/HotelParticular";
-import Feedback from "./Pages/FeedbackPage.jsx";
-import AddHab from "./Pages/AddHab.jsx";
+import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
+import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
+import CiudadParticular from "./Components/CiudadParticular/CiudadParticular"
+import HotelParticular from "./Components/HotelParticular/HotelParticular"
+import Feedback from "./Components/Feedback/Feedback.jsx"
+import AddHab from "./Pages/AddHab.jsx"
 import UserProfile from "./Pages/UserProfile";
 import Reserva from "./Pages/Reservation";
 

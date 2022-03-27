@@ -81,7 +81,7 @@ export default function UploadData() {
         const coleccionRef =  db.collection("ciudades")
         const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreCiudad, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2})
         console.log("archivo cargado:", nombreCiudad, "url:",archivoUrl)
-        alert("Se ha procesado su solicitud") 
+        alert("Se ha procesado su solicitud")
     }
 
     const deleteSel = async (keyToDel1)=>{

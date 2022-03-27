@@ -1,23 +1,8 @@
 
-.titulo{
-    color:black
-
+.container {
+    display: flex;
 }
 
-.container{
-        margin-left: 18rem;
-        margin-right: 18rem;
-        margin-top: 5rem;
-        position: absolute;
-        list-style:none;
-    
-}
-
-.descripcion{
-    font-size: 0.7rem;
-    text-align: justify;
-    font: arial;
-    font-weight: lighter;
-    margin-right: 3.7rem;
-    
+.container li {
+    list-style-type: none;
 }
