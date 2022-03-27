@@ -26,13 +26,14 @@ export function HotelParticular() {
         <div className={styles.container}>
             {docus.filter(searchingTerm(id)).map((doc) => (
                 <li key={doc.keyCode}>
-                    <h1 className={styles.titulo}>Nombre De la ciudad: </h1>
-                    <h3>{doc.nombre}</h3>
-                    <img src={doc.url} height="500px" width="600px"></img>
-                    <br />
-                    <br />
-                    <h1 className={styles.titulo}>Descripción: </h1>
-                    <h3 className={styles.descripcion}>{doc.descripcion}</h3>
+                    <Header
+                        className="header"
+                        title={doc.nombre}
+                        src={doc.url}
+                        alt={`Imagen de ${doc.nombre}`}
+                        text={doc.descripcion}
+                        logo={false}
+                    ></Header>
                     <h1 className={styles.titulo}>Casino: </h1>
                     <h3 className={styles.descripcion}>{doc.Casino}</h3>
                     <h1 className={styles.titulo}>Desayuno: </h1>
@@ -48,30 +49,18 @@ export function HotelParticular() {
                     <h1 className={styles.titulo}>Se permiten mascotas: </h1>
                     <h3 className={styles.descripcion}>{doc.mascota}</h3>
 
-                    <br />
-                    <br />
                     <h1 className={styles.titulo}>Intalaciones: </h1>
                     <h3 className={styles.titulo}>{doc.lugar}</h3>
                     <img src={doc.url2} height="500px" width="600px"></img>
-                    <br />
-                    <br />
                     <h1 className={styles.titulo}>Descripción</h1>
 
                     <h3 className={styles.descripcion}>{doc.descripcion2}</h3>
 
-                    <br />
-                    <br />
                     <h3 className={styles.titulo}>{doc.lugar2}</h3>
                     <img src={doc.url3} height="500px" width="600px"></img>
-                    <br />
-                    <br />
                     <h1 className={styles.titulo}>Descripción</h1>
 
                     <h3 className={styles.descripcion}>{doc.descripcion3}</h3>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
 
                     <h3 className={styles.h3}>Seleccione la habitación:</h3>
                     {doc.lista2.map((docu) => (
