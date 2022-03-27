@@ -4,17 +4,13 @@ import {storage,db} from "../utils/firebaseConfig";
 import ReservationGen from "../Components/Reservation/ReservationGen.jsx"
 
 
-function searchingTerm(id){
-    return function(x){
-        return x.keyCode.toLowerCase().includes(id) || !id
-    }
-}
+
 
 export default function addHab() {
     
         const {id}= useParams()
-        const[docus,setDocus]=useState([]);
         const[archivoUrl4, setArchivoUrl4] = useState("");
+        const[listahab, setlistahab] = useState([]);
 
 
 
@@ -45,20 +41,16 @@ export default function addHab() {
                 alert("No hay nombre de habitacion")
                 return}
                 
-        const coleccionRef =  db.collection("hoteles")
-        .child("users").child(userUid).child("activities").push();
-        const docu = await coleccionRef.doc(id).child("precioPerDay").push(precioPerDay)
+        listahab.push({timax:timax,timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
+        alert(personasHab)        
+        alert(listahab)
+        db.collection("hoteles").doc(id).update({lista2:listahab})
         
     }
+    
         
-        
-        useEffect(async ()=>{
-            const docusList = await db.collection("hoteles").get()
-            setDocus(docusList.docs.map((doc)=>doc.data()))
-        },[])
     return (
         <div>
-            {docus.filter(searchingTerm(id)).map((doc)=><div key={doc.keyCode}>
             <form onSubmit={submitHandler}>
             <h3>Foto de la habitacion:</h3>
             <input type="file" onChange={archivoHandler4}/>
@@ -67,7 +59,6 @@ export default function addHab() {
             
                 Enviar</button>
             </form>
-            </div>)}
         </div>
     )
 }

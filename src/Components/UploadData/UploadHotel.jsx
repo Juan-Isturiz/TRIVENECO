@@ -83,7 +83,6 @@ export default function UploadData() {
         const personasHab= e.target.personasHab.value
         const precioPerDay=e.target.precioPerDay.value
         const habitacion =e.target.habitacion.value
-        const imagenhab =e.target.imagenhab.value
 
         if(!precioPerDay){
             alert("No hay precio")
@@ -121,7 +120,7 @@ export default function UploadData() {
             url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3,
             mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,
             lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad, timax:timax, timin:timin, personasHab:personasHab, 
-            precioPerDay:precioPerDay,habitacion:habitacion,imagenhab:imagenhab})
+            precioPerDay:precioPerDay,habitacion:habitacion,imagenhab:archivoUrl4})
         console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
     }
 
