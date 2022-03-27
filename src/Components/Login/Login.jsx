@@ -98,14 +98,6 @@ const Login = (props) => {
       
       await auth.signInWithPopup(googleProvider);
       userSetter()
-      if (user.metadata.creationTime === user.metadata.lastSignInTime){
-        const  usr ={
-          email : user.email,
-          rol : 1
-        }
-        
-        createUser(user.uid,usr)
-      }
       navigate('/')
       
     }catch(e){

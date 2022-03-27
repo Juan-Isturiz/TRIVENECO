@@ -23,7 +23,8 @@ const Register = () => {
     defaultValues: {
       displayName: '',
       email:'',
-      password: ''
+      password: '',
+      phoneNumber: null,
     }
   })
 
@@ -36,8 +37,9 @@ const Register = () => {
       console.log(response)
       setLogged(true),
       setUser(currentLog())
-      currentLog().updateProfile({displayName: data.displayName})
-      const usrdata = {rol: 1,email:response.user.email, reservas:[]}
+      console.log(data.phoneNumber)
+      currentLog().updateProfile({displayName: data.displayName, photoURL:"https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"})
+      const usrdata = {rol: 1,email:response.user.email, reservas:{}}
       createUser(response.user.uid,usrdata)
       navigate("/");
     }
