@@ -247,6 +247,12 @@ export default function UploadData() {
             <ReservationGen/>
 
             <br/>
+            <h3 className={styles.h3}>Es necesario colocar una habitacion al momento de crear</h3>
+            <h3>Foto de la habitacion:</h3>
+            <input type="file" onChange={archivoHandler4}/>
+            <ReservationGen/>
+
+            <br/>
             <button className={styles.enviar}>
             
                 Enviar</button>
@@ -274,3 +280,5 @@ export default function UploadData() {
         </div>
     )
 }
+
+           
