@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import React, {useEffect, useState } from "react";
 import {db} from "../../utils/firebaseConfig";
 import styles from "./HotelParticular.module.css"
-import Reservation from "../Components/Reservation/Reservation"
+import Reservation from "../Reservation/Reservation"
 
 function searchingTerm(id){
     return function(x){
