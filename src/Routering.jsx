@@ -4,11 +4,11 @@ import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage";
 import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
-import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
-import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular";
-import HotelParticular from "./Components/HotelParticular/HotelParticular";
-import Feedback from "./Pages/FeedbackPage.jsx";
+import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
+import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
+import CiudadParticular from "./Pages/CiudadParticular"
+import HotelParticular from "./Pages/HotelParticular"
+import Feedback from "./Pages/Feedback.jsx"
 import UserProfile from "./Pages/UserProfile";
 
 const Routering = () => {
