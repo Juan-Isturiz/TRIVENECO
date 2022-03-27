@@ -11,7 +11,7 @@ import HotelParticular from "./Components/HotelParticular/HotelParticular"
 import Feedback from "./Components/Feedback/Feedback.jsx"
 import AddHab from "./Pages/AddHab.jsx"
 import UserProfile from "./Pages/UserProfile";
-import Reserva from "./Pages/Reservation";
+import Reservation from "./Components/Reservation/Reservation";
 
 const Routering = () => {
     return (
@@ -40,7 +40,7 @@ const Routering = () => {
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
             <Route path="/FeedBack" element={<Feedback />}></Route>
-            <Route path="/Reserva/:id" element={<Reserva />}></Route>
+            <Route path="/Reservation/:id" element={<Reservation/>}></Route>
 
             <Route path="/FeedBack" element={<Feedback />}></Route>
         </Routes>
