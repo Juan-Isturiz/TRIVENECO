@@ -44,7 +44,10 @@ export default function ShowHotel() {
         <ul className={styles.HotelList}>
             {docus.filter(searchingTerm(term)).map((doc)=>
             <li key={doc.keyCode}>
+            
+            <Link to={`/HotelParticular/${doc.keyCode}`}>
             <h3>{doc.nombre}</h3>
+            </Link>
             <div className={styles.PhotoAndDescription}>
             <img src={doc.url} width="200px"></img>
             <p>{doc.descripcion}</p></div>
