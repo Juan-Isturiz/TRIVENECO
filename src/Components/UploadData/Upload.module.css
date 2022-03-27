@@ -1,39 +1,30 @@
-.Container{
-    margin-left: 18rem;
-    margin-top: 5rem;
-    position: absolute;
-    
-}
-
-.h1{
+.h1 {
     color: black;
     background-color: rgb(196, 221, 255);
 }
 
-.h9{
+.h9 {
     font-size: x-small;
 }
 
-.Formulario{
-    
+.Formulario {
     background-color: rgb(235, 244, 255);
 }
 
-.h3{
+.h3 {
     font-size: 0.7rem;
 }
 
-.enviar{
+.enviar {
     color: black;
     margin: 1rem 10rem;
 }
 
-.subtitulo{
+.subtitulo {
     font-size: 1rem;
 }
 
-
-.textarea{
+.textarea {
     width: 100%;
     height: 150px;
     box-sizing: border-box;
@@ -43,15 +34,15 @@
     columns: 5px;
 }
 
-.ciudades{
-    list-style:none;
+.ciudades {
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center ;
+    text-align: center;
     background-color: rgb(235, 244, 255);
 }
 
-.oscurecer{
+.oscurecer {
     color: black;
 }

@@ -1,0 +1,35 @@
+li {
+    list-style-type: none;
+}
+
+.container h1,
+.container h3 {
+    font-family: var(--font-titles);
+}
+
+.container .rank {
+    background-color: var(--terciary-color-300);
+    padding: 1rem 0;
+}
+
+.container .stars {
+    text-transform: uppercase;
+    color: gold;
+}
+
+.container .imgs {
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .container .stars {
+        padding-top: 0.5rem;
+    }
+}
