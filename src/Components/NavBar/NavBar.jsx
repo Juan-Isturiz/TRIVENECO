@@ -1,11 +1,11 @@
 import React ,{useContext, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../UI/Button/Button';
-import styles from './Navbar.module.css';
+import styles from './NavBar.module.css';
 import {UserContext} from "../../Context/Context" ;
 import { auth } from "../../utils/firebaseConfig";
 import logo from '../../img/logowhite.svg';
-import { MdOutlineMenu } from 'react-icons/md';
+import { CgMenuHotdog } from 'react-icons/cg';
 // import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import Menu from './Menu';
 
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav className={styles.NavBar}>
-      <MdOutlineMenu className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)} />
+      <CgMenuHotdog className={styles.BurgerButton} size="2em" color="white" onClick={() => setOpen(!open)} />
         
         {open && <Menu />}
 

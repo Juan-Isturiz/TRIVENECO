@@ -5,8 +5,9 @@ import Header from "../Components/Header/Header";
 import hotelImg from "../img/hotelpageimg.jpg";
 import cityImg from "../img/ciudades.jpeg";
 import secondcityImg from "../img/citypageimg.jpg";
-import { UserContext } from "../Context/Context";
-import { useContext, useEffect } from "react";
+import { UserContext } from '../Context/Context';
+import { useContext,useEffect, useState } from "react";
+
 const LandPage = () => {
     const { user, setUser, isLogged } = useContext(UserContext);
     useEffect(() => {}, [user]);

@@ -1,15 +1,43 @@
 import React from "react";
 import styles from "./Feedback.module.css";
 
-export default function Feedback() {
+const Feedback = () => {
     return (
-        <div className={styles.container}>
-            <div
-                className="fb-comments"
-                data-href="https://developers.facebook.com/docs/plugins/comments#generadorTrivenecoLaMejorPaginaDeViajes234324324234"
-                data-width="100%"
-                data-numposts="100"
-            ></div>
+        <div className={styles.Container}>
+            <div className={styles.CityContainer}>
+                <h2>How was the city of CITYNAME?</h2>
+                <form action="">
+                    <label htmlFor="cityFeedback"></label>
+                    {/* <input type="text"  className={styles.inputText}/> */}
+                    <textarea
+                        name="cityFeedText"
+                        id=""
+                        cols="30"
+                        rows="5"
+                    ></textarea>
+                    <br />
+
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+            <div className={styles.HotelContainer}>
+                <h2>How was the hotel HOTELNAME?</h2>
+                <form action="">
+                    <label htmlFor="hotelFeedback"></label>
+                    {/* <input type="text" className={styles.inputText}/> */}
+                    <textarea
+                        name="cityFeedText"
+                        id=""
+                        cols="30"
+                        rows="5"
+                    ></textarea>
+                    <br />
+
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         </div>
     );
-}
+};
+
+export default Feedback;
