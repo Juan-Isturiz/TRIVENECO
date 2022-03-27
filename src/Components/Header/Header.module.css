@@ -1,6 +1,7 @@
 .header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-top: 80px;
     margin-bottom: 1rem;
 }
 
@@ -49,22 +50,25 @@
 
 @media screen and (min-width: 721px) {
     .header {
-        grid-template-rows: repeat(4, 180px) 100px;
+        grid-template-rows: repeat(4, 130px) 85px;
     }
     .header h1 {
-        font-size: 10vw;
+        font-size: 80px;
+    }
+    .header div:last-child {
+        font-size: 20px;
     }
 }
 
 @media screen and (max-width: 720px) {
     .header {
-        grid-template-rows: repeat(4, 1fr) 75px;
+        grid-template-rows: repeat(4, 115px) 75px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .header {
-        grid-template-rows: repeat(4, 115px) 65px;
+        grid-template-rows: repeat(4, 100px) 65px;
     }
     .header div:last-child {
         font-size: 4vw;
