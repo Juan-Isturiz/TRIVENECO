@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { db } from "../utils/firebaseConfig";
+import { db } from "../../utils/firebaseConfig";
 import styles from "./CiudadParticular.module.css";
 
 function searchingTerm(id) {
