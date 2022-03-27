@@ -11,7 +11,8 @@ function searchingTerm(id){
 }
 
 export function CiudadParticular() {
-   
+
+    const [ObjectSelected, setSelected]= useState("");
     const {id}= useParams()
     const[docus,setDocus]=useState([]);
     
@@ -21,7 +22,9 @@ export function CiudadParticular() {
         setDocus(docusList.docs.map((doc)=>doc.data()))
     },[])
     
-
+    const handleChange = (e) => {
+        setSelected(e.target.value)
+      }
 
     return (
         <div className={styles.container}>
@@ -63,6 +66,8 @@ export function CiudadParticular() {
                 <h3 className={styles.descripcion}>{doc.descripcion3}</h3>
 <br/>
 <br/>
+
+               
                 </li>)}
         </div>
     ) 

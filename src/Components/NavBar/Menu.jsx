@@ -31,13 +31,15 @@ const Menu = (props) => {
         
         {!isLogged ? (<li onClick={toLog}>
           Log in
-        </li>) : (<div><li onClick={loggerOut} >
+        </li>) : (<ul >
+        <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Ciudades-Admin</li></Link>
+        <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Hotel-Admin</li></Link>
+        <li onClick={loggerOut} >
           
           Log out
         </li>
-        <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Ciudades-Admin</li></Link>
-        <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Hotel-Admin</li></Link>
-        </div>)}
+        </ul>
+        )}
 
       </ul>
     </div>

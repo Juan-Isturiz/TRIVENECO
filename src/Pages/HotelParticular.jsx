@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom'
 import React, {useEffect, useState } from "react";
 import {db} from "../utils/firebaseConfig";
 import styles from "./HotelParticular.module.css"
-import Reservation from "../Components/Reservation/Reservation"
+import Reservation from "./Reservation"
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function searchingTerm(id){
+    
     return function(x){
         return x.keyCode.toLowerCase().includes(id) || !id
     }
@@ -14,6 +17,7 @@ function searchingTerm(id){
 export function HotelParticular() {
     const {id}= useParams()
     const[docus,setDocus]=useState([]);
+    const[organizado,setorganizado]=useState([]);
     
     
     useEffect(async ()=>{
@@ -70,7 +74,16 @@ export function HotelParticular() {
 <br/>
 <br/>
 <br/>
-                </li>)}
+
+            <h3 className={styles.h3}>Seleccione la habitación:</h3>
+               {doc.lista2.map((docu)=><div key={keyCodes} >
+                   {docu.habitacion}
+                   <Link to={`/Reserva/${keyCodes}`}>Hoteles</Link>
+               
+               </div>)}</li>)}
+
+                
+                
                 <Reservation></Reservation>
         </div>
     ) 

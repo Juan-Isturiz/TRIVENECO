@@ -10,7 +10,6 @@ export default function ReservationGen() {
     const[checkInmin,changeCheckInmin]=useState(new Date())
     const[checkOutmax,changeCheckOutmax]=useState(new Date())
 
-
     const handleChange = (e) => {
         setSelected(e.target.value)
       }
@@ -42,11 +41,13 @@ export default function ReservationGen() {
             <div>
             <label> Fecha check-In</label>
             <DatePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
+       
         </div>
         <hr/>
         <div>
         <label> Fecha check-Out</label>
         <DatePicker value={checkOutmax} onChange={changeCheckOutmax} name="timax"/>
+  
     </div>
         </div>
     )

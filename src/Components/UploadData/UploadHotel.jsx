@@ -16,7 +16,8 @@ export default function UploadData() {
     const[archivoUrl3, setArchivoUrl3] = useState("");
     const[archivoUrl4, setArchivoUrl4] = useState("");
     const[docus,setDocus]=useState([]);
-
+    const[listahab1, setlistahab1] = useState([]);
+    const keyCode2= uuidv4();
     const keyCode= uuidv4();
 
     const archivoHandler = async (e)=>{
@@ -116,12 +117,15 @@ export default function UploadData() {
                 return}
                 
         const coleccionRef =  db.collection("hoteles")
+        listahab1.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
+
         const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreHotel, url: archivoUrl,url2: archivoUrl2, 
             url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2, descripcion3:descripcionArchivo3,
             mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,
-            lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad, timax:timax, timin:timin, personasHab:personasHab, 
-            precioPerDay:precioPerDay,habitacion:habitacion,imagenhab:archivoUrl4})
-        console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
+            lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad,lista2:listahab1})
+
+            console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
+        alert("Se ha procesado su solicitud") 
     }
 
     const deleteSel = async (keyToDel1)=>{
