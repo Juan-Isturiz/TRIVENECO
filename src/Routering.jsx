@@ -14,8 +14,8 @@ import AddHab from "./Pages/AddHab.jsx"
 =======
 import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular";
-import HotelParticular from "./Components/HotelParticular/HotelParticular";
+import CiudadParticular from "./Components/Particular/CiudadParticular";
+import HotelParticular from "./Components/Particular/HotelParticular";
 import Feedback from "./Pages/FeedbackPage.jsx";
 import AddHab from "./Pages/AddHab.jsx";
 >>>>>>> Fetch_HEAD
