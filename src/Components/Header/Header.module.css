@@ -41,6 +41,12 @@
     padding: 0 1rem;
 }
 
+.header div:last-child img {
+    width: 15vw;
+    height: auto;
+    padding-left: 1px;
+}
+
 @media screen and (min-width: 721px) {
     .header {
         grid-template-rows: repeat(4, 180px) 100px;
@@ -62,5 +68,8 @@
     }
     .header div:last-child {
         font-size: 4vw;
+    }
+    .header div:last-child img {
+        width: 18vw;
     }
 }

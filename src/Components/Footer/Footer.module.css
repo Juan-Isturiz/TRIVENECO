@@ -1,0 +1,113 @@
+.footer {
+    margin-top: 1rem;
+    background-color: var(--neutral-color-300);
+}
+
+.footer .lines {
+    width: 0;
+    height: 60%;
+    border: grey solid 0.5px;
+    margin: auto;
+}
+
+.footer .iconContainer {
+    display: flex;
+    align-items: center;
+}
+
+.footer .icons {
+    color: var(--primary-color-400);
+}
+
+.footer .icons:active {
+    color: var(--primary-color-500);
+}
+
+@media screen and (min-width: 481px) {
+    .footer {
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        grid-template-rows: repeat(2, 50%);
+        row-gap: 0.5em;
+        padding-bottom: 0.5em;
+        height: 160px;
+    }
+    .footer .lines {
+        grid-column: 6;
+        grid-row: 1 / 3;
+    }
+    .footer img {
+        grid-column: 3 / 6;
+        grid-row: 1;
+        width: 70%;
+        justify-self: right;
+        align-self: flex-end;
+    }
+    .footer .license {
+        grid-column: 1 / 6;
+        grid-row: 2;
+        justify-content: right;
+        text-align: right;
+        font-weight: bold;
+        font-size: 2.5vw;
+    }
+    .footer .iconContainer {
+        grid-column: 7 / 10;
+        grid-row: 1 / 3;
+    }
+    .footer .icons {
+        width: 3em;
+        height: 3em;
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (min-width: 721px) {
+    .footer {
+        row-gap: 1em;
+        padding-bottom: 1em;
+        height: 200px;
+    }
+    .footer .license {
+        grid-column: 2 / 6;
+        font-size: 2vw;
+    }
+    .footer .icons {
+        width: 4em;
+        height: 4em;
+    }
+    .footer .icons:hover {
+        color: var(--primary-color-300);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer .lines {
+        width: 80%;
+        height: 0;
+    }
+    .footer img {
+        width: 40%;
+        padding: 2rem 0;
+    }
+    .footer .license {
+        padding: 2rem 0;
+        font-weight: bold;
+    }
+    .footer .iconContainer {
+        width: 80%;
+        padding: 1rem 0;
+        justify-content: center;
+    }
+    .footer .icons {
+        width: 3em;
+        height: 3em;
+        margin: 0 1.5rem;
+    }
+}
