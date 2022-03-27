@@ -24,6 +24,8 @@ export default function addHab() {
             console.log('archivo cargado:' ,archivo4.name)
             const enlaceUrl4 = await archivoPath4.getDownloadURL();
             setArchivoUrl4(enlaceUrl4)
+
+
         }
 
     const submitHandler = async (e)=>{
@@ -45,7 +47,7 @@ export default function addHab() {
         listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
         
         db.collection("hoteles").doc(id).update({lista2:listahab})
-        alert("Se ha procesado su solicitud") 
+        alert("Se ha procesado su solicitud")
         
     }
     
@@ -60,6 +62,7 @@ export default function addHab() {
             
                 Enviar</button>
             </form>
+            
         </div>
     )
 }

@@ -76,9 +76,9 @@ export function HotelParticular() {
 <br/>
 
             <h3 className={styles.h3}>Seleccione la habitación:</h3>
-               {doc.lista2.map((docu)=><div key={keyCodes} >
-                   {docu.habitacion}
-                   <Link to={`/Reserva/${keyCodes}`}>Hoteles</Link>
+               {doc.lista2.map((docu)=><div key={docu.keyCode2} >
+                   
+                   <Link to={`/Reserva/${docu.keyCode2}`}>{docu.habitacion}</Link>
                
                </div>)}</li>)}
 
