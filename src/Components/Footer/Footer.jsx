@@ -4,20 +4,27 @@ import { FaGithubSquare } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 const Footer = () => {
+    const routeChange = (link) => {
+        let path = { link };
+        history.push(path);
+    };
+
     return (
         <footer className={styles.footer}>
             <img src={logo} alt="Triveneco" />
             <div className={styles.lines}></div>
             {/* No eliminen los divs vacíos, son las líneas */}
             <div className={styles.iconContainer}>
-                <FaGithubSquare
-                    className={styles.icons}
-                    onClick={() => setOpen(!open)}
-                />
-                <IoMdMail
-                    className={styles.icons}
-                    onClick={() => setOpen(!open)}
-                />
+                <a
+                    href="https://github.com/Juan-Isturiz/TRIVENECO"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FaGithubSquare className={styles.icons} />
+                </a>
+                <a href="mailto:triveneco@gmail.com">
+                    <IoMdMail className={styles.icons} />
+                </a>
             </div>
             <div className={styles.lines}></div>
             <div className={styles.license}>

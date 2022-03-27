@@ -29,6 +29,7 @@
         grid-template-columns: repeat(11, 1fr);
         grid-template-rows: repeat(2, 50%);
         row-gap: 0.5em;
+        padding-bottom: 0.5em;
         height: 160px;
     }
     .footer .lines {
@@ -64,6 +65,7 @@
 @media screen and (min-width: 721px) {
     .footer {
         row-gap: 1em;
+        padding-bottom: 1em;
         height: 200px;
     }
     .footer .license {
@@ -104,8 +106,8 @@
         justify-content: center;
     }
     .footer .icons {
-        width: 4em;
-        height: 4em;
+        width: 3em;
+        height: 3em;
         margin: 0 1.5rem;
     }
 }
