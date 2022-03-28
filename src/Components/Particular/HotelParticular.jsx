@@ -80,7 +80,7 @@ export function HotelParticular() {
                                 </Link>
                             </div>
                         ))}
-                        <Habitaciones doc={doc.keyCode} />
+                        {/* <Habitaciones doc={doc.keyCode} /> */}
                     </div>
                     <CommentSection doc={doc.keyCode} collection={type} />
                 </li>

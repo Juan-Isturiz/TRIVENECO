@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import {db} from "../../utils/firebaseConfig"
 import Card from '../UI/Card/Card';
-import classes from '../Login/Login.module.css';
-import styles from './ShowHotel.module.css';
+import styles from './View.module.css';
 import InputField from '../UI/InputField/InputField';
 import { Link} from 'react-router-dom';
 
@@ -28,29 +27,28 @@ export default function ShowHotel() {
 },[])
     return (
         <section>
-        {/* <Card className={classes.login2} > */}
-        <Card className={styles.HotelSearcher}>
+        <Card className={styles.CardContainer}>
         <h2>Encuentra tu hotel ideal</h2>
-        <form>
-            <div className={classes.control1}>
-                 {/* <label htmlFor="buscador">Encuentra tu hotel ideal</label> */}
+        <form className={styles.FormContainer}>
             <InputField type="buscador" placeholder="Filtrado por nombre" onChange= {e=>setTerm(e.target.value)}></InputField>
-
-            </div>
-            <div className={classes.actions}>
-            </div> {/* qué hace este div? lo vi aquí y ta vacío hm */}
         </form>
         </Card>
-        <ul className={styles.HotelList}>
+        <ul className={styles.list}>
             {docus.filter(searchingTerm(term)).map((doc)=>
-            <li key={doc.keyCode}>
-            
-            <Link to={`/HotelParticular/${doc.keyCode}`}>
-            <h3>{doc.nombre}</h3>
-            </Link>
-            <div className={styles.PhotoAndDescription}>
-            <img src={doc.url} width="200px"></img>
-            <p>{doc.descripcion}</p></div>
+            <li key={doc.keyCode} className={styles.elements}>
+                <div className={styles.ImgContainer}>
+                    <Link to={`/HotelParticular/${doc.keyCode}`}>
+                        <img 
+                            src={doc.url}
+                            className={styles.ElementImg}
+                        ></img>
+                    </Link>
+                    <div className={styles.OverImg}>
+                        <Link to={`/HotelParticular/${doc.keyCode}`}>
+                            <h3 className={styles.Name}>{doc.nombre}</h3>
+                        </Link>
+                    </div>
+                </div>
             </li>)}
         </ul>
         

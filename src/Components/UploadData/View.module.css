@@ -1,14 +1,15 @@
-.cities {
+.list {
     display: flex;
     flex-wrap: wrap;
-    gap:1rem;
-    width: 90%;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 70%;
     /* background-color: red; */
     height: auto;
     margin: 2rem auto;
 }
 
-.cities .elements {
+.list .elements {
     margin: auto;
     list-style: none;
 }
@@ -22,21 +23,40 @@
     align-items: center;
 }
 
-.cities a {
-    width: 250px;
+.list a {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.CityImg {
-    width: 90%;
+.ImgContainer img {
+
+    width: 15rem;
+    height: 11rem;
+    object-fit: cover;
+}
+
+.ImgContainer {
+    position: relative;
+}
+
+.OverImg {
+    display: flex;
+    width: 100%;    
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .CardContainer {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 70%;
     margin: auto;
     align-items: center;
 }
@@ -67,6 +87,18 @@
     text-align: left;
 }
 
+.Rating {
+    width: 100%;
+    display:flex;
+    justify-content:center;
+    background-color: gold;
+    color: #996515;
+}
+
+.CitySpecs {
+    /* background-color: red; */
+    text-align: center;
+}
 
 @media (max-width: 550px) {
     .RadioContainer {
