@@ -40,14 +40,14 @@ export default function ReservationGen() {
             <hr/>
             <div>
             <label> Fecha check-In</label>
-            <DatePicker value={checkInmin} onChange={changeCheckInmin} />
+            <DatePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
        
         </div>
         
         <hr/>
         <div>
         <label> Fecha check-Out</label>
-        <DatePicker value={checkOutmax} onChange={changeCheckOutmax} />
+        <DatePicker value={checkOutmax} onChange={changeCheckOutmax} name="timax"/>
   
     </div>
         </div>
