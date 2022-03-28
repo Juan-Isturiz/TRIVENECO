@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+a, button{
+    font-family: "League Spartan" ;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+a:hover, button:hover {
+    opacity: 1;
+}
+
+.NavBar{
+    padding: 0 10%;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: var(--primary-color-400);
+    position: fixed;
+
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    list-style: none;    
+    z-index: 3;
+}
+
+h2 {
+    cursor: pointer;
+}
+
+.NavBar h1 {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.NavBar h1 a{
+    transition: all 0.5s ease 0s;
+}
+
+.NavBar h1 a:hover{
+    color: rgb(15, 182, 204);
+
+}
+
+.Navbutton{
+    font-family: "League Spartan" ;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 9px 25px;
+    background: radial-gradient(
+        ellipse at left top,
+        rgb(255, 238, 2) 0%,
+        rgba(4, 20, 255, 0.9) 59%,
+        rgba(255, 0, 0, 0.9) 100%
+      );
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.Menu {
+    height: auto;
+    width: auto;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    /* width: 20%; */
+    padding: 5%;
+    background-color: var(--secondary-color-100);
+    background-color: rgba(0, 0, 25, 0.8);
+
+}
+
+.Menu ul {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+    list-style: none;
+    opacity: 1;
+    
+}
+
+.Menu li, .Menu a {
+    /* color: black; */
+    color: white;
+    /* padding-top: 3em; */
+    font-weight: 800;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+
+.Menu a:visited {
+    text-decoration: none;
+}
+
+.Menu a:hover, .Menu li:hover {
+    opacity: 1;
+    
+}
+
+.BurgerButton {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.BurgerButton:hover {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+    .DesktopOnly, .Navbutton {
+        display: none;
+    }
+}
+
+.CityAdmin{
+    color: rgb(0, 0, 0);
+}
+
+.CityAdminBackground{
+    background-color: rgb(15, 182, 204);
+
+}

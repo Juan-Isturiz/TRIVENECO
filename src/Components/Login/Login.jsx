@@ -3,8 +3,11 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 import { UserContext } from '../../Context/Context';
-import { auth, googleProvider,currentLog} from "../../utils/firebaseConfig";
-import { useNavigate } from 'react-router-dom';
+import { auth, googleProvider, facebookProvider, currentLog} from "../../utils/firebaseConfig";
+import { Link, useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook } from 'react-icons/im';
+import { BsTwitter } from 'react-icons/bs';
 
 
 // ///////////////////////Reducer Functions////////////
@@ -20,17 +23,18 @@ const emailReducer = (state, action) => {
 }
 const pswrdReducer = (state, action) => {
   if (action.type === 'USR_INPUT') {
-    return { value: action.val, isValid: action.val.trim().length > 6 }
+    return { value: action.val, isValid: action.val.trim().length >= 8 }
   };
   if (action.type === 'INPUT_lmao') {
-    return { value: state.value, isValid: state.value.trim().length > 6 }
+    return { value: state.value, isValid: state.value.trim().length >= 8 }
   }
 }
 // ////////////////MAIN COMPONENT////////////////
 const Login = (props) => {
   ///////// State Declarations //////////////////
 
-  const {user, setUser, isLogged, setLogged} = useContext(UserContext)//CONTEXT
+  const { setUser, setLogged, createUser,user} = useContext(UserContext)//CONTEXT
+  
   const userSetter =()=>
     {
       setUser(currentLog())
@@ -97,7 +101,28 @@ const Login = (props) => {
       navigate('/')
       
     }catch(e){
-      alert("Tiempo de espera agotado, vuelva a intentarlo.")
+      console.log(e.message)
+      alert("Tiempo de espera agotado, intente de nuevo")
+    }
+  }
+
+  const handleFacebookLogin = async () => { //Facebook
+    try{
+      await auth.signInWithPopup(facebookProvider);
+      userSetter()
+      if (user.metadata.creationTime === user.metadata.lastSignInTime){
+        const  usr ={
+          email : user.email,
+          rol : 1
+        }
+        
+        createUser(user.uid,usr)
+      }
+      navigate('/')
+      
+    }catch(e){
+      console.log(e.message)
+      alert("Tiempo de espera agotado, intente de nuevo")
     }
   }
   
@@ -148,7 +173,15 @@ const Login = (props) => {
           </Button>
         </div>
       </form>
-      <Button onClick={handleGoogleLogin}>gugel</Button>
+      <div className={classes.RegisterRedirectContainer}>
+        No tienes cuenta? <Link to="/Signup" className={classes.RegisterRedirect}>Regístrate aquí</Link>
+      </div>
+      {/* <Button onClick={handleGoogleLogin}>gugel</Button> */}
+      <div className={classes.buttons}>
+        <FcGoogle onClick={handleGoogleLogin} size="40px" className={classes.btn}/>
+        <ImFacebook onClick={handleFacebookLogin} size="40px" color="#4267B2" className={classes.btn} /> {/* TODO handle facebook and twitter login @diego */}
+        <BsTwitter size="40px" color="#1DA1F2" className={classes.btn} />
+      </div>
     </Card>
   );
 };

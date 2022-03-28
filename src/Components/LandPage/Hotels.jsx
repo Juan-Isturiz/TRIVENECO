@@ -1,11 +1,12 @@
 import styles from "./BodyStyle.module.css";
 import Button from "../UI/Button/Button";
+import { Link} from 'react-router-dom'
 
 const Hotel = (props) => {
     return (
         <section className={`${styles.body} ${props.className}`}>
             <div>
-                <h2>Hoteles</h2>
+            <Link to="/HotelView" className={styles.semiTitle} >Hoteles</Link>
             </div>
             <div className={`${styles.container}`}>
                 <img src={`${props.src}`} alt={`${props.alt}`} />
@@ -16,7 +17,8 @@ const Hotel = (props) => {
                         className={styles.btn}
                         disabled={false}
                     >
-                        Ver hoteles
+                        <Link to="/HotelView">
+                        Ver hoteles</Link>
                     </Button>
                 </div>
             </div>

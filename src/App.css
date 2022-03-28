@@ -12,8 +12,9 @@
     --primary-color-100: #a7bddf;
     --primary-color-200: #657b9d;
     --primary-color-300: #23395b;
-    --primary-color-400: #02183a;
-    --primary-color-500: #000019;
+    --primary-color-400: rgb(2, 24, 58);
+    --primary-color-500: rgb(0, 0, 25);
+    
 
     --secondary-color-100: #5eccde;
     --secondary-color-200: #2dbdd4;

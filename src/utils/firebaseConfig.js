@@ -23,5 +23,7 @@ const app = firebase.initializeApp(firebaseConfig);
 export const db = app.firestore()
 export const auth = app.auth()
 export const storage = app.storage()
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const currentLog =()=>{return app.auth().currentUser;} 
+export const googleProvider = new firebase.auth.GoogleAuthProvider(); // Sign in con google
+export const facebookProvider = new firebase.auth.FacebookAuthProvider(); // Sign in con Facebook
+export const currentLog =()=>{return app.auth().currentUser;} // retorna el usuario que está loggeado
+export const date = ()=>{return firebase.firestore.FieldValue.serverTimestamp()}

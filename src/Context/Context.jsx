@@ -1,74 +1,90 @@
 import { useState, useEffect, createContext } from 'react';
-import { auth, db } from "../utils/firebaseConfig";
+import { db, auth, currentLog } from '../utils/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
-    const [user, setUser] = useState({
-        displayName: 'Visitor',
-        email: '',
-        photoURL: '',
-        emailVerified:false
+  const [user, setUser] = useState({
+    displayName: 'visitor',
+    email: 'exmple@correo.com',
+    photoURL: 'Ganga',
+    emailVerified: false,
+    uid: "1",
+    metadata: {
+      creationTime: 5,
+      lastSignInTime: 4
+    }
+  })
+  const history = useNavigate();
+  const loggerOut = async () => {
+    await auth.signOut();
+
+    setLogged(false)
+    setUser({
+      displayName: 'visitor',
+      email: 'exmple@correo.com',
+      photoURL: 'Ganga',
+      emailVerified: false,
+      uid: "1",
+      metadata: {
+        creationTime: 5,
+        lastSignInTime: 4
+      }
+
     })
-    const [isLogged, setLogged] = useState(false)
+    history('/')
+  }
+  const clienteActivo = async () => {
+    await auth.signOut();
+    setLogged(false)
+    setUser({
+      displayName: 'visitor',
+      email: 'exmple@correo.com',
+      photoURL: 'Ganga',
+      emailVerified: false,
+      uid: "1",
+      metadata: {
+        creationTime: 5,
+        lastSignInTime: 4
+      }
 
-    const getUserProfile = async (email) => {
-        const usersRef = db.collection("users");
-    
-        const usersCollection = await usersRef.where("email", "==", email).get();
-    
-        const profile = usersCollection.docs[0];
-    
-        if (!profile) return null;
-    
-        return {
-          id: profile.id,
-          ...profile.data(),
-        };
-    };
+    })
+  }
 
-    const createUser = async (userId, data) => {
-        return db
-          .collection("users")
-          .doc(userId)
-          .set({ ...data });
-      };
-
-      useEffect(() => {
-        auth.onAuthStateChanged(async (firebaseUser) => {
-          if (firebaseUser) {
-            let profile = await getUserProfile(firebaseUser.email);
-    
-            console.log({ fullProfile: profile });
-    
-            if (!profile) {
-              profile = {
-                name: firebaseUser.displayName,
-                email: firebaseUser.email,
-                photo: firebaseUser.photoURL,
-              };
-    
-              await createUser(firebaseUser.uid, profile);
-            }
-    
-            setUser(profile);
-          } else {
-            setUser(null);
+  const [isLogged, setLogged] = useState(false)
+  const createUser = async (uid, user) => {
+    await db.collection('users').doc(uid).set({ ...user });
+  };
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        console.log(user.email)
+        if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+          const usr = {
+            email: user.email,
+            rol: 1
           }
-        });
-        return () => {};
-      }, []);
 
-    return (
-        <UserContext.Provider
-            value={{
-                user,
-                setUser,
-                isLogged,
-                setLogged
-            }}
-        >
-            {children}
-        </UserContext.Provider>
-    )
+          createUser(user.uid, usr)
+        }
+        setLogged(true)
+        setUser(currentLog())
+      }
+    });
+  }, []);
+  return (
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        isLogged,
+        setLogged,
+        createUser,
+        loggerOut
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  )
 }
 export default UserContextProvider
