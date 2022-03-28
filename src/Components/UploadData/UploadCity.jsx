@@ -145,7 +145,6 @@ export default function UploadData() {
                     <textarea
                         name="descripcionArchivo"
                         placeholder="describe la ciudad"
-                        className={styles.textArea}
                         rows={4}
                     />
 
@@ -170,14 +169,13 @@ export default function UploadData() {
                         maxLength="40"
                     />
 
-                    <h3>Foto del lugar:</h3>
+                    <h3>Foto del lugar</h3>
                     <input type="file" onChange={archivoHandler2} />
 
                     <h3>Describe el lugar</h3>
                     <textarea
                         name="descripcionArchivo2"
                         placeholder="describe el lugar detalladamente"
-                        className={styles.textArea}
                         rows={4}
                     />
 
@@ -197,7 +195,6 @@ export default function UploadData() {
                     <textarea
                         name="descripcionArchivo3"
                         placeholder="describe el lugar detalladamente"
-                        className={styles.textArea}
                         rows={4}
                     />
 

@@ -32,7 +32,7 @@
 }
 
 .upContainer input,
-.upContainer .textArea {
+.upContainer textarea {
     width: 100%;
 }
 
