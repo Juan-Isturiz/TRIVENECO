@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../../utils/firebaseConfig";
 import styles from "./Particular.module.css";
 import Header from "../Header/Header";
+import CommentSection from "../CommentSection/CommentSection";
 
 function searchingTerm(id) {
     return function (x) {
@@ -13,6 +14,7 @@ function searchingTerm(id) {
 export function CiudadParticular() {
     const { id } = useParams();
     const [docus, setDocus] = useState([]);
+    const type = "ciudades";
 
     useEffect(async () => {
         const docusList = await db.collection("ciudades").get();
@@ -61,6 +63,7 @@ export function CiudadParticular() {
                             </div>
                         </section>
                     </div>
+                    <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
             ))}
         </div>

@@ -4,6 +4,8 @@ import { db } from "../../utils/firebaseConfig";
 import styles from "./Particular.module.css";
 import Reservation from "../Reservation/ReservationGen";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
+import CommentSection from "../CommentSection/CommentSection";
 
 function searchingTerm(id) {
     return function (x) {
@@ -14,6 +16,7 @@ function searchingTerm(id) {
 export function HotelParticular() {
     const { id } = useParams();
     const [docus, setDocus] = useState([]);
+    const type = "hoteles";
     const [organizado, setorganizado] = useState([]);
 
     useEffect(async () => {
@@ -77,6 +80,7 @@ export function HotelParticular() {
                             </div>
                         ))}
                     </div>
+                    <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
             ))}
 
