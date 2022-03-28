@@ -73,18 +73,6 @@ export default function Reservation() {
         const coleccionRef =  db.collection("reservas")
         const docu = await coleccionRef.doc(KeyCodenew).set({habitacion:habit,precio:prec,persona:persona,checkIn:checkInya,checkOut:checkOutya})
 
-
-        const keyCode2= uuidv4();
-        listahab.push({timax:checkOut,keyCode2:keyCode2, timin:checkInya[0],personasHab:persona[0],precioPerDay:prec[0],habitacion:habit[0],archivoUrl4:archivoUrl4[0]})
-
-
-
-        const keyCode3= uuidv4();
-        listahab.push({timax:checkOutya[0],keyCode2:keyCode3, timin:checkIn,personasHab:persona[0],precioPerDay:prec[0],habitacion:habit[0],archivoUrl4:archivoUrl4[0]})
-
-
-        db.collection("hoteles").doc(id).update({lista2:listahab})
-
         alert("Se ha procesado su solicitud") 
     }
 
