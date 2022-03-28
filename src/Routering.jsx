@@ -8,7 +8,6 @@ import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
 import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
 import CiudadParticular from "./Components/Particular/CiudadParticular";
 import HotelParticular from "./Components/Particular/HotelParticular";
-import Feedback from "./Pages/FeedbackPage.jsx";
 import AddHab from "./Pages/AddHab.jsx";
 import UserProfile from "./Pages/UserProfile";
 import Reserva from "./Pages/Reservation";
@@ -39,10 +38,7 @@ const Routering = () => {
             ></Route>
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
-            <Route path="/FeedBack" element={<Feedback />}></Route>
             <Route path="/Reserva/:id" element={<Reserva />}></Route>
-
-            <Route path="/FeedBack" element={<Feedback />}></Route>
         </Routes>
     );
 };
