@@ -2604,6 +2604,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-firebase-hooks@npm:3":
+  version: 3.0.5
+  resolution: "react-firebase-hooks@npm:3.0.5"
+  peerDependencies:
+    firebase: ">= 8.0.0"
+    react: ">= 16.8.0"
+  checksum: 8fba4e6a7a8bf7ed0e8ae76f51d1333890ea3fcd0d3d3c028aee4a6cf603333a5f49d4af30c2ec6d11eb0c1ffeee8cb5dc0f97012808ec9ad10c5ac57290de73
+  languageName: node
+  linkType: hard
+
 "react-hook-form@npm:^7.28.0":
   version: 7.28.1
   resolution: "react-hook-form@npm:7.28.1"
@@ -3033,6 +3043,7 @@ __metadata:
     react: ^17.0.2
     react-burger-menu: ^3.0.6
     react-dom: ^17.0.2
+    react-firebase-hooks: 3
     react-hook-form: ^7.28.0
     react-icons: ^4.3.1
     react-router-dom: ^6.2.2
