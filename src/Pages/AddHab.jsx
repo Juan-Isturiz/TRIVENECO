@@ -27,6 +27,7 @@ export default function addHab() {
 
 
         }
+        
 
     const submitHandler = async (e)=>{
         e.preventDefault()
@@ -44,9 +45,9 @@ export default function addHab() {
                 alert("No hay nombre de habitacion")
                 return}
                 const keyCode2= uuidv4();
-        listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
-        
-        db.collection("hoteles").doc(id).update({lista3:listahab})
+     //   listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
+    
+        await db.collection("hoteles").doc(id).collection("habitaciones").doc(keyCode2).set({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
         alert("Se ha procesado su solicitud")
         
     }
@@ -59,7 +60,6 @@ export default function addHab() {
             <input type="file" onChange={archivoHandler4}/>
             <ReservationGen/>
             <button>
-            
                 Enviar</button>
             </form>
             
