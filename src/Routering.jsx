@@ -10,7 +10,7 @@ import CiudadParticular from "./Components/Particular/CiudadParticular";
 import HotelParticular from "./Components/Particular/HotelParticular";
 import AddHab from "./Pages/AddHab.jsx";
 import UserProfile from "./Pages/UserProfile";
-import Reserva from "./Pages/Reservation";
+import Reservation from "./Components/Reservation/Reservation";
 
 const Routering = () => {
     return (
@@ -38,7 +38,10 @@ const Routering = () => {
             ></Route>
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
-            <Route path="/Reserva/:id" element={<Reserva />}></Route>
+            <Route
+                path="/Reservation/:id/:type"
+                element={<Reservation />}
+            ></Route>
         </Routes>
     );
 };

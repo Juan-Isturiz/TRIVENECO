@@ -5,7 +5,7 @@ import {DatePicker} from "@material-ui/pickers"
 
 export default function ReservationGen() {
     
-    const [ObjectSelected, setSelected]= useState("");
+    const [ObjectSelected, setSelected]= useState([]);
     const[archivoUrl4, setArchivoUrl4] = useState("");
     const[checkInmin,changeCheckInmin]=useState(new Date())
     const[checkOutmax,changeCheckOutmax]=useState(new Date())
@@ -43,6 +43,7 @@ export default function ReservationGen() {
             <DatePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
        
         </div>
+        
         <hr/>
         <div>
         <label> Fecha check-Out</label>

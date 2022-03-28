@@ -122,9 +122,8 @@ export default function UploadData() {
             mascota:MascotaArchivo, Comida:ComidaRica, Playa:PlayaChevere, Casino:ApostarCool, entretenimiento:relajacionRela , ranking:rankingArchivo,
             lugar:nombreLugarInteres, lugar2:nombreLugarInteres2, ciudad:hayCiudad})
 
-        listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
         
-         await coleccionRef.doc(keyCode).update({lista2:listahab})
+            await db.collection("hoteles").doc(id).collection("habitaciones").doc(keyCode2).set({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
 
             console.log("archivo cargado:", nombreHotel, "url:",archivoUrl)
         alert("Se ha procesado su solicitud") 
@@ -272,7 +271,7 @@ export default function UploadData() {
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>Eliminar</button>
                 <br/>
                 <br/>
-                <Link to={`/AddHab/${doc.keyCode}`} className={styles.h1}> Editar</Link>
+                <Link to={`/AddHab/${doc.keyCode}`} className={styles.h1}> Agregar habitaciones</Link>
                 
                 </li>)}
         </ul>
