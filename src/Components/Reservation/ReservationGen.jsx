@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {storage} from "../../utils/firebaseConfig"
-import {DateTimePicker} from "@material-ui/pickers"
+import {DatePicker} from "@material-ui/pickers"
 
 
 export default function ReservationGen() {
@@ -40,14 +40,14 @@ export default function ReservationGen() {
             <hr/>
             <div>
             <label> Fecha check-In</label>
-            <DateTimePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
+            <DatePicker value={checkInmin} onChange={changeCheckInmin} name="timin"/>
        
         </div>
         
         <hr/>
         <div>
         <label> Fecha check-Out</label>
-        <DateTimePicker value={checkOutmax} onChange={changeCheckOutmax} name="timax"/>
+        <DatePicker value={checkOutmax} onChange={changeCheckOutmax} name="timax"/>
   
     </div>
         </div>
