@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
 import styles from "./Upload.module.css"
-
+import { Link} from 'react-router-dom'
 
 export default function UploadData() {
 
@@ -180,6 +180,7 @@ export default function UploadData() {
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>Eliminar</button>
                 <br/>
                 <br/>
+                <Link to={"/UpdateCity"} className = {styles.h1}> Editar </Link>
                 </li>)}
         </ul>
         </div>

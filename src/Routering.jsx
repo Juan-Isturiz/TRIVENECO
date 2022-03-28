@@ -12,6 +12,7 @@ import Feedback from "./Components/Feedback/Feedback.jsx"
 import AddHab from "./Pages/AddHab.jsx"
 import UserProfile from "./Pages/UserProfile";
 import Reserva from "./Pages/Reservation";
+import UpdateCity from "./Components/UpdateCity/UpdateCity";
 
 const Routering = () => {
     return (
@@ -38,6 +39,7 @@ const Routering = () => {
                 element={<HotelParticular />}
             ></Route>
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
+            <Route path="/UpdateCity/:id" element={<UpdateCity />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
             <Route path="/FeedBack" element={<Feedback />}></Route>
             <Route path="/Reserva/:id" element={<Reserva />}></Route>
