@@ -6,6 +6,7 @@ import Reservation from "../Reservation/ReservationGen";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import CommentSection from "../CommentSection/CommentSection";
+import Habitaciones from "../Habitaciones/Habitaciones";
 
 function searchingTerm(id) {
     return function (x) {
@@ -79,6 +80,7 @@ export function HotelParticular() {
                                 </Link>
                             </div>
                         ))}
+                        <Habitaciones doc={doc.keyCode} />
                     </div>
                     <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
