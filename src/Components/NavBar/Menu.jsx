@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Context";
 import { db } from "../../utils/firebaseConfig";
 
-
 const Menu = (props) => {
     const [usrRol, setRol] = useState(0);
     const getRol = async () => {
@@ -36,25 +35,26 @@ const Menu = (props) => {
                 <Link to="/HotelView" onClick={() => setOpen(!open)}>
                     <li>Hoteles</li>
                 </Link>
-                <Link to="/Feedback" onClick={() => setOpen(!open)}>
-                    <li>Feedback</li>
-                </Link>
 
-              
-
-                  {!isLogged ? (<li onClick={toLog}>
-                    Log in
-                  </li>) : (<ul >
-                  <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Ciudades-Admin</li></Link>
-                  <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Hotel-Admin</li></Link>
-                  <li onClick={loggerOut} >
-                    
-                    Log out
-                  </li>
-                  </ul>
-                  )}
-
-                   
+                {!isLogged ? (
+                    <li onClick={toLog}>Log in</li>
+                ) : (
+                    <ul>
+                        <Link
+                            to="/CityViewPageAdmin"
+                            onClick={() => setOpen(!open)}
+                        >
+                            <li> Ciudades-Admin</li>
+                        </Link>
+                        <Link
+                            to="/HotelViewPageAdmin"
+                            onClick={() => setOpen(!open)}
+                        >
+                            <li> Hotel-Admin</li>
+                        </Link>
+                        <li onClick={loggerOut}>Log out</li>
+                    </ul>
+                )}
             </ul>
         </div>
     );
