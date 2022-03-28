@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react'
 import { db } from "../../utils/firebaseConfig";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Habitaciones(props) {
-    const [hab, setHab] = useState()
+    const [hab, setHab] = useState([{
+        habitacion: "",
+        keyCode2: null
+    }])
     const { doc } = props
     useEffect(() => {
         try {
             db.collection('hoteles').doc(doc).collection("habitaciones").onSnapshot((hab) => {
-                
-                setHab(hab.docs.map((doc) => {return doc.data()  }))
-                
+
+                setHab(hab.docs.map((doc) => { return doc.data() }))
+
 
             })
         } catch (e) {
@@ -17,21 +20,27 @@ export default function Habitaciones(props) {
         }
     }, [])
     return (
-        <>
+        <div>
             {hab === null ? <></> :
-                hab.map(habitacion => {
-                    <>
-                    {console.log(habitacion)}
-                    <Link to={`/Reservation/${doc}/${habitacion.keyCode2}`} style={{ color: "red" }}>
-                        {habitacion.habitacion}
-                    </Link>
-                    </>
+                hab.map(cualto => {
+                    return (
+                        <>
+                        <Link to={`/Reservation/${doc}/${cualto.keyCode2}`} style={{ color: "red" }}>
+                            {cualto.habitacion}
+                        </Link>
+                        <br/>
+                        </>
+                    )
                 }
 
                 )
 
             }
             {console.log(doc)}
-        </>
+        </div>
     )
 }
+
+//
+//
+//
