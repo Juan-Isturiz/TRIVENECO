@@ -272,7 +272,7 @@ export default function UploadData() {
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>Eliminar</button>
                 <br/>
                 <br/>
-                <Link to={`/AddHab/${doc.keyCode}`} className={styles.h1}> Editar</Link>
+                <Link to={`/AddHab/${doc.keyCode}`} className={styles.h1}> Agregar habitaciones</Link>
                 
                 </li>)}
         </ul>

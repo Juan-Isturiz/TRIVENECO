@@ -28,6 +28,7 @@ export default function Reservation() {
                  <h3 name="persona" >{setpersona(doc1.personasHab)}</h3>
                  <h3 name="checkInya" > {setcheckInya(doc1.timin)}</h3>
                  <h3 name="checkOutya" > {setcheckOutya(doc1.timax)}</h3>
+                 <h3 name="archivoUrl4" > {setarchivoUrl4(doc1.archivoUrl4)}</h3>
                   </div>
                   
               ))}
@@ -45,6 +46,7 @@ export default function Reservation() {
      const[persona, setpersona] = useState([]);
      const[checkInya, setcheckInya] = useState([]);
      const[checkOutya, setcheckOutya] = useState([]);
+     
 
 
     const id= useParams().id
@@ -67,18 +69,20 @@ export default function Reservation() {
     const submitHandler = async (e)=>{
         e.preventDefault()
         
-        const foto =e.target.foto.value
         setText(docus)
         const coleccionRef =  db.collection("reservas")
-        const coleccionRef2 =  db.collection("hoteles")
         const docu = await coleccionRef.doc(KeyCodenew).set({habitacion:habit,precio:prec,persona:persona,checkIn:checkInya,checkOut:checkOutya})
 
+
         const keyCode2= uuidv4();
-        listahab.push({timax:checkOut,keyCode2:keyCode2, timin:checkInya,personasHab:persona,precioPerDay:prec,habitacion:habit,archivoUrl4:foto})
-        
+        listahab.push({timax:checkOut,keyCode2:keyCode2, timin:checkInya[0],personasHab:persona[0],precioPerDay:prec[0],habitacion:habit[0],archivoUrl4:archivoUrl4[0]})
+
+
+
         const keyCode3= uuidv4();
-        listahab.push({timax:checkOutya,keyCode2:keyCode3, timin:checkIn,personasHab:persona,precioPerDay:prec,habitacion:habit,archivoUrl4:foto})
-        
+        listahab.push({timax:checkOutya[0],keyCode2:keyCode3, timin:checkIn,personasHab:persona[0],precioPerDay:prec[0],habitacion:habit[0],archivoUrl4:archivoUrl4[0]})
+
+
         db.collection("hoteles").doc(id).update({lista2:listahab})
 
         alert("Se ha procesado su solicitud") 
