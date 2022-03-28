@@ -1,3 +1,8 @@
+.Container {
+    width: 90%;
+    margin: 80px auto 0;
+}
+
 .h1 {
     color: black;
     background-color: rgb(196, 221, 255);

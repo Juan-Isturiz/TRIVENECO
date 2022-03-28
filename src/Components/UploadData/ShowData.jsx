@@ -33,15 +33,14 @@ const ShowData = () => {
 
     const [filter, setFilter] = useState(false);
 
-
     return (
         <section>
-            <div
+            {/*<div
                 class="fb-comments"
                 data-href="https://developers.facebook.com/docs/plugins/comments#generadorAndy293923923232323232323"
                 data-width="100%"
                 data-numposts="1"
-            ></div>
+    ></div>*/}
             {/* <Card className={classes.login2} > */}
             <Card className={styles.CardContainer}>
                 <h2>Busca una ciudad</h2>
@@ -56,7 +55,8 @@ const ShowData = () => {
                     <Button
                         onClick={() => setFilter(!filter)}
                         type="button"
-                        className={styles.FilterButton}>
+                        className={styles.FilterButton}
+                    >
                         <FaFilter />
                     </Button>
                     {filter && (
@@ -120,7 +120,7 @@ const ShowData = () => {
                                     <img
                                         src={doc.url}
                                         className={styles.CityImg}
-                                        ></img>
+                                    ></img>
                                 </Link>
                                 <h3>{doc.nombre}</h3>
                                 {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />}
@@ -137,13 +137,12 @@ const ShowData = () => {
                                 <img
                                     src={doc.url}
                                     className={styles.CityImg}
-                                    ></img>
+                                ></img>
                             </Link>
                             <h3>{doc.nombre}</h3>
                             {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
                             {/* {console.log(AmountStars)} */}
                             {doc.ranking}
-
                         </li>
                     ))}
                 </ul>
