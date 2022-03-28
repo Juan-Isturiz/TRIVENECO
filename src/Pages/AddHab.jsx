@@ -46,7 +46,7 @@ export default function addHab() {
                 const keyCode2= uuidv4();
         listahab.push({timax:timax,keyCode2:keyCode2, timin:timin,personasHab:personasHab,precioPerDay:precioPerDay,habitacion:habitacion,archivoUrl4:archivoUrl4})
         
-        db.collection("hoteles").doc(id).update({lista2:listahab})
+        await db.collection("hoteles").doc(id).Update({lista2:listahab})
         alert("Se ha procesado su solicitud")
         
     }
