@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../utils/firebaseConfig";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
-import classes from "../Login/Login.module.css";
 import { Link } from "react-router-dom";
-import styles from "./ShowCity.module.css";
+import styles from "./View.module.css";
 import InputField from "../UI/InputField/InputField";
 import { FaFilter } from "react-icons/fa";
 import { AiOutlineClear, AiFillStar, AiOutlineStar } from "react-icons/ai";
@@ -35,7 +34,7 @@ const ShowData = () => {
 
     return (
         <section>
-            {/* <Card className={classes.login2} > */}
+
             <Card className={styles.CardContainer}>
                 <h2>Busca una ciudad</h2>
                 <form className={styles.FormContainer}>
@@ -45,7 +44,7 @@ const ShowData = () => {
                         placeholder="Filtrado por nombre"
                         onChange={(e) => setTerm(e.target.value)}
                     />
-                    <div className={classes.actions}></div>
+
                     <Button
                         onClick={() => setFilter(!filter)}
                         type="button"
@@ -104,40 +103,52 @@ const ShowData = () => {
                 </form>
             </Card>
             {radio != "" ? (
-                <ul className={styles.cities}>
+                <ul className={styles.list}>
                     {docus
                         .filter(zoneFilter(radio))
                         .filter(searchingTerm(term))
                         .map((doc) => (
                             <li key={doc.keyCode} className={styles.elements}>
+                            <div className={styles.ImgContainer}>
                                 <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                     <img
                                         src={doc.url}
-                                        className={styles.CityImg}
+                                        className={styles.ElementImg}
                                     ></img>
                                 </Link>
-                                <h3>{doc.nombre}</h3>
-                                {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />}
-                                {console.log(AmountStars)} */}
-                                {doc.ranking}
-                            </li>
+                                <div className={styles.OverImg}>
+                                    <Link to={`/CiudadParticular/${doc.keyCode}`}>
+                                    <h3 className={styles.Name}>{doc.nombre}</h3>
+                                </Link>
+                                </div>
+                            </div>
+                            {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
+                            {/* {console.log(AmountStars)} */}
+                            <h3 className={styles.Rating}>{doc.ranking}</h3>
+                        </li>
                         ))}
                 </ul>
             ) : (
-                <ul className={styles.cities}>
+                <ul className={styles.list}>
                     {docus.filter(searchingTerm(term)).map((doc) => (
                         <li key={doc.keyCode} className={styles.elements}>
+                        <div className={styles.ImgContainer}>
                             <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                 <img
                                     src={doc.url}
-                                    className={styles.CityImg}
+                                    className={styles.ElementImg}
                                 ></img>
                             </Link>
-                            <h3>{doc.nombre}</h3>
-                            {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
-                            {/* {console.log(AmountStars)} */}
-                            {doc.ranking}
-                        </li>
+                            <div className={styles.OverImg}>
+                                <Link to={`/CiudadParticular/${doc.keyCode}`}>
+                                    <h3 className={styles.Name}>{doc.nombre}</h3>
+                            </Link>
+                            </div>
+                        </div>
+                        {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
+                        {/* {console.log(AmountStars)} */}
+                        <h3 className={styles.Rating}>{doc.ranking}</h3>
+                    </li>
                     ))}
                 </ul>
             )}

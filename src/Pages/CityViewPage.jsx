@@ -1,4 +1,4 @@
-import ShowData from "../Components/UploadData/ShowCity";
+import ShowCity from "../Components/UploadData/ShowCity";
 import Header from "../Components/Header/Header";
 import cityImg from "../img/citypageimg.jpg";
 
@@ -12,7 +12,7 @@ const CityViewPage = () => {
                 alt="imagen del titulo"
                 text="Busca y selecciona la ciudad de tus sueños"
             ></Header>
-            <ShowData />
+            <ShowCity />
         </div>
     );
 };
