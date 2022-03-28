@@ -1,8 +1,9 @@
-import styles from "./Navbar.module.css";
+import styles from "./NavBar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/Context";
 import { db } from "../../utils/firebaseConfig";
+
 
 const Menu = (props) => {
     const [usrRol, setRol] = useState(0);
@@ -39,29 +40,21 @@ const Menu = (props) => {
                     <li>Feedback</li>
                 </Link>
 
-                {!isLogged ? (
-                    <li onClick={toLog}>Log in</li>
-                ) : (
-                    <div>
-                        <li onClick={loggerOut}>Log out</li>
-                        {usrRol === 2 && (
-                            <>
-                                <Link
-                                    to="/CityViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    <li> Ciudades-Admin</li>
-                                </Link>
-                                <Link
-                                    to="/HotelViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    <li> Hotel-Admin</li>
-                                </Link>
-                            </>
-                        )}
-                    </div>
-                )}
+              
+
+                  {!isLogged ? (<li onClick={toLog}>
+                    Log in
+                  </li>) : (<ul >
+                  <Link to="/CityViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Ciudades-Admin</li></Link>
+                  <Link to="/HotelViewPageAdmin" onClick = {()=>setOpen(!open)}><li> Hotel-Admin</li></Link>
+                  <li onClick={loggerOut} >
+                    
+                    Log out
+                  </li>
+                  </ul>
+                  )}
+
+                   
             </ul>
         </div>
     );

@@ -5,10 +5,11 @@ import styles from "./Particular.module.css";
 import Reservation from "../Reservation/ReservationGen";
 import { Link, useNavigate } from "react-router-dom";
 
-function searchingTerm(id) {
-    return function (x) {
-        return x.keyCode.toLowerCase().includes(id) || !id;
-    };
+
+function searchingTerm(id){
+    return function(x){
+        return x.keyCode.toLowerCase().includes(id) || !id
+    }
 }
 
 export function HotelParticular() {

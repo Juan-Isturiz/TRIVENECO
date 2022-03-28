@@ -33,28 +33,32 @@ export function CiudadParticular() {
                     ></Header>
                     <div className={styles.container}>
                         <div className={styles.rank}>
-                            <h1>Ranking </h1>
+                            <h2>Ranking </h2>
                             <h3 className={styles.stars}>{doc.ranking}</h3>
                         </div>
-                        <h1>Lugares de interés </h1>
+                        <h2 className={styles.interest}>Lugares de interés </h2>
 
                         <section>
                             <h3>{doc.lugar}</h3>
-                            <img
-                                src={doc.url2}
-                                className={styles.imgs}
-                                alt="Imagen lugar 1"
-                            ></img>
-                            <p>{doc.descripcion2}</p>
+                            <div className={styles.gridContainer}>
+                                <img
+                                    src={doc.url2}
+                                    className={styles.imgs}
+                                    alt="Imagen lugar 1"
+                                ></img>
+                                <p>{doc.descripcion2}</p>
+                            </div>
                         </section>
                         <section>
                             <h3>{doc.lugar2}</h3>
-                            <img
-                                src={doc.url3}
-                                className={styles.imgs}
-                                alt="Imagen lugar 2"
-                            ></img>
-                            <p>{doc.descripcion3}</p>
+                            <div className={styles.gridContainer}>
+                                <img
+                                    src={doc.url3}
+                                    className={styles.imgs}
+                                    alt="Imagen lugar 2"
+                                ></img>
+                                <p>{doc.descripcion3}</p>
+                            </div>
                         </section>
                     </div>
                 </li>

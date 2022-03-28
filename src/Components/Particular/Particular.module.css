@@ -1,10 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 li {
     list-style-type: none;
 }
 
-.container h1,
+.container h2,
 .container h3 {
     font-family: var(--font-titles);
+}
+
+.container h2 {
+    font-size: xx-large;
 }
 
 .container .rank {
@@ -17,19 +28,85 @@ li {
     color: gold;
 }
 
+.container .interest {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.container section {
+    background-color: var(--neutral-color-200);
+}
+
+.container section h3 {
+    padding: 2rem 0 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 5vw;
+}
+
 .container .imgs {
     width: 80%;
     margin: auto;
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
+@media screen and (min-width: 721px) {
+    .container .rank {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        gap: 1rem;
+    }
+    .container .rank h2 {
+        grid-column: 1;
+        grid-row: 1;
+        margin: auto 0;
+        text-align: right;
     }
     .container .stars {
+        grid-row: 2;
+        grid-row: 1;
+        margin: auto 0;
+        text-align: left;
+        font-size: 3vw;
+    }
+    .container .gridContainer {
+        width: 90%;
+        margin: auto;
+        padding-bottom: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        column-gap: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .container section h3 {
+        font-size: 35px;
+    }
+    .container .imgs {
+        grid-column: 1;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+    .container section p {
+        grid-column: 2;
+        text-align: justify;
+        font-size: 16pxpx;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .container .stars {
+        font-size: 32px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .container .stars {
         padding-top: 0.5rem;
+    }
+    .container section p {
+        margin: auto;
+        padding: 1rem 0;
+        max-width: 80%;
+        text-align: justify;
     }
 }

@@ -1,9 +1,11 @@
 .cities {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
+    gap:1rem;
+    width: 90%;
+    /* background-color: red; */
     height: auto;
-    margin: auto;
+    margin: 2rem auto;
 }
 
 .cities .elements {
@@ -11,11 +13,24 @@
     list-style: none;
 }
 
+.elements {
+    border: 2px solid black;
+    /* background-color: aqua; */
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cities a {
     width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.CityImg {
+    width: 90%;
 }
 
 .CardContainer {
@@ -51,6 +66,7 @@
     gap: 10%;
     text-align: left;
 }
+
 
 @media (max-width: 550px) {
     .RadioContainer {
