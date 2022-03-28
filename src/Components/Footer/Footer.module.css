@@ -11,7 +11,7 @@
 }
 
 .footer img {
-    max-width: 200px;
+    max-width: 120px;
 }
 
 .footer .iconContainer {
@@ -34,7 +34,7 @@
         grid-template-rows: repeat(2, 50%);
         row-gap: 0.5em;
         padding-bottom: 0.5em;
-        height: 160px;
+        height: 130px;
     }
     .footer .lines {
         grid-column: 6;
@@ -68,16 +68,14 @@
 
 @media screen and (min-width: 721px) {
     .footer {
-        row-gap: 1em;
-        padding-bottom: 1em;
-        height: 200px;
+        height: 140px;
     }
     .footer .license {
         grid-column: 2 / 6;
     }
     .footer .icons {
-        width: 4em;
-        height: 4em;
+        width: 3em;
+        height: 3em;
         margin-right: 2rem;
     }
     .footer .icons:hover {

@@ -4,12 +4,11 @@ import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage";
 import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
-import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
-import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular"
-import HotelParticular from "./Components/HotelParticular/HotelParticular"
-import FeedbackPage from "./Pages/FeedbackPage";
-import AddHab from "./Pages/AddHab.jsx"
+import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
+import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
+import CiudadParticular from "./Components/Particular/CiudadParticular";
+import HotelParticular from "./Components/Particular/HotelParticular";
+import AddHab from "./Pages/AddHab.jsx";
 import UserProfile from "./Pages/UserProfile";
 import Reservation from "./Components/Reservation/Reservation";
 
@@ -39,8 +38,10 @@ const Routering = () => {
             ></Route>
             <Route path="/AddHab/:id" element={<AddHab />}></Route>
             <Route path="/Perfil" element={<UserProfile />} />
-            <Route path="/FeedBack" element={<FeedbackPage />}></Route>
-            <Route path="/Reservation/:id/:type" element={<Reservation/>} ></Route>
+            <Route
+                path="/Reservation/:id/:type"
+                element={<Reservation />}
+            ></Route>
         </Routes>
     );
 };

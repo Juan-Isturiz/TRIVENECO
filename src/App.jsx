@@ -6,12 +6,11 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 
-
 function App() {
     return (
         <Router>
             <UserContextProvider>
-                <Navbar/>
+                <Navbar />
                 <Routering />
                 <Footer />
             </UserContextProvider>

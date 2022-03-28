@@ -10,11 +10,12 @@
     justify-content: center;
 }
 
-.body a {
+.body h2 {
     font-family: var(--font-titles);
     font-weight: bold;
     text-align: center;
     font-size: 3rem;
+    color: var(--text-light);
 }
 
 .body img {
