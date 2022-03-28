@@ -4,7 +4,7 @@ import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
 import classes from "../Login/Login.module.css";
 import { Link } from "react-router-dom";
-import styles from "./ShowData.module.css";
+import styles from "./ShowCity.module.css";
 import InputField from "../UI/InputField/InputField";
 import { FaFilter } from "react-icons/fa";
 import { AiOutlineClear, AiFillStar, AiOutlineStar } from "react-icons/ai";
@@ -35,12 +35,6 @@ const ShowData = () => {
 
     return (
         <section>
-            {/*<div
-                class="fb-comments"
-                data-href="https://developers.facebook.com/docs/plugins/comments#generadorAndy293923923232323232323"
-                data-width="100%"
-                data-numposts="1"
-    ></div>*/}
             {/* <Card className={classes.login2} > */}
             <Card className={styles.CardContainer}>
                 <h2>Busca una ciudad</h2>
@@ -152,5 +146,3 @@ const ShowData = () => {
 };
 
 export default ShowData;
-
-
