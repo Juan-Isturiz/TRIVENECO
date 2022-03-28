@@ -113,17 +113,18 @@ export default function UploadData() {
     return (
         <div className={styles.upContainer}>
             <form onSubmit={submitHandler} className={styles.Formulario}>
-                <h1>Cargar ciudad</h1>
+                <div className={styles.title}>
+                    <h1>Cargar ciudad</h1>
+                </div>
                 <h2>Descripción General</h2>
 
-                <div className={styles.general}>
+                <div className={styles.infoContainer}>
                     <h3>Foto de la ciudad</h3>
                     <input type="file" onChange={archivoHandler} />
                     <p>(preferencia: 1080x608 pixeles)</p>
 
                     <h3>Nombre de la ciudad</h3>
                     <input
-                        className={styles.nameInputs}
                         type="text"
                         name="nombre"
                         placeholder="inserte nombre de la ciudad"
@@ -144,7 +145,7 @@ export default function UploadData() {
                     <textarea
                         name="descripcionArchivo"
                         placeholder="describe la ciudad"
-                        className={styles.textarea}
+                        className={styles.textArea}
                         rows={4}
                     />
 
@@ -159,10 +160,9 @@ export default function UploadData() {
 
                 <h2>Lugares de interes</h2>
 
-                <div>
+                <div className={styles.infoContainer}>
                     <h3>Nombre del primer lugar</h3>
                     <input
-                        className={styles.nameInputs}
                         type="text"
                         name="lugar"
                         placeholder="inserte nombre del lugar"
@@ -177,13 +177,12 @@ export default function UploadData() {
                     <textarea
                         name="descripcionArchivo2"
                         placeholder="describe el lugar detalladamente"
-                        className={styles.textarea}
+                        className={styles.textArea}
                         rows={4}
                     />
 
                     <h3>Nombre del segundo lugar</h3>
                     <input
-                        className={styles.nameInputs}
                         type="text"
                         name="lugar2"
                         placeholder="inserte nombre del lugar"
@@ -198,7 +197,7 @@ export default function UploadData() {
                     <textarea
                         name="descripcionArchivo3"
                         placeholder="describe el lugar detalladamente"
-                        className={styles.textarea}
+                        className={styles.textArea}
                         rows={4}
                     />
 
@@ -208,15 +207,16 @@ export default function UploadData() {
 
             <h2>Ciudades guardadas en el sistema</h2>
 
-            <ul className={styles.savedCities}>
+            <ul className={styles.savedThings}>
                 {docus.map((doc) => (
                     <li key={doc.keyCode}>
-                        <h3>{doc.nombre}</h3>
+                        <h3 className={styles.savedNames}>{doc.nombre}</h3>
                         <img src={doc.url} height="500px" width="500px"></img>
-
-                        <button onClick={() => deleteSel(doc.keyCode)}>
-                            Eliminar
-                        </button>
+                        <div className={styles.btnBackground}>
+                            <button onClick={() => deleteSel(doc.keyCode)}>
+                                Eliminar
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
