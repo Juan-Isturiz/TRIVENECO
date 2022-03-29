@@ -181,15 +181,11 @@ export default function UploadData() {
                <h3 className={styles.h3}>Seleccione la ciudad:</h3>
                <select onChange={(e) => handleChange(e)} name="ciudades">
                {docusCity.map((doc)=>
-               
-                   <option value={doc.nombre}>{doc.nombre}</option>
-                   
+
+                   <option value={doc.nombre}>{doc.nombre}</option>      
               )}
                </select>
             
-                      
-   		   
-
                <br/>
             <br/>
             <h3 className={styles.h3}>Descripcion del hotel:</h3>

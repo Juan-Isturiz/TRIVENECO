@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {storage,db} from "../../utils/firebaseConfig"
 import { v4 as uuidv4 } from 'uuid';
 import styles from "./Upload.module.css"
-
+import { Link} from 'react-router-dom'
 
 export default function UploadData() {
 
@@ -81,7 +81,7 @@ export default function UploadData() {
         const coleccionRef =  db.collection("ciudades")
         const docu = await coleccionRef.doc(keyCode).set({keyCode:keyCode,nombre: nombreCiudad, url: archivoUrl,url2: archivoUrl2, url3: archivoUrl3, descripcion: descripcionArchivo, descripcion2: descripcionArchivo2,descripcion3: descripcionArchivo3, zona:zonaArchivo, ranking:rankingArchivo,lugar:nombreLugarInteres, lugar2:nombreLugarInteres2})
         console.log("archivo cargado:", nombreCiudad, "url:",archivoUrl)
-        alert("Se ha procesado su solicitud") 
+        alert("Se ha procesado su solicitud")
     }
 
     const deleteSel = async (keyToDel1)=>{
@@ -180,6 +180,7 @@ export default function UploadData() {
                 <button onClick={()=>deleteSel(doc.keyCode)} className={styles.oscurecer}>Eliminar</button>
                 <br/>
                 <br/>
+                <Link to={"/UpdateCity"} className = {styles.h1}> Editar </Link>
                 </li>)}
         </ul>
         </div>

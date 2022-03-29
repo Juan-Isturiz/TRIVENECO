@@ -17,7 +17,6 @@ export default function ReservationGen() {
     return (
         <div>
             <h3>nombre: </h3>
-            
             <hr/>
             <h3>titulo: </h3>
             <input type="text" name="habitacion" placeholder="inserte título de habitación" size="50" maxLength="40"/>
