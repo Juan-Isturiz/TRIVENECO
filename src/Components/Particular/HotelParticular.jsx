@@ -99,8 +99,6 @@ export function HotelParticular() {
                     <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
             ))}
-
-            <Reservation></Reservation>
         </div>
     );
 }

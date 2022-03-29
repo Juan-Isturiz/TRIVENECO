@@ -10,14 +10,15 @@ import Navbar from "./Components/NavBar/NavBar";
 
 function App() {
     return (
-        <Router>
-            <UserContextProvider>
+        <UserContextProvider>
+            <Router>
+
                 <Navbar />
                 <Routering />
                 <Footer />
-            </UserContextProvider>
-        </Router>
 
+            </Router>
+        </UserContextProvider>
     );
 }
 
