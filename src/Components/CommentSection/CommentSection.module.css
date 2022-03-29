@@ -1,0 +1,17 @@
+.Container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.CommentSection {
+    height: 4rem;
+    width: 100%;
+    background-color: red;
+}
+
+.CommentButton {
+    height: auto;
+    padding: auto;
+    margin: auto;
+}

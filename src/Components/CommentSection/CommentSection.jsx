@@ -4,6 +4,7 @@ import { db, date, currentLog } from "../../utils/firebaseConfig";
 import { useForm } from "react-hook-form";
 import Comments from '../Comments/Comments'
 import { useEffect, useState } from "react";
+import styles from './CommentSection.module.css'
 
 const CommentSection = (props) => {
     const { doc, collection } = props
@@ -41,13 +42,15 @@ const CommentSection = (props) => {
         })
     }
     return (
-        <Card>
-            {messages.text != '' && messages.map(doc => { return <Comments key={doc.id} message={doc.data} /> })}
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('msg', { minLength: 10 })}></input>
-                <Button type='submit'>Enviar</Button>
-            </form>
-        </Card>
+        <div className={styles.Container}>
+            <Card className={styles.CommentSection}>
+                {messages.text != '' && messages.map(doc => { return <Comments key={doc.id} message={doc.data} /> })}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register('msg', { minLength: 10 })}></input>
+                    <Button type='submit' className={styles.CommentButton}>Enviar</Button>
+                </form>
+            </Card>
+        </div>
     )
 }
 export default CommentSection
