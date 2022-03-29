@@ -4,7 +4,6 @@ import { storage, db } from "../../utils/firebaseConfig";
 import { v4 as uuidv4 } from 'uuid';
 
 
-<<<<<<< HEAD
 function Checkout() {
     const [docus, setDocus] = useState([])
 
@@ -17,12 +16,6 @@ function Checkout() {
         }
     }, [])
 
-=======
-function Checkout(props) {
-    
-    const paypal = useRef() 
-
->>>>>>> origin/style
     useEffect(() => {
         window.paypal
             .Buttons({
@@ -31,17 +24,10 @@ function Checkout(props) {
                         intent: "CAPTURE",
                         purchase_units: [
                             {
-<<<<<<< HEAD
                                 description: docus.habitacion,
                                 amount: {
                                     currency_code: "CAD",
                                     value: docus.precioPerDay
-=======
-                                description: "pene",
-                                amount: {
-                                    currency_code: "CAD",
-                                    value: props.amount
->>>>>>> origin/style
                                 },
                             },
                         ],

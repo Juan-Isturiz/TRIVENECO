@@ -6,10 +6,6 @@ import Styles from "./Reservation.module.css"
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../UI/Button/Button'
 import PaypalCheckoutButton from '../Checkout/Checkout';
-<<<<<<< HEAD
-import Checkout from '../PayPal/PayPal';
-=======
->>>>>>> origin/style
 
 function searchingTerm(hotelid) {
     return function (x) {
@@ -67,7 +63,7 @@ export default function Reservation() {
         }
     }
     const compareDates = (dateDBin, dateDBout, dateBookin, dateBookout) => {
-        if (typeof (dateDBin) === 'string' && typeof (dateDBout) === 'string') {
+        if (typeof (dateDBin) === 'string'&&typeof (dateDBout) === 'string') {
             let [monthIn, dateIn] = dateDBin.split(' ')
             let [monthOut, dateOut] = dateDBout.split(' ')
 
@@ -111,11 +107,7 @@ export default function Reservation() {
     const [docus, setDocus] = useState([])
     const [checkIn, changeCheckIn] = useState(new Date())
     const [checkOut, changeCheckOut] = useState(new Date())
-<<<<<<< HEAD
-    const [pay, setPay]= useState(false)
-=======
     const [paying, setPaying] = useState(false)
->>>>>>> origin/style
 
 
     useEffect(async () => {
@@ -141,9 +133,7 @@ export default function Reservation() {
 
         alert("Se ha procesado su solicitud")
     }
-    const Checkout =()=>{
-        setPay(true)
-    }
+
     return (
         <div className={Styles.contenedor}>
         <form onSubmit={submitHandler}>
@@ -159,16 +149,6 @@ export default function Reservation() {
                     <DatePicker value={checkOut} onChange={changeCheckOut} />
                 </div>
                 <>
-<<<<<<< HEAD
-                    <p>{docus.habitacion}</p>
-                    <p>{docus.personasHab}</p>
-                    <p>{docus.precioPerDay}</p>
-                    <p>{docus.timin}</p>
-                    <p>{docus.timax}</p>
-                    <Button
-                        type='submit'
-                        onClick= {Checkout}
-=======
                     <h3>Habitación</h3>
                     <p className={Styles.datum}>{docus.habitacion}</p>
                     <h3>Personas por habitación</h3>
@@ -182,7 +162,6 @@ export default function Reservation() {
                     {!paying &&
                     <Button className={Styles.boton}
 
->>>>>>> style
                         disabled={
                             !compareDates(docus.timin, docus.timax, checkIn, checkOut)
                         }
@@ -190,21 +169,11 @@ export default function Reservation() {
                     >
                         {console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut))}
                         Enviar
-<<<<<<< HEAD
-                    </Button>
-=======
                     </Button >}
                 </>
->>>>>>> origin/style
 
-                </>
 
-<<<<<<< HEAD
-                      {pay && <PaypalCheckoutButton/>}  
-            </section>
-=======
             
->>>>>>> style
         </form>
         {paying && <PaypalCheckoutButton amount={docus.precioPerDay}/>}
         </div>
@@ -234,13 +203,3 @@ export default function Reservation() {
 //    </div>
 //
 //))}
-
-
-
-
-//{ console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut)) }
-//{ console.log((checkIn)) }
-//{ console.log((docus.timax.split(' '))) }
-//{ console.log(checkOut) }
-//{ console.log(`checkin  ${Date.now(docus.timin) <= checkIn.getTime()}`) }
-//{ console.log(`checkout ${docus.timax >= checkOut.getTime()}`) }        (dateBookin.getMonth() >= monthIn && dateBookin.getMonth() <= monthOut) && (dateBookout.getMonth() <= monthOut && dateBookout.getMonth() >= monthIn)
