@@ -1,6 +1,6 @@
 import styles from "./UserCard.module.css"
 import { UserContext } from "../../Context/Context"
-import { useContext, useState } from "react/cjs/react.development"
+import { useContext, useState } from "react"
 import Card from '../UI/Card/Card'
 import Button from '../UI/Button/Button'
 import UserEditForm from "../UserEditForm/UserEditForm"

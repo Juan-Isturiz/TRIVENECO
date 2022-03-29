@@ -15,6 +15,15 @@ const UserContextProvider = ({ children }) => {
       lastSignInTime: 4
     }
   })
+  const [rol, setRol] =useState(0)
+  const getRol = async () => {
+    try {
+        const userData = await db.collection("users").doc(user.uid).get();
+        setRol(userData.data().rol);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
   const history = useNavigate();
   const loggerOut = async () => {
     await auth.signOut();
@@ -69,9 +78,12 @@ const UserContextProvider = ({ children }) => {
         }
         setLogged(true)
         setUser(currentLog())
+        getRol()
+        console.log(rol)
       }
     });
   }, []);
+  useEffect(()=>{getRol()},[user])
   return (
     <UserContext.Provider
       value={{
@@ -80,7 +92,8 @@ const UserContextProvider = ({ children }) => {
         isLogged,
         setLogged,
         createUser,
-        loggerOut
+        loggerOut,
+        rol
       }}
     >
       {children}

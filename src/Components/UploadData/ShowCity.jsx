@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../utils/firebaseConfig";
 import Button from "../UI/Button/Button";
 import Card from "../UI/Card/Card";
-import classes from "../Login/Login.module.css";
 import { Link } from "react-router-dom";
-import styles from "./ShowData.module.css";
+import styles from "./View.module.css";
 import InputField from "../UI/InputField/InputField";
 import { FaFilter } from "react-icons/fa";
-import { AiOutlineClear } from "react-icons/ai";
+import { AiOutlineClear, AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 const searchingTerm = (term) => {
     return function (x) {
@@ -35,25 +34,17 @@ const ShowData = () => {
 
     return (
         <section>
-            <div
-                class="fb-comments"
-                data-href="https://developers.facebook.com/docs/plugins/comments#generadorAndy293923923232323232323"
-                data-width="100%"
-                data-numposts="1"
-            ></div>
-            {/* <Card className={classes.login2} > */}
+
             <Card className={styles.CardContainer}>
                 <h2>Busca una ciudad</h2>
                 <form className={styles.FormContainer}>
-                    <div className={classes.control1}>
-                        <InputField
-                            type="buscador"
-                            id="buscador"
-                            placeholder="Filtrado por nombre"
-                            onChange={(e) => setTerm(e.target.value)}
-                        />
-                    </div>
-                    <div className={classes.actions}></div>
+                    <InputField
+                        type="buscador"
+                        id="buscador"
+                        placeholder="Filtrado por nombre"
+                        onChange={(e) => setTerm(e.target.value)}
+                    />
+
                     <Button
                         onClick={() => setFilter(!filter)}
                         type="button"
@@ -112,38 +103,52 @@ const ShowData = () => {
                 </form>
             </Card>
             {radio != "" ? (
-                <ul className={styles.cities}>
+                <ul className={styles.list}>
                     {docus
                         .filter(zoneFilter(radio))
                         .filter(searchingTerm(term))
                         .map((doc) => (
                             <li key={doc.keyCode} className={styles.elements}>
-                                <h3>{doc.nombre}</h3>
+                            <div className={styles.ImgContainer}>
                                 <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                     <img
                                         src={doc.url}
-                                        height="100px"
-                                        width="100px"
+                                        className={styles.ElementImg}
                                     ></img>
                                 </Link>
-                                <h3>{doc.ranking}</h3>
-                            </li>
+                                <div className={styles.OverImg}>
+                                    <Link to={`/CiudadParticular/${doc.keyCode}`}>
+                                    <h3 className={styles.Name}>{doc.nombre}</h3>
+                                </Link>
+                                </div>
+                            </div>
+                            {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
+                            {/* {console.log(AmountStars)} */}
+                            <h3 className={styles.Rating}>{doc.ranking}</h3>
+                        </li>
                         ))}
                 </ul>
             ) : (
-                <ul className={styles.cities}>
+                <ul className={styles.list}>
                     {docus.filter(searchingTerm(term)).map((doc) => (
                         <li key={doc.keyCode} className={styles.elements}>
-                            <h3>{doc.nombre}</h3>
+                        <div className={styles.ImgContainer}>
                             <Link to={`/CiudadParticular/${doc.keyCode}`}>
                                 <img
                                     src={doc.url}
-                                    height="100px"
-                                    width="100px"
+                                    className={styles.ElementImg}
                                 ></img>
                             </Link>
-                            <h3>{doc.ranking}</h3>
-                        </li>
+                            <div className={styles.OverImg}>
+                                <Link to={`/CiudadParticular/${doc.keyCode}`}>
+                                    <h3 className={styles.Name}>{doc.nombre}</h3>
+                            </Link>
+                            </div>
+                        </div>
+                        {/* {doc.ranking == "1 Estrella" ? <AiOutlineStar /> : <AiFillStar />} */}
+                        {/* {console.log(AmountStars)} */}
+                        <h3 className={styles.Rating}>{doc.ranking}</h3>
+                    </li>
                     ))}
                 </ul>
             )}
@@ -152,5 +157,3 @@ const ShowData = () => {
 };
 
 export default ShowData;
-
-

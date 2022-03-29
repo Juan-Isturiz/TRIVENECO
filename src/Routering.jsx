@@ -4,16 +4,15 @@ import HotelViewPage from "./Pages/HotelViewPage";
 import LoginPage from "./Pages/LoginPage";
 import LandPage from "./Pages/LandPage";
 import RegisterPage from "./Pages/RegisterPage";
-import CityViewPageAdmin from "./Pages/CityViewPageAdmin"
-import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin"
-import CiudadParticular from "./Components/CiudadParticular/CiudadParticular"
-import HotelParticular from "./Components/HotelParticular/HotelParticular"
-import FeedbackPage from "./Pages/FeedbackPage";
-import AddHab from "./Pages/AddHab.jsx"
+import CityViewPageAdmin from "./Pages/CityViewPageAdmin";
+import HotelViewPageAdmin from "./Pages/HotelViewPageAdmin";
+import CiudadParticular from "./Components/Particular/CiudadParticular";
+import HotelParticular from "./Components/Particular/HotelParticular";
+import AddHab from "./Pages/AddHab.jsx";
 import UserProfile from "./Pages/UserProfile";
 import Reservation from "./Components/Reservation/Reservation";
-
-
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import AdminRightsPage from "./Components/PrivateRoute/AdminRightsPage";
 const Routering = () => {
     return (
         <Routes>
@@ -24,12 +23,22 @@ const Routering = () => {
             <Route path="/Signup" element={<RegisterPage />} />
             <Route
                 path="/CityViewPageAdmin"
-                element={<CityViewPageAdmin />}
-            ></Route>
+                element={<AdminRightsPage />}
+            >
+                <Route
+                    path="/CityViewPageAdmin"
+                    element={<CityViewPageAdmin />}
+                ></Route>
+            </Route>
             <Route
                 path="/HotelViewPageAdmin"
-                element={<HotelViewPageAdmin />}
-            ></Route>
+                element={<AdminRightsPage />}
+            >
+                <Route
+                    path="/HotelViewPageAdmin"
+                    element={<HotelViewPageAdmin />}
+                />
+            </Route>
             <Route
                 path="/CiudadParticular/:id"
                 element={<CiudadParticular />}
@@ -38,10 +47,21 @@ const Routering = () => {
                 path="/HotelParticular/:id"
                 element={<HotelParticular />}
             ></Route>
-            <Route path="/AddHab/:id" element={<AddHab />}></Route>
-            <Route path="/Perfil" element={<UserProfile />} />
-            <Route path="/FeedBack" element={<FeedbackPage />}></Route>
-            <Route path="/Reservation/:id/:type" element={<Reservation/>} ></Route>
+            <Route
+                path="/AddHab/:id"
+                element={<AdminRightsPage />}
+            >
+                <Route path="/AddHab/:id" element={<AddHab />} />
+            </Route>
+            <Route path="/Perfil" element={<PrivateRoute />} >
+                <Route path="/Perfil" element={<UserProfile />} />
+            </Route>
+            <Route path="/Reservation/:id/:type" element={<PrivateRoute />} >
+                <Route
+                    path="/Reservation/:id/:type"
+                    element={<Reservation />}
+                />
+            </Route>
         </Routes>
     );
 };

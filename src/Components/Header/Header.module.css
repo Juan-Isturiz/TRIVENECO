@@ -39,18 +39,20 @@
     align-items: center;
     text-align: center;
     font-size: 3vw;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
+    height: fit-content;
 }
 
 .header div:last-child img {
     width: 15vw;
+    max-width: 125px;
     height: auto;
     padding-left: 1px;
 }
 
 @media screen and (min-width: 721px) {
     .header {
-        grid-template-rows: repeat(4, 130px) 85px;
+        grid-template-rows: repeat(4, 130px) fit-content(85px);
     }
     .header h1 {
         font-size: 80px;
@@ -62,13 +64,13 @@
 
 @media screen and (max-width: 720px) {
     .header {
-        grid-template-rows: repeat(4, 115px) 75px;
+        grid-template-rows: repeat(4, 115px) fit-content(75px);
     }
 }
 
 @media screen and (max-width: 480px) {
     .header {
-        grid-template-rows: repeat(4, 100px) 65px;
+        grid-template-rows: repeat(4, 100px) fit-content(65px);
     }
     .header div:last-child {
         font-size: 4vw;

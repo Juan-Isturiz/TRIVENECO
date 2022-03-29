@@ -1,13 +1,12 @@
 import styles from "./BodyStyle.module.css";
 import Button from "../UI/Button/Button";
-import { Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const Cities = (props) => {
     return (
         <section className={`${styles.body} ${props.className}`}>
             <div>
-            <Link to="/CityView" className={styles.semiTitle}>Ciudades</Link>
+                <h2>Ciudades</h2>
             </div>
             <div className={`${styles.container}`}>
                 <img src={`${props.src}`} alt={`${props.alt}`} />
@@ -18,8 +17,7 @@ const Cities = (props) => {
                         className={styles.btn}
                         disabled={false}
                     >
-                        <Link to="/CityView">
-                        Ver ciudades</Link>
+                        <Link to="/CityView">Ver ciudades</Link>
                     </Button>
                 </div>
             </div>
