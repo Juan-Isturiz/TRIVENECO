@@ -79,8 +79,8 @@ export default function UploadData() {
         const relajacionRela = e.target.entretenimiento.value
         const rankingArchivo = e.target.ranking.value
         const hayCiudad = e.target.ciudades.value
-        const timax= e.target.timax.value
-        const timin= e.target.timin.value
+        const timax= e.target.timax.thing
+        const timin= e.target.timin.thing
         const personasHab= e.target.personasHab.value
         const precioPerDay=e.target.precioPerDay.value
         const habitacion =e.target.habitacion.value

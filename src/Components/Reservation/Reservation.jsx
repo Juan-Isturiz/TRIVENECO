@@ -33,6 +33,7 @@ export default function Reservation() {
     const [docus, setDocus] = useState([])
     const [checkIn, changeCheckIn] = useState(new Date())
     const [checkOut, changeCheckOut] = useState(new Date())
+    const [checkIn2, changeCheckIn2] = useState(new Date())
 
 
 
@@ -76,24 +77,11 @@ export default function Reservation() {
                     <p>{docus.habitacion}</p>
                     <p>{docus.personasHab}</p>
                     <p>{docus.precioPerDay}</p>
-                    <p>{docus.timin}</p>
+                    <p>{changeCheckIn2(Date(docus.timin))}</p>
                     <p>{docus.timax}</p>
-                    <button
-
-                        disabled={
-                            (Date.now(docus.timin)) > checkIn.getTime() &&
-                            (Date.now(docus.timin) == checkIn.getTime()) &&
-                            (Date.now(docus.timax) == checkOut.getTime()) &&
-                            (Date.now(docus.timax) < checkOut.getTime())
-                        }
-                    >
-                        {console.log(Date.now(docus.timin))}
-                        {console.log(checkIn)}
-                        {console.log((docus.timax))}
-                        {console.log(checkOut.getTime())}
-                        {console.log(`checkin  ${Date.now(docus.timin) <= checkIn.getTime()}`)}
-                        {console.log(`checkout ${docus.timax >=checkOut.getTime()}`)}Enviar
-                    </button>
+                    {  ( checkIn2.getTime()< checkIn.getTime() )?(
+                         <button >Enviar</button>):( <button disabled="true">Enviar</button>)}
+                    
                 </>
 
 
