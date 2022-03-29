@@ -4,7 +4,7 @@ import {storage,db} from "../../utils/firebaseConfig";
 import { v4 as uuidv4 } from 'uuid';
 
 
-function Checkout() {
+function Checkout(props) {
     
     const paypal = useRef() 
 
@@ -19,7 +19,7 @@ function Checkout() {
                                 description: "pene",
                                 amount: {
                                     currency_code: "CAD",
-                                    value: 69.0
+                                    value: props.amount
                                 },
                             },
                         ],
