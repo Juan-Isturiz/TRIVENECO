@@ -6,7 +6,10 @@ import Styles from "./Reservation.module.css"
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../UI/Button/Button'
 import PaypalCheckoutButton from '../Checkout/Checkout';
+<<<<<<< HEAD
 import Checkout from '../PayPal/PayPal';
+=======
+>>>>>>> origin/style
 
 function searchingTerm(hotelid) {
     return function (x) {
@@ -108,7 +111,11 @@ export default function Reservation() {
     const [docus, setDocus] = useState([])
     const [checkIn, changeCheckIn] = useState(new Date())
     const [checkOut, changeCheckOut] = useState(new Date())
+<<<<<<< HEAD
     const [pay, setPay]= useState(false)
+=======
+    const [paying, setPaying] = useState(false)
+>>>>>>> origin/style
 
 
     useEffect(async () => {
@@ -172,16 +179,23 @@ export default function Reservation() {
                     <p className={Styles.datum}>{docus.timin}</p>
                     <h3>Hasta</h3>
                     <p className={Styles.datum}>{docus.timax}</p>
+                    {!paying &&
                     <Button className={Styles.boton}
 
 >>>>>>> style
                         disabled={
                             !compareDates(docus.timin, docus.timax, checkIn, checkOut)
                         }
+                        onClick={()=>setPaying(true)}
                     >
                         {console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut))}
                         Enviar
+<<<<<<< HEAD
                     </Button>
+=======
+                    </Button >}
+                </>
+>>>>>>> origin/style
 
                 </>
 
@@ -192,6 +206,7 @@ export default function Reservation() {
             
 >>>>>>> style
         </form>
+        {paying && <PaypalCheckoutButton amount={docus.precioPerDay}/>}
         </div>
     )
 
