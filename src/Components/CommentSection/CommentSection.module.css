@@ -1,7 +1,7 @@
 .commentDiv {
     margin: 1rem 0;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 25% 75%;
     gap: 1rem;
     padding-right: 2rem;
     height: 7rem;
@@ -18,13 +18,14 @@
     height: 6rem;
 }
 .commentDiv form {
-    display: flex;
-    justify-self: left;
-    margin: auto 0;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 1rem;
+    padding-right: 1rem;
 }
 
 .commentDiv input {
+    margin: auto;
     height: 2rem;
     width: 100%;
 }
@@ -36,7 +37,7 @@
 
 .commentDiv button {
     height: 2rem;
-    width: 15%; /*auto*/
+    width: 15%;
     display: inline-flex;
     margin: auto 0;
     justify-content: center;
@@ -53,23 +54,15 @@
     background-color: var(--primary-color-400);
 }
 
-@media screen and (min-width: 720px) {
-    .commentDiv input {
-        width: 80%;
-        margin: auto;
-    }
-}
-
 @media screen and (max-width: 480px) {
     .commentDiv {
         display: flex;
         flex-direction: column;
         padding: 0.5rem;
-        padding-bottom: 1rem;
+        padding: 0.5rem 1rem 1rem 0.5rem;
         height: auto;
     }
-    .commentDiv .btnContainer {
-        display: inline-flex;
-        justify-content: center;
+    .commentDiv button {
+        margin: 0 auto;
     }
 }
