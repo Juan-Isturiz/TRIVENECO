@@ -5,20 +5,10 @@ import { UserContext } from "../../Context/Context";
 import { db } from "../../utils/firebaseConfig";
 
 const Menu = (props) => {
-    const [usrRol, setRol] = useState(0);
-    const getRol = async () => {
-        try {
-            const userData = await db.collection("users").doc(user.uid).get();
-            setRol(userData.data().rol);
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-    const { isLogged, loggerOut, user } = useContext(UserContext);
+
+    const { isLogged, loggerOut, user, rol } = useContext(UserContext);
     const history = useNavigate();
-    useEffect(() => {
-        getRol();
-    }, [user]);
+
     const toLog = () => {
         history("/Signin");
     };
@@ -40,18 +30,23 @@ const Menu = (props) => {
                     <li onClick={toLog}>Log in</li>
                 ) : (
                     <ul>
-                        <Link
-                            to="/CityViewPageAdmin"
-                            onClick={() => setOpen(!open)}
-                        >
-                            <li> Ciudades-Admin</li>
-                        </Link>
-                        <Link
-                            to="/HotelViewPageAdmin"
-                            onClick={() => setOpen(!open)}
-                        >
-                            <li> Hotel-Admin</li>
-                        </Link>
+                        {rol === 2 ?
+                            <>
+                                <Link
+                                    to="/CityViewPageAdmin"
+                                    onClick={() => setOpen(!open)}
+                                >
+                                    <li> Ciudades-Admin</li>
+                                </Link>
+                                <Link
+                                    to="/HotelViewPageAdmin"
+                                    onClick={() => setOpen(!open)}
+                                >
+                                    <li> Hotel-Admin</li>
+                                </Link>
+                            </>        : <></>                
+                        }
+
                         <li onClick={loggerOut}>Log out</li>
                     </ul>
                 )}
