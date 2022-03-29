@@ -16,13 +16,19 @@ const Menu = (props) => {
     return (
         <div className={styles.Menu}>
             <ul>
-                <Link to="/" onClick={() => setOpen(!open)}>
+                <Link to="/" 
+                // onClick={() => setOpen(!open)}
+                >
                     <li>Home</li>
                 </Link>
-                <Link to="/CityView" onClick={() => setOpen(!open)}>
+                <Link to="/CityView"
+                //  onClick={() => setOpen(!open)}
+                 >
                     <li>Ciudades</li>
                 </Link>
-                <Link to="/HotelView" onClick={() => setOpen(!open)}>
+                <Link to="/HotelView" 
+                // onClick={() => setOpen(!open)}
+                >
                     <li>Hoteles</li>
                 </Link>
 
@@ -34,13 +40,13 @@ const Menu = (props) => {
                             <>
                                 <Link
                                     to="/CityViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
+                                    // onClick={() => setOpen(!open)}
                                 >
                                     <li> Ciudades-Admin</li>
                                 </Link>
                                 <Link
                                     to="/HotelViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
+                                    // onClick={() => setOpen(!open)}
                                 >
                                     <li> Hotel-Admin</li>
                                 </Link>
