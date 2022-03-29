@@ -1,17 +1,75 @@
-.Container {
+.commentDiv {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    gap: 1rem;
+    padding-right: 2rem;
+    height: 7rem;
+    background-color: var(--primary-color-100);
+}
+
+.commentDiv div:first-child {
+    justify-self: right;
+    margin: auto 0;
+}
+
+.commentDiv img {
+    width: auto;
+    height: 6rem;
+}
+.commentDiv form {
     display: flex;
-    margin: auto;
-    justify-content: space-between;
-}
-
-.CommentSection {
-    height: 4rem;
+    justify-self: left;
+    margin: auto 0;
     width: 100%;
-    background-color: red;
 }
 
-.CommentButton {
-    height: auto;
-    padding: auto;
-    margin: auto;
+.commentDiv input {
+    height: 2rem;
+    width: 100%;
+}
+
+.commentDiv .btnContainer {
+    display: inline-flex;
+    justify-content: left;
+}
+
+.commentDiv button {
+    height: 2rem;
+    width: 15%; /*auto*/
+    display: inline-flex;
+    margin: auto 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-300);
+    border: none;
+}
+
+.commentDiv button:hover {
+    background-color: var(--primary-color-400);
+}
+
+.commentDiv button:active {
+    background-color: var(--primary-color-400);
+}
+
+@media screen and (min-width: 720px) {
+    .commentDiv input {
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .commentDiv {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        padding-bottom: 1rem;
+        height: auto;
+    }
+    .commentDiv .btnContainer {
+        display: inline-flex;
+        justify-content: center;
+    }
 }
