@@ -38,11 +38,12 @@ export function CiudadParticular() {
                             <h2>Ranking </h2>
                             <h3 className={styles.stars}>{doc.ranking}</h3>
                         </div>
+
                         <h2 className={styles.interest}>Lugares de interés </h2>
 
-                        <section>
-                            <h3>{doc.lugar}</h3>
-                            <div className={styles.gridContainer}>
+                        <section className={styles.gridContainer}>
+                            <div>
+                                <h3>{doc.lugar}</h3>
                                 <img
                                     src={doc.url2}
                                     className={styles.imgs}
@@ -50,10 +51,8 @@ export function CiudadParticular() {
                                 ></img>
                                 <p>{doc.descripcion2}</p>
                             </div>
-                        </section>
-                        <section>
-                            <h3>{doc.lugar2}</h3>
-                            <div className={styles.gridContainer}>
+                            <div>
+                                <h3>{doc.lugar2}</h3>
                                 <img
                                     src={doc.url3}
                                     className={styles.imgs}

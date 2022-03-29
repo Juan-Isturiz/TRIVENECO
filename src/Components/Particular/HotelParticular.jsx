@@ -38,43 +38,63 @@ export function HotelParticular() {
                         logo={false}
                     ></Header>
                     <div className={styles.container}>
-                        <h1 className={styles.titulo}>Casino: </h1>
-                        <h3 className={styles.descripcion}>{doc.Casino}</h3>
-                        <h1 className={styles.titulo}>Desayuno: </h1>
-                        <h3 className={styles.descripcion}>{doc.Comida}</h3>
-                        <h1 className={styles.titulo}>Playa: </h1>
-                        <h3 className={styles.descripcion}>{doc.Playa}</h3>
-                        <h1 className={styles.titulo}>Ciudad: </h1>
-                        <h3 className={styles.descripcion}>{doc.ciudad}</h3>
-                        <h1 className={styles.titulo}>Entretenimiento: </h1>
-                        <h3 className={styles.descripcion}>
-                            {doc.entretenimiento}
-                        </h3>
-                        <h1 className={styles.titulo}>
-                            Se permiten mascotas:{" "}
-                        </h1>
-                        <h3 className={styles.descripcion}>{doc.mascota}</h3>
+                        <section className={styles.gridContainer}>
+                            <div>
+                                <h2>Casino</h2>
+                                <h3>{doc.Casino}</h3>
+                            </div>
+                            <div>
+                                <h2>Desayuno</h2>
+                                <h3>{doc.Comida}</h3>
+                            </div>
+                            <div>
+                                <h2>Playa</h2>
+                                <h3>{doc.Playa}</h3>
+                            </div>
+                            <div>
+                                <h2>Ciudad</h2>
+                                <h3>{doc.ciudad}</h3>
+                            </div>
+                            <div>
+                                <h2>Entretenimiento</h2>
+                                <h3>{doc.entretenimiento}</h3>
+                            </div>
+                            <div>
+                                <h2>Se permiten mascotas </h2>
+                                <h3>{doc.mascota}</h3>
+                            </div>
+                        </section>
 
-                        <h1 className={styles.titulo}>Intalaciones: </h1>
-                        <h3 className={styles.titulo}>{doc.lugar}</h3>
-                        <img src={doc.url2} height="500px" width="600px"></img>
-                        <h1 className={styles.titulo}>Descripción</h1>
+                        <h2 className={styles.interest}>Intalaciones</h2>
 
-                        <h3 className={styles.descripcion}>
-                            {doc.descripcion2}
-                        </h3>
+                        <section className={styles.gridContainer}>
+                            <div>
+                                <h3 className={styles.textException}>
+                                    {doc.lugar}
+                                </h3>
+                                <img
+                                    className={styles.imgs}
+                                    src={doc.url2}
+                                    alt={`Imagen ${doc.lugar}`}
+                                ></img>
+                            </div>
+                            <div>
+                                <h3 className={styles.textException}>
+                                    {doc.lugar2}
+                                </h3>
+                                <img
+                                    className={styles.imgs}
+                                    src={doc.url3}
+                                    alt={`Imagen ${doc.lugar2}`}
+                                ></img>
+                            </div>
+                        </section>
 
-                        <h3 className={styles.titulo}>{doc.lugar2}</h3>
-                        <img src={doc.url3} height="500px" width="600px"></img>
-                        <h1 className={styles.titulo}>Descripción</h1>
+                        <h2 className={styles.interest}>
+                            Seleccione la habitación
+                        </h2>
 
-                        <h3 className={styles.descripcion}>
-                            {doc.descripcion3}
-                        </h3>
-
-                        <h3 className={styles.h3}>Seleccione la habitación:</h3>
-                        
-                         <Habitaciones doc={doc.keyCode} /> 
+                        <Habitaciones doc={doc.keyCode} />
                     </div>
                     <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
