@@ -56,11 +56,8 @@ const CommentSection = (props) => {
                 })}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("msg", { minLength: 10 })}></input>
-                <div className={styles.btnContainer}>
-                    <Button type="submit">Enviar</Button>
-                </div>
+                <Button type="submit">Enviar</Button>
             </form>
-
         </div>
     );
 };

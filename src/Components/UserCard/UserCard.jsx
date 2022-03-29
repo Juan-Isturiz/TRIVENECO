@@ -17,13 +17,16 @@ const UserCard = () => {
         }
     }
     return (
-        <Card>
+        <div>
+        
+        <Card className={styles.container}>
+        <h2 className={styles.title}>Edita tu perfil</h2>
             {!isEditing ?
                 <>
-                    <div>Nombre: {user.displayName}</div>
+                    <div><h3>Nombre</h3>{user.displayName}</div>
                     <img src={user.photoURL}/>
-                    <div>Numero de teléfono: {(user.phoneNumber)}</div>
-                    <div>Reservas</div>
+                    <div><h3>Numero de teléfono</h3> {(user.phoneNumber)}</div>
+                    <div><h3>Reservas</h3></div>
                     <Button type= 'button'onClick={toggleEdit}>
                         Edit
                     </Button>
@@ -33,6 +36,7 @@ const UserCard = () => {
                 </>}
 
         </Card>
+        </div>
     )
 }
 export default UserCard

@@ -46,7 +46,7 @@ const Menu = (props) => {
                             </Link>
                         </> : <></>
                     }
-
+                    <Link to="/Perfil"><li>Edit profile</li></Link>
                     <li onClick={loggerOut}>Log out</li>
                 </ul>
             )}

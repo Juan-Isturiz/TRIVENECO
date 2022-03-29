@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {storage} from "../../utils/firebaseConfig"
 import {DatePicker} from "@material-ui/pickers"
+import styles from './Reservation.module.css'
 
 
 export default function ReservationGen() {
@@ -15,7 +16,8 @@ export default function ReservationGen() {
       }
 
     return (
-        <div>
+        <div className={styles.container}>
+            <h2>Reserva tu habitación</h2>
             <h3>nombre: </h3>
             <hr/>
             <h3>titulo: </h3>
