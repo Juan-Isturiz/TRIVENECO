@@ -5,6 +5,8 @@ import { storage, db, date } from "../../utils/firebaseConfig";
 import Styles from "./Reservation.module.css"
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../UI/Button/Button'
+import PaypalCheckoutButton from '../Checkout/Checkout';
+import Checkout from '../PayPal/PayPal';
 
 function searchingTerm(hotelid) {
     return function (x) {
@@ -62,7 +64,7 @@ export default function Reservation() {
         }
     }
     const compareDates = (dateDBin, dateDBout, dateBookin, dateBookout) => {
-        if (typeof (dateDBin) === 'string'&&typeof (dateDBout) === 'string') {
+        if (typeof (dateDBin) === 'string' && typeof (dateDBout) === 'string') {
             let [monthIn, dateIn] = dateDBin.split(' ')
             let [monthOut, dateOut] = dateDBout.split(' ')
 
@@ -106,7 +108,7 @@ export default function Reservation() {
     const [docus, setDocus] = useState([])
     const [checkIn, changeCheckIn] = useState(new Date())
     const [checkOut, changeCheckOut] = useState(new Date())
-
+    const [pay, setPay]= useState(false)
 
 
     useEffect(async () => {
@@ -132,7 +134,9 @@ export default function Reservation() {
 
         alert("Se ha procesado su solicitud")
     }
-
+    const Checkout =()=>{
+        setPay(true)
+    }
     return (
         <form onSubmit={submitHandler} className={Styles.contenedor}>
             <section >
@@ -151,7 +155,8 @@ export default function Reservation() {
                     <p>{docus.timin}</p>
                     <p>{docus.timax}</p>
                     <Button
-
+                        type='submit'
+                        onClick= {Checkout}
                         disabled={
                             !compareDates(docus.timin, docus.timax, checkIn, checkOut)
                         }
@@ -159,9 +164,10 @@ export default function Reservation() {
                         {console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut))}
                         Enviar
                     </Button>
+
                 </>
 
-
+                      {pay && <PaypalCheckoutButton/>}  
             </section>
         </form>
     )
