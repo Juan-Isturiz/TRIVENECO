@@ -134,23 +134,31 @@ export default function Reservation() {
     }
 
     return (
-        <form onSubmit={submitHandler} className={Styles.contenedor}>
-            <section >
-                <div >
-                    <label> Fecha check-In</label>
-                    <DatePicker value={checkIn} onChange={(newvalue) => changeCheckIn(newvalue)} />
+        <div className={Styles.contenedor}>
+        <form onSubmit={submitHandler}>
+            <h1>Reserva tu habitación</h1>
+            <div className={Styles.separador}></div>
+            
+                <div>
+                    <h3> Fecha check-In</h3><br />
+                    <DatePicker value={checkIn} onChange={(newvalue) => changeCheckIn(newvalue)} className={Styles.DatePicker}/>
                 </div>
                 <div>
-                    <label> Fecha check-Out</label>
+                    <h3> Fecha check-Out</h3> <br />
                     <DatePicker value={checkOut} onChange={changeCheckOut} />
                 </div>
                 <>
-                    <p>{docus.habitacion}</p>
-                    <p>{docus.personasHab}</p>
-                    <p>{docus.precioPerDay}</p>
-                    <p>{docus.timin}</p>
-                    <p>{docus.timax}</p>
-                    <Button
+                    <h3>Habitación</h3>
+                    <p className={Styles.datum}>{docus.habitacion}</p>
+                    <h3>Personas por habitación</h3>
+                    <p className={Styles.datum}>{docus.personasHab}</p>
+                    <h3>Precio por día</h3>
+                    <p className={Styles.datum}>{docus.precioPerDay}</p>
+                    <h3>Disponible desde</h3>
+                    <p className={Styles.datum}>{docus.timin}</p>
+                    <h3>Hasta</h3>
+                    <p className={Styles.datum}>{docus.timax}</p>
+                    <Button className={Styles.boton}
 
                         disabled={
                             !compareDates(docus.timin, docus.timax, checkIn, checkOut)
@@ -162,8 +170,9 @@ export default function Reservation() {
                 </>
 
 
-            </section>
+            
         </form>
+        </div>
     )
 
 }

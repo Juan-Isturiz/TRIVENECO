@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 12rem auto;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 2rem;
+}
