@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import { db, auth, currentLog } from '../utils/firebaseConfig';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate } from 'react-router-dom';
 
 export const UserContext = createContext(null);
 const UserContextProvider = ({ children }) => {
@@ -24,7 +24,7 @@ const UserContextProvider = ({ children }) => {
         console.log(error.message);
     }
 };
-  const history = useNavigate();
+
   const loggerOut = async () => {
     await auth.signOut();
 
@@ -41,7 +41,7 @@ const UserContextProvider = ({ children }) => {
       }
 
     })
-    history('/')
+    return(<Navigate to='/'/>)
   }
   const clienteActivo = async () => {
     await auth.signOut();
@@ -93,7 +93,8 @@ const UserContextProvider = ({ children }) => {
         setLogged,
         createUser,
         loggerOut,
-        rol
+        rol,
+        getRol
       }}
     >
       {children}

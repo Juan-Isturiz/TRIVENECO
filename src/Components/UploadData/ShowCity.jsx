@@ -30,8 +30,6 @@ const ShowData = () => {
         setDocus(docusList.docs.map((doc) => doc.data()));
     });
 
-    const [filter, setFilter] = useState(false);
-
     return (
         <section>
 
@@ -45,61 +43,53 @@ const ShowData = () => {
                         onChange={(e) => setTerm(e.target.value)}
                     />
 
-                    <Button
-                        onClick={() => setFilter(!filter)}
-                        type="button"
-                        className={styles.FilterButton}
-                    >
-                        <FaFilter />
-                    </Button>
-                    {filter && (
-                        <div>
-                            <li className={styles.RadioContainer}>
-                                <label htmlFor="">
-                                    <input
-                                        type="radio"
-                                        name="radio"
-                                        value="Playa"
-                                        onClick={(e) => setRadio("playa")}
-                                    />
-                                    Playa
-                                </label>
-                                <label htmlFor="">
-                                    <input
-                                        type="radio"
-                                        name="radio"
-                                        value="montaña"
-                                        onClick={(e) => setRadio("montaña")}
-                                    />
-                                    Montaña
-                                </label>
-                                <label htmlFor="">
-                                    <input
-                                        type="radio"
-                                        name="radio"
-                                        value="Ciudad"
-                                        onClick={(e) => setRadio("ciudad")}
-                                    />
-                                    Ciudad
-                                </label>
-                                <label htmlFor="">
-                                    <input
-                                        type="radio"
-                                        name="radio"
-                                        value="Campo"
-                                        onClick={(e) => setRadio("campo")}
-                                    />
-                                    Campo
-                                </label>
-                                <label htmlFor="">
-                                    <AiOutlineClear
-                                        onClick={(e) => setRadio("")}
-                                        size="1.7rem"
-                                    />
-                                </label>
-                            </li>
-                        </div>
-                    )}
+                    
+                    <div>
+                        <li className={styles.RadioContainer}>
+                            <label htmlFor="">
+                                <input
+                                    type="radio"
+                                    name="radio"
+                                    value="Playa"
+                                    onClick={(e) => setRadio("playa")}
+                                />
+                                Playa
+                            </label>
+                            <label htmlFor="">
+                                <input
+                                    type="radio"
+                                    name="radio"
+                                    value="montaña"
+                                    onClick={(e) => setRadio("montaña")}
+                                />
+                                Montaña
+                            </label>
+                            <label htmlFor="">
+                                <input
+                                    type="radio"
+                                    name="radio"
+                                    value="Ciudad"
+                                    onClick={(e) => setRadio("ciudad")}
+                                />
+                                Ciudad
+                            </label>
+                            <label htmlFor="">
+                                <input
+                                    type="radio"
+                                    name="radio"
+                                    value="Campo"
+                                    onClick={(e) => setRadio("campo")}
+                                />
+                                Campo
+                            </label>
+                            <label htmlFor="">
+                                <AiOutlineClear
+                                    onClick={(e) => setRadio("")}
+                                    size="1.7rem"
+                                />
+                            </label>
+                        </li>
+                    </div>
                 </form>
             </Card>
             {radio != "" ? (

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { DatePicker } from "@material-ui/pickers"
 import { useParams } from 'react-router-dom'
-import { storage, db } from "../../utils/firebaseConfig";
+import { storage, db, date } from "../../utils/firebaseConfig";
 import Styles from "./Reservation.module.css"
 import { v4 as uuidv4 } from 'uuid';
+import Button from '../UI/Button/Button'
 
 function searchingTerm(hotelid) {
     return function (x) {
@@ -23,8 +24,80 @@ export default function Reservation() {
         checkOutya: null,
         archivoUrl4: null
     })
+    const sacarMes = (a) => {
+        switch (a) {
+            case 'January': return 0;
+            case 'February': return 1;
+            case 'March': return 2;
+            case 'April': return 3;
+            case 'May': return 4;
+            case 'June': return 5;
+            case 'July': return 6;
+            case 'August': return 7;
+            case 'September': return 8;
+            case 'October': return 9;
+            case 'November': return 10;
+            case 'December': return 11
 
+        }
+    }
+    const sacarDia = (dia) => {
+        let date
+        let aux
+        switch (dia) {
 
+            case dia.includes('st'):
+                aux = dia.split('s')
+                return parseInt(aux[0])
+            case dia.includes('nd'):
+                aux = dia.split('n')
+                return parseInt(aux[0])
+            case dia.includes('rd'):
+                aux = dia.split('r')
+                return parseInt(aux[0])
+            default:
+                aux = dia.split('t')
+                return parseInt(aux[0])
+
+        }
+    }
+    const compareDates = (dateDBin, dateDBout, dateBookin, dateBookout) => {
+        if (typeof (dateDBin) === 'string'&&typeof (dateDBout) === 'string') {
+            let [monthIn, dateIn] = dateDBin.split(' ')
+            let [monthOut, dateOut] = dateDBout.split(' ')
+
+            monthIn = sacarMes(monthIn)
+            monthOut = sacarMes(monthOut)
+            dateOut = sacarDia(dateOut)
+            dateIn = sacarDia(dateIn)
+            console.log(`meses ${(dateBookin.getMonth() >= monthIn && dateBookin.getMonth() <= monthOut) && (dateBookout.getMonth() <= monthOut && dateBookout.getMonth() >= monthIn)}`)
+            if ((dateBookin.getMonth() >= monthIn && dateBookin.getMonth() <= monthOut) && (dateBookout.getMonth() <= monthOut && dateBookout.getMonth() >= monthIn) && dateBookin.getMonth() <= dateBookout.getMonth()) {
+                if (dateBookin.getMonth() !== monthIn && dateBookout.getMonth() !== monthOut) {
+                    return true
+
+                } else if (dateBookin.getMonth() === dateBookout.getMonth()) {
+                    return (
+                        dateBookin.getDate() >= dateIn &&
+                        dateBookin.getDate() <= dateOut &&
+                        dateBookout.getDate() <= dateOut &&
+                        dateBookout.getDate() >= dateIn &&
+                        dateBookout.getDate() >= dateBookin.getDate()
+                    )
+                } else {
+                    let state
+                    if (dateBookin.getMonth() === monthIn) {
+                        state = dateBookin.getDate() >= dateIn
+                    }
+                    if (dateBookout.getMonth() === monthOut) {
+                        dateBookout.getDate() <= dateOut
+                    }
+                    return state
+
+                }
+            }
+            return false
+        }
+    }
 
     const id = useParams().id
 
@@ -40,7 +113,6 @@ export default function Reservation() {
         try {
             const docusList = await db.collection("hoteles").doc(id).collection('habitaciones').doc(type).get()
             setDocus(docusList.data())
-            console.log(docus)
         } catch (e) {
             console.log(e.message)
         }
@@ -62,43 +134,45 @@ export default function Reservation() {
     }
 
     return (
-        <form onSubmit={submitHandler} className={Styles.contenedor}>
-            <section >
-                <div >
-                    <label> Fecha check-In</label>
-                    <DatePicker value={checkIn} onChange={(newvalue)=>changeCheckIn(newvalue)} />
+        <div className={Styles.contenedor}>
+        <form onSubmit={submitHandler}>
+            <h1>Reserva tu habitación</h1>
+            <div className={Styles.separador}></div>
+            
+                <div>
+                    <h3> Fecha check-In</h3><br />
+                    <DatePicker value={checkIn} onChange={(newvalue) => changeCheckIn(newvalue)} className={Styles.DatePicker}/>
                 </div>
                 <div>
-                    <label> Fecha check-Out</label>
+                    <h3> Fecha check-Out</h3> <br />
                     <DatePicker value={checkOut} onChange={changeCheckOut} />
                 </div>
                 <>
-                    <p>{docus.habitacion}</p>
-                    <p>{docus.personasHab}</p>
-                    <p>{docus.precioPerDay}</p>
-                    <p>{docus.timin}</p>
-                    <p>{docus.timax}</p>
-                    <button
+                    <h3>Habitación</h3>
+                    <p className={Styles.datum}>{docus.habitacion}</p>
+                    <h3>Personas por habitación</h3>
+                    <p className={Styles.datum}>{docus.personasHab}</p>
+                    <h3>Precio por día</h3>
+                    <p className={Styles.datum}>{docus.precioPerDay}</p>
+                    <h3>Disponible desde</h3>
+                    <p className={Styles.datum}>{docus.timin}</p>
+                    <h3>Hasta</h3>
+                    <p className={Styles.datum}>{docus.timax}</p>
+                    <Button className={Styles.boton}
 
                         disabled={
-                            (Date.now(docus.timin)) > checkIn.getTime() &&
-                            (Date.now(docus.timin) == checkIn.getTime()) &&
-                            (Date.now(docus.timax) == checkOut.getTime()) &&
-                            (Date.now(docus.timax) < checkOut.getTime())
+                            !compareDates(docus.timin, docus.timax, checkIn, checkOut)
                         }
                     >
-                        {console.log(Date.now(docus.timin))}
-                        {console.log(checkIn)}
-                        {console.log((docus.timax))}
-                        {console.log(checkOut.getTime())}
-                        {console.log(`checkin  ${Date.now(docus.timin) <= checkIn.getTime()}`)}
-                        {console.log(`checkout ${docus.timax >=checkOut.getTime()}`)}Enviar
-                    </button>
+                        {console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut))}
+                        Enviar
+                    </Button>
                 </>
 
 
-            </section>
+            
         </form>
+        </div>
     )
 
 }
@@ -125,3 +199,13 @@ export default function Reservation() {
 //    </div>
 //
 //))}
+
+
+
+
+//{ console.log(compareDates(docus.timin, docus.timax, checkIn, checkOut)) }
+//{ console.log((checkIn)) }
+//{ console.log((docus.timax.split(' '))) }
+//{ console.log(checkOut) }
+//{ console.log(`checkin  ${Date.now(docus.timin) <= checkIn.getTime()}`) }
+//{ console.log(`checkout ${docus.timax >= checkOut.getTime()}`) }        (dateBookin.getMonth() >= monthIn && dateBookin.getMonth() <= monthOut) && (dateBookout.getMonth() <= monthOut && dateBookout.getMonth() >= monthIn)

@@ -3,18 +3,22 @@ import "./App.css";
 import Routering from "./Routering";
 import UserContextProvider from "./Context/Context";
 import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./Components/NavBar/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
+import PaypalCheckoutButton from "./Components/Checkout/Checkout";
+import Navbar from "./Components/NavBar/NavBar";
 
 function App() {
     return (
-        <Router>
-            <UserContextProvider>
+        <UserContextProvider>
+            <Router>
+
                 <Navbar />
                 <Routering />
                 <Footer />
-            </UserContextProvider>
-        </Router>
+
+            </Router>
+        </UserContextProvider>
     );
 }
 

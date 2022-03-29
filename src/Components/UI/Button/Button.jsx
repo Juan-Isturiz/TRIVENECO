@@ -1,6 +1,7 @@
 import classes from './Button.module.css';
 
 const Button = (props) => {
+  console.log(props.type)
   return (
     <button
       type={props.type || 'button'}

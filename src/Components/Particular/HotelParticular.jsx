@@ -65,7 +65,7 @@ export function HotelParticular() {
                             </div>
                         </section>
 
-                        <h2 className={styles.interest}>Intalaciones</h2>
+                        <h2 className={styles.interest}>Instalaciones</h2>
 
                         <section className={styles.gridContainer}>
                             <div>
@@ -99,8 +99,6 @@ export function HotelParticular() {
                     <CommentSection doc={doc.keyCode} collection={type} />
                 </li>
             ))}
-
-            <Reservation></Reservation>
         </div>
     );
 }
