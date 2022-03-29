@@ -16,42 +16,42 @@ const Menu = (props) => {
     return (
         <div className={styles.Menu}>
             <ul>
-                <Link to="/" onClick={() => setOpen(!open)}>
-                    <li>Home</li>
-                </Link>
-                <Link to="/CityView" onClick={() => setOpen(!open)}>
-                    <li>Ciudades</li>
-                </Link>
-                <Link to="/HotelView" onClick={() => setOpen(!open)}>
-                    <li>Hoteles</li>
-                </Link>
+                <Link to="/" >
+                <li>Home</li>
+            </Link>
+            <Link to="/CityView" >
+                <li>Ciudades</li>
+            </Link>
+            <Link to="/HotelView" >
+                <li>Hoteles</li>
+            </Link>
 
-                {!isLogged ? (
-                    <li onClick={toLog}>Log in</li>
-                ) : (
-                    <ul>
-                        {rol === 2 ?
-                            <>
-                                <Link
-                                    to="/CityViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    <li> Ciudades-Admin</li>
-                                </Link>
-                                <Link
-                                    to="/HotelViewPageAdmin"
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    <li> Hotel-Admin</li>
-                                </Link>
-                            </>        : <></>                
-                        }
+            {!isLogged ? (
+                <li onClick={toLog}>Log in</li>
+            ) : (
+                <ul>
+                    {rol === 2 ?
+                        <>
+                            <Link
+                                to="/CityViewPageAdmin"
 
-                        <li onClick={loggerOut}>Log out</li>
-                    </ul>
-                )}
-            </ul>
-        </div>
+                            >
+                                <li> Ciudades-Admin</li>
+                            </Link>
+                            <Link
+                                to="/HotelViewPageAdmin"
+
+                            >
+                                <li> Hotel-Admin</li>
+                            </Link>
+                        </> : <></>
+                    }
+
+                    <li onClick={loggerOut}>Log out</li>
+                </ul>
+            )}
+        </ul>
+        </div >
     );
 };
 

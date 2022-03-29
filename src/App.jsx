@@ -8,13 +8,15 @@ import Footer from "./Components/Footer/Footer";
 
 function App() {
     return (
-        <Router>
-            <UserContextProvider>
+        <UserContextProvider>
+            <Router>
+
                 <Navbar />
                 <Routering />
                 <Footer />
-            </UserContextProvider>
-        </Router>
+
+            </Router>
+        </UserContextProvider>
     );
 }
 
